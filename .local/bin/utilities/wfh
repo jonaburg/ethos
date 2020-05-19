@@ -1,0 +1,24 @@
+#!/bin/bash
+# during wfh period, while using barrier for IO/monitor input switching
+# now includes 3rd monitor orientation switch
+
+function tolaptop (){
+#going to laptop via barrier
+sudo ddcutil setvcp --bus 1 60 0x01
+}
+
+function topc (){
+#going back to pc after moving mouse to barrier
+sudo ddcutil setvcp --bus 1 60 0x03
+}
+
+function towindows(){
+[[ $(sudo virsh list --all | grep 2 | awk {'print $3'}) == "running" ]] && sudo ddcutil setvcp --bus 1 60 0x11  ||  notify-send "VM paused.. consider starting it"
+}
+
+#flips 3rd monitor orientation
+function fliporientation(){
+	[[ $(xrandr | grep DP-7 | awk {'print $4'}) == "left" ]] && xrandr --output DP-7 --rotate normal || xrandr --output DP-7 --rotate left
+}
+
+"$@"

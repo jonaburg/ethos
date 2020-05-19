@@ -1,0 +1,52 @@
+#!/bin/bash
+
+fullsync(){
+
+# establishes README for time of this backup
+echo "This backup corresponds to:" $(date) > README.md
+
+#syncing ~/.config dotfiles
+rsync -av ~/.config/awesome ~/.local/backups/.config/
+rsync -av ~/.config/dunst ~/.local/backups/.config/
+rsync -av ~/.config/fontconfig ~/.local/backups/.config/
+rsync -av ~/.config/lf ~/.local/backups/.config/
+rsync -av ~/.config/ncmpcpp ~/.local/backups/.config/
+rsync -av ~/.config/newsboat ~/.local/backups/.config/
+rsync -av ~/.config/nvim ~/.local/backups/.config/
+rsync -av ~/.config/rofi ~/.local/backups/.config/
+rsync -av ~/.config/st ~/.local/backups/.config/
+rsync -av ~/.config/sxhkd ~/.local/backups/.config/
+rsync -av ~/.config/sxiv ~/.local/backups/.config/
+rsync -av ~/.config/zathura ~/.local/backups/.config/
+rsync -av ~/.config/compton.conf ~/.local/backups/.config/
+rsync -av ~/.config/emoji ~/.local/backups/.config/
+rsync -av ~/.config/fontawesome ~/.local/backups/.config/
+
+#syncing homedir files
+rsync -av ~/.abook ~/.local/backups/
+rsync -av ~/.mozilla/firefox/kvglthvf.default-release ~/.local/backups/.mozilla/firefox/
+rsync -av ~/.parsec ~/.local/backups/
+rsync -av ~/.bash_profile ~/.local/backups/
+rsync -av ~/.bashrc ~/.local/backups/
+rsync -av ~/.dir_colors ~/.local/backups/
+rsync -av ~/.inputrc ~/.local/backups/
+rsync -av ~/.profile ~/.local/backups/
+rsync -av ~/.tmuxconf ~/.local/backups/
+rsync -av ~/.tmuxconf.backup ~/.local/backups/
+rsync -av ~/.vimrc ~/.local/backups/
+rsync -av ~/.xinitrc ~/.local/backups/
+rsync -av ~/.xprofile ~/.local/backups/
+rsync -av ~/.Xresources ~/.local/backups/
+rsync -av ~/.zshrc ~/.local/backups/
+}
+
+# syncing Documents/Xresources/folder
+rsync -av ~/Documents/Xresources ~/.local/backups/Documents/
+
+# syncing crontab(s)
+rsync -av /var/spool/cron/jon ~/.local/backups/Documents/cronmemory
+
+# syncing most script(s)
+rsync -av ~/.local/bin ~/.local/backups/.local/
+
+"$@"
