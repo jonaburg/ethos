@@ -3,7 +3,7 @@
 fullsync(){
 
 # establishes README for time of this backup
-echo "This backup corresponds to:" $(date) > README.md
+echo "This backup corresponds to:" $(date) > ~/.local/backups/README.md
 
 #syncing ~/.config dotfiles
 rsync -av ~/.config/awesome ~/.local/backups/.config/
@@ -15,6 +15,7 @@ rsync -av ~/.config/newsboat ~/.local/backups/.config/
 rsync -av ~/.config/nvim ~/.local/backups/.config/
 rsync -av ~/.config/rofi ~/.local/backups/.config/
 rsync -av ~/.config/st ~/.local/backups/.config/
+rsync -av ~/.config/mpv ~/.local/backups/.config/
 rsync -av ~/.config/sxhkd ~/.local/backups/.config/
 rsync -av ~/.config/sxiv ~/.local/backups/.config/
 rsync -av ~/.config/zathura ~/.local/backups/.config/
@@ -31,8 +32,8 @@ rsync -av ~/.bashrc ~/.local/backups/
 rsync -av ~/.dir_colors ~/.local/backups/
 rsync -av ~/.inputrc ~/.local/backups/
 rsync -av ~/.profile ~/.local/backups/
-rsync -av ~/.tmuxconf ~/.local/backups/
-rsync -av ~/.tmuxconf.backup ~/.local/backups/
+rsync -av ~/.tmux.conf ~/.local/backups/
+rsync -av ~/.tmux.conf.backup ~/.local/backups/
 rsync -av ~/.vimrc ~/.local/backups/
 rsync -av ~/.xinitrc ~/.local/backups/
 rsync -av ~/.xprofile ~/.local/backups/
@@ -48,5 +49,8 @@ rsync -av /var/spool/cron/jon ~/.local/backups/Documents/cronmemory
 
 # syncing most script(s)
 rsync -av ~/.local/bin ~/.local/backups/.local/
+
+#syncing st build
+rsync -av ~/Dropbox/NEETLiving/Linux/configs/NextParadigm/st ~/.local/backups/
 
 "$@"
