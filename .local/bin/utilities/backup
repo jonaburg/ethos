@@ -53,4 +53,7 @@ rsync -av ~/.local/bin ~/.local/backups/.local/
 #syncing st build
 rsync -av ~/Dropbox/NEETLiving/Linux/configs/NextParadigm/st ~/.local/backups/
 
+#syncing rofi themes
+rsync -av /usr/share/rofi/themes/* ~/.local/backups/Documents/rofi/themes/
+
 "$@"

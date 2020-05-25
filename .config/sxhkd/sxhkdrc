@@ -9,7 +9,7 @@ super + Return
 	st
 
 super + shift + Return
-	st -e tmux
+	st -e tmux attach || st -e tmux
 
 super + d
 #	dmenu_run
@@ -148,14 +148,19 @@ super + {_,shift +} bracketleft
 #	lmc back {10,120}
 
 alt + F1
-	~/.local/bin/utilities/wfh fliporientation
+	~/.local/bin/utilities/wfh fliporientationleft
+alt + F2
+	~/.local/bin/utilities/wfh fliporientationright
 
 # Function keys
 # Show readme
 super + F1
 #send I/O to windows VM
-	~/.VFIOinput/input_attach
-#	groff -mom $HOME/.local/share/larbs/readme.mom -Tpdf | zathura -
+	~/.local/bin/utilities/vminputs
+super + shift + F1
+	~/.VFIOinput/input_attach full
+
+
 # F2 is restart in i3 right now.
 # Change display
 super + F2

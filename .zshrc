@@ -76,8 +76,8 @@ bindkey '^e' edit-command-line
 [ -f "$HOME/.config/shortcutrc" ] && source "$HOME/.config/shortcutrc"
 [ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
 
-export PATH="$PATH:/home/jon/.local/bin/i3cmds/"
 export PATH="$PATH:/home/jon/.local/bin/utilities/"
+export PATH="$PATH:/home/jon/.local/bin/tools/"
 
 set -o GLOB_SUBST
 

@@ -31,19 +31,19 @@ local theme                                     = {}
 	local waterflowers = require("extra.waterflowers")
 	local redshift = require("extra.redshift")
 theme.default_dir                               = require("awful.util").get_themes_dir() .. "default"
-theme.confdir                                   = os.getenv("HOME") .. "/.config/awesome/themes/spring2"
-theme.icon_dir                                  = os.getenv("HOME") .. "/.config/awesome/themes/spring2/icons"
-theme.wallpaper                                 = os.getenv("HOME") .. "/.config/awesome/themes/spring2/wall.png"
-theme.wallpaper2                                 = os.getenv("HOME") .. "/.config/awesome/themes/spring2/winter.png"
-theme.lain_icons                                = os.getenv("HOME") .. "/.config/awesome/themes/spring2"
+theme.confdir                                   = os.getenv("HOME") .. "/.config/awesome/themes/ethos"
+theme.icon_dir                                  = os.getenv("HOME") .. "/.config/awesome/themes/ethos/icons"
+theme.wallpaper                                 = os.getenv("HOME") .. "/.config/awesome/themes/ethos/wall.png"
+theme.wallpaper2                                 = os.getenv("HOME") .. "/.config/awesome/themes/ethos/winter.png"
+theme.lain_icons                                = os.getenv("HOME") .. "/.config/awesome/themes/ethos"
 
 
 
 --- {{{	 	TAG SWITCH BEHAVIOUR
 --- 	multiple TAG RICING
---wp_path= "/home/jon/.config/awesome/themes/spring2/papes1/"
---wp_path= "/home/jon/.config/awesome/themes/spring2/papes2/"
-wp_path= "/home/jon/.config/awesome/themes/spring2/papes/"
+--wp_path= "/home/jon/.config/awesome/themes/ethos/papes1/"
+--wp_path= "/home/jon/.config/awesome/themes/ethos/papes2/"
+wp_path= "/home/jon/.config/awesome/themes/ethos/papes/"
 wp_files = { "pape1.jpg","pape2.jpg","pape3.jpg","pape4.jpg","pape5.jpg","pape6.jpg","pape7.jpg", "pape8.jpg", "pape9.jpg" }
 
 xres_path = "/home/jon/Documents/Xresources/"
@@ -65,11 +65,11 @@ elseif awful.tag.selected(1).name == "3"
 	     screen[1]:emit_signal("tag3")
 elseif awful.tag.selected(1).name == "4"
 	then gears.wallpaper.maximized(wp_path .. wp_files[4], s, true)
-	     awful.spawn( 'xrdb -load ' .. xres_path .. xres_files[4]  )
+	     awful.spawn( 'xrdb -load ' .. xres_path .. xres_files[1]  )
 	     screen[1]:emit_signal("tag4")
 elseif awful.tag.selected(1).name == "5"
 	then gears.wallpaper.maximized(wp_path .. wp_files[5], s, true)
-	     awful.spawn( 'xrdb -load ' .. xres_path .. xres_files[5]  )
+	     awful.spawn( 'xrdb -load ' .. xres_path .. xres_files[4]  )
 	     screen[1]:emit_signal("tag5")
 elseif awful.tag.selected(1).name == "6"
 	then gears.wallpaper.maximized(wp_path .. wp_files[6], s, true)
@@ -138,7 +138,7 @@ end)
 ---- configuration - edit to your liking
 --wp_index = 1
 --wp_timeout  = 10
---wp_path = "/home/jon/.config/awesome/themes/spring2/"
+--wp_path = "/home/jon/.config/awesome/themes/ethos/"
 --wp_files = { "wall.png", "winter.png"}
 -- ---- setup the timer
 --wp_timer = timer { timeout = wp_timeout }

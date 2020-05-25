@@ -458,6 +458,8 @@ globalkeys = my_table.join(
 --              {description = "focus the previous screen", group = "screen"}),
 --    awful.key({ modkey,           }, "u", awful.client.urgent.jumpto,
 --              {description = "jump to urgent client", group = "client"}),
+
+
 --    awful.key({ modkey,           }, "Tab",
 --        function ()
 --            awful.client.focus.history.previous()
@@ -702,7 +704,17 @@ clientkeys = my_table.join(
     awful.key({ modkey, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end,
               {description = "move to master", group = "client"}),
     awful.key({ modkey, "Shift"           }, "o",      function (c) c:move_to_screen()               end,
-              {description = "move to screen", group = "client"})
+              {description = "move to screen", group = "client"}),
+
+    awful.key({ modkey, "Shift" }, "u",
+    function (c)
+      c.floating = not c.floating
+      c.width = c.screen.geometry.width* 4/7
+      c.x = c.screen.geometry.x+(c.screen.geometry.width/5)
+      c.height = c.screen.geometry.height * 0.43
+      c.y = c.screen.geometry.height* 0.04
+    end)
+
 --    awful.key({ modkey,           }, "t",      function (c) c.ontop = not c.ontop            end,
 --              {description = "toggle keep on top", group = "client"}),
 --    awful.key({ modkey,           }, "n",
@@ -824,6 +836,20 @@ awful.rules.rules = {
 
     { rule = { class = "Gimp", role = "gimp-image-window" },
           properties = { maximized = true } },
+
+    { rule = { name = "Looking Glass (client)" },
+--      properties = { floating = true, screen = 1, tag = awful.util.tagnames[1] },
+      properties = { floating = true },
+	callback = function(c)
+		awful.client.moveresize(-900,-50,3450,250,c)
+	end },
+
+    { rule = { name = "Parsec" },
+--      properties = { floating = true, screen = 1, tag = awful.util.tagnames[1] },
+      properties = { floating = true },
+	callback = function(c)
+		awful.client.moveresize(-900,-50,3450,250,c)
+	end },
 }
 -- }}}
 

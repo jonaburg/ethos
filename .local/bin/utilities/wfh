@@ -17,8 +17,13 @@ function towindows(){
 }
 
 #flips 3rd monitor orientation
-function fliporientation(){
+function fliporientationleft(){
 	[[ $(xrandr | grep DP-7 | awk {'print $4'}) == "left" ]] && xrandr --output DP-7 --rotate normal || xrandr --output DP-7 --rotate left
+}
+
+
+function fliporientationright(){
+	[[ $(xrandr | grep DP-2 | awk {'print $4'}) == "left" ]] && xrandr --output DP-2 --rotate normal || xrandr --output DP-2 --rotate left
 }
 
 "$@"
