@@ -173,7 +173,7 @@ theme.tasklist_font = "Iosevka 12"
 --theme.fg_normal                                 = "#3f71e9"
 theme.fg_normal                                 = "#cecece"
 theme.fg_focus					= "#000000"
-theme.bg_focus                                  = "#cecece" .. "55"
+theme.bg_focus                                  = "#cecece" .. "25"
 theme.bg_normal                                 = "#000000" .. "55"
 theme.fg_urgent                                 = "#CC9393"
 theme.bg_urgent                                 = "#006B8E"
@@ -189,8 +189,10 @@ theme.taglist_bg_focus = "#121a26"
 theme.taglist_bg_occupied = "#121a26"
 theme.taglist_fg_occupied = "#b1afa0"
 
-theme.tasklist_bg_normal                        = "#000000"
-theme.tasklist_fg_focus                         = "#a4d0cc"
+theme.tasklist_bg_normal                        = "#000000" .. "75"
+--theme.tasklist_fg_focus                         = "#a4d0cc"
+theme.tasklist_fg_focus                         = "#FFFAC1"
+theme.tasklist_bg_focus                         = "#C0DBE2" .. "23"
 theme.menu_height                               = dpi(20)
 theme.menu_width                                = dpi(200)
 theme.menu_icon_size                            = dpi(32)
@@ -649,18 +651,72 @@ flowerbox,
 layout = wibox.layout.fixed.horizontal,
 }
 
-
 -- Create a taglist widget
 s.mytaglist = awful.widget.taglist(s, awful.widget.taglist.filter.all, awful.util.taglist_buttons, { bg_focus = barcolor })
   mytaglistcont = wibox.container.background(s.mytaglist, theme.bg_focus, gears.shape.powerline )
     s.mytag = wibox.container.margin(mytaglistcont, dpi(5), dpi(2), dpi(2),dpi(10))
 
-    -- Create a tasklist widget
+-- Create a tasklist widget
     s.mytasklist = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, awful.util.tasklist_buttons, { bg_focus = theme.bg_focus, shape = gears.shape.rectangle, shape_border_width = 5, shape_border_color = theme.tasklist_bg_normal, align = "center" })
 
 
+-- Create vertical tasklist
+    s.centertasklist = awful.widget.tasklist{
+    	screen = s,
+    	filter = awful.widget.tasklist.filter.currenttags,
+    	--filter = awful.widget.tasklist.filter.alltags,
+    	--filter = awful.widget.tasklist.filter.focused,
+  	buttons = awful.util.tasklist_buttons,
+   	style = {
+	    shape_border_width = 1,
+	    shape_border_color = '#777777',
+	    shape = gears.shape.octogon,
+        },
+	layout = {
+	    spacing = 10,
+            spacing_widget = {
+            {
+                forced_width = 5,
+                shape        = gears.shape.circle,
+                widget       = wibox.widget.separator
+            },
+            valign = 'center',
+            halign = 'center',
+            widget = wibox.container.place,
+        },
+        layout  = wibox.layout.flex.vertical
+    },
+-- Notice that there is *NO* wibox.wibox prefix, it is a template,
+    -- not a widget instance.
+    widget_template = {
+        {
+            {
+                {
+                    {
+                        id     = 'icon_role',
+                        widget = wibox.widget.imagebox,
+                    },
+                    margins = 1,
+                    widget  = wibox.container.margin,
+                },
+                {
+                    id     = 'text_role',
+                    widget = wibox.widget.textbox,
+                },
+                layout = wibox.layout.align.vertical,
+            },
+            left  = 10,
+            right = 10,
+            widget = wibox.container.margin
+        },
+        id     = 'background_role',
+        widget = wibox.container.background,
+    },
+}
+
+
 function vertical_wibox(s)
--- specific rid of other wibar
+-- specifying sidebar wibox
 if s.index == 1
 then s.mysidewibox = awful.wibar ({ position = "right", screen = s, width = 110, x=0,y=0, bg = side_color,  border_width = dpi(0), height = s.workarea.height/1, type = "dock" }) -- without shape
 -- Add widgets to the side wibox
@@ -672,7 +728,12 @@ s.mysidewibox:setup {
 --	  clockwidget2,
 --	  transquare,
 	   calbox,
-        wibox.widget.systray(),
+  transquare,
+--        wibox.widget.systray(),
+        },
+	{ layout = wibox.layout.fixed.vertical,
+        s.centertasklist,
+	},
 --	  clockwidget,
 --	  transbar,
 --  transquare,
@@ -681,9 +742,9 @@ s.mysidewibox:setup {
 --	  coronafull_widget,
 -- 	  corona_widget,
 -- 	  coronarecovered_widget,
+	{
+          layout = wibox.layout.fixed.vertical,
 	  coronaukbox,
-	  transbar,
-          transquare,
 --	  s.mytasklist,
 --        rates_widget,
 --	  bat.widget,
@@ -691,12 +752,14 @@ s.mysidewibox:setup {
 	  newsandmail,
 	  uptimebox, -- contains uptime_widget
 --	  theme.weather.widget,
+        wibox.widget.systray(),
 	  weatherback, -- weather background
 --	  test_widget,
           volumewidget,
 --          musicwidget,
 --  transquare,
 	wibox.container.background( wibox.widget {clockwidget,s.mylayoutbox,layout=wibox.layout.fixed.horizontal}, (side_color), gears.shape.octogon ), -- clock & layoutbox with shape
+          transquare,
 --	 logobox,
 --          bentobox, -- clock & layoutbox with margin..
  --         wibox.widget.systray(),
@@ -705,7 +768,7 @@ s.mysidewibox:setup {
 end
 end
 
--- Create the wibox
+-- Create horziontal wibox(s)
 function horizontal_wibox(s)
 -- specific rid of other wibar
 if s.index == 2 or s.index == 3
