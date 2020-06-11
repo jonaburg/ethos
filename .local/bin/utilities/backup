@@ -56,4 +56,6 @@ rsync -av ~/Dropbox/NEETLiving/Linux/configs/NextParadigm/st ~/.local/backups/
 #syncing rofi themes
 rsync -av /usr/share/rofi/themes/* ~/.local/backups/Documents/rofi/themes/
 
+#syncing website (to dropbox)
+rsync -av ~/Website/* ~/Dropbox/NEETLiving/Linux/Website/
 "$@"

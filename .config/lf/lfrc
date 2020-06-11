@@ -40,7 +40,9 @@ map gcf cd ~/.config
 map gd cd ~/Documents
 map gD cd ~/Downloads
 map gpp cd ~/Pictures
+map gl cd ~/Library
 map gm cd ~/Music
+map gW cd ~/Website
 map gL cd ~/.local/bin/utilities/
 map gb cd ~/Dropbox/NEETLiving
 map gw cd ~/Work
@@ -106,10 +108,33 @@ map b7 newbg7
 map b8 newbg8
 map b9 newbg9
 
+
+map bs21 newbgs21
+map bs22 newbgs22
+map bs23 newbgs23
+map bs24 newbgs24
+map bs25 newbgs25
+map bs26 newbgs26
+map bs27 newbgs27
+map bs28 newbgs28
+map bs29 newbgs29
+
+
+map bs31 newbgs31
+map bs32 newbgs32
+map bs33 newbgs33
+map bs34 newbgs34
+map bs35 newbgs35
+map bs36 newbgs36
+map bs37 newbgs37
+map bs38 newbgs38
+map bs39 newbgs39
+
 cmd oldbg ${{
 cp $f ~/.config/wall.png && feh --bg-scale $f
 }}
 
+# changes screen 1 bg
 cmd newbg1 ${{
 cp $f ~/.config/awesome/themes/ethos/papes/pape1.jpg && feh --bg-scale $f
 }}
@@ -138,6 +163,64 @@ cmd newbg9 ${{
 cp $f ~/.config/awesome/themes/ethos/papes/pape9.jpg && feh --bg-scale $f
 }}
 
+# changes screen 2 bg
+cmd newbgs21 ${{
+cp $f ~/.config/awesome/themes/ethos/papes/s2/pape1.jpg && feh --bg-scale $f
+}}
+cmd newbgs22 ${{
+cp $f ~/.config/awesome/themes/ethos/papes/s2/pape2.jpg && feh --bg-scale $f
+}}
+cmd newbgs23 ${{
+cp $f ~/.config/awesome/themes/ethos/papes/s2/pape3.jpg && feh --bg-scale $f
+}}
+cmd newbgs24 ${{
+cp $f ~/.config/awesome/themes/ethos/papes/s2/pape4.jpg && feh --bg-scale $f
+}}
+cmd newbgs25 ${{
+cp $f ~/.config/awesome/themes/ethos/papes/s2/pape5.jpg && feh --bg-scale $f
+}}
+cmd newbgs26 ${{
+cp $f ~/.config/awesome/themes/ethos/papes/s2/pape6.jpg && feh --bg-scale $f
+}}
+cmd newbgs27 ${{
+cp $f ~/.config/awesome/themes/ethos/papes/s2/pape7.jpg && feh --bg-scale $f
+}}
+cmd newbgs28 ${{
+cp $f ~/.config/awesome/themes/ethos/papes/s2/pape8.jpg && feh --bg-scale $f
+}}
+cmd newbgs29 ${{
+cp $f ~/.config/awesome/themes/ethos/papes/s2/pape9.jpg && feh --bg-scale $f
+}}
+
+
+# changes screen 3 bg
+cmd newbgs31 ${{
+cp $f ~/.config/awesome/themes/ethos/papes/s3/pape1.jpg && feh --bg-scale $f
+}}
+cmd newbgs32 ${{
+cp $f ~/.config/awesome/themes/ethos/papes/s3/pape2.jpg && feh --bg-scale $f
+}}
+cmd newbgs33 ${{
+cp $f ~/.config/awesome/themes/ethos/papes/s3/pape3.jpg && feh --bg-scale $f
+}}
+cmd newbgs34 ${{
+cp $f ~/.config/awesome/themes/ethos/papes/s3/pape4.jpg && feh --bg-scale $f
+}}
+cmd newbgs35 ${{
+cp $f ~/.config/awesome/themes/ethos/papes/s3/pape5.jpg && feh --bg-scale $f
+}}
+cmd newbgs36 ${{
+cp $f ~/.config/awesome/themes/ethos/papes/s3/pape6.jpg && feh --bg-scale $f
+}}
+cmd newbgs37 ${{
+cp $f ~/.config/awesome/themes/ethos/papes/s3/pape7.jpg && feh --bg-scale $f
+}}
+cmd newbgs38 ${{
+cp $f ~/.config/awesome/themes/ethos/papes/s3/pape8.jpg && feh --bg-scale $f
+}}
+cmd newbgs39 ${{
+cp $f ~/.config/awesome/themes/ethos/papes/s3/pape9.jpg && feh --bg-scale $f
+}}
 
 ## add icons
 set icons

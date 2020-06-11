@@ -9,8 +9,8 @@ local naughty = require("naughty")
 local gears = require("gears")
 local my_table = awful.util.table or gears.table
 local testwidget_widget = {}
-local windowsicon = '/home/jon/.config/awesome/themes/spring2/icons/windows95.png'
-local windowshovericon = '/home/jon/.config/awesome/themes/spring2/icons/newsicons/openbook.png'
+local windowsicon = '/home/jon/.config/awesome/themes/ethos/icons/windows95.png'
+local windowshovericon = '/home/jon/.config/awesome/themes/ethos/icons/windows95on.png'
 
 windows_icon_widget = wibox.widget {
         widget = wibox.widget.imagebox,

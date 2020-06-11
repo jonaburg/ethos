@@ -40,6 +40,8 @@
 
 !*.font: Iosevka-11;
 *.font: Inconsolata-12;
+!*.font: spacemono-12;
+!*.font: droid sans mono-12;
 !*.font: unifont-13.5;
 
 

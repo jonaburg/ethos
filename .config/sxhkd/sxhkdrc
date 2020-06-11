@@ -178,7 +178,10 @@ super + F6
 	torwrap
 # toggle torrent daemon
 super + F7
-	td-toggle
+	transset-df -a --dec 0.15
+
+super + shift + F7
+	transset-df -a --inc 0.15
 # sync email
 super + F8
 	mailsync

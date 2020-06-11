@@ -534,6 +534,8 @@ globalkeys = my_table.join(
 --    awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(-1)                end,
 --              {description = "select previous", group = "layout"}),
 
+
+
     awful.key({ modkey, "Control" }, "n",
               function ()
                   local c = awful.client.restore()
@@ -556,6 +558,8 @@ globalkeys = my_table.join(
               {description = "show filesystem", group = "widgets"}),
     awful.key({ altkey, }, "w", function () if beautiful.weather then beautiful.weather.show(7) end end,
               {description = "show weather", group = "widgets"}),
+
+
 
     -- Brightness
     awful.key({ }, "XF86MonBrightnessUp", function () os.execute("xbacklight -inc 10") end,
@@ -839,9 +843,9 @@ awful.rules.rules = {
 
     { rule = { name = "Looking Glass (client)" },
 --      properties = { floating = true, screen = 1, tag = awful.util.tagnames[1] },
-      properties = { floating = true },
+      properties = { floating = true, screen = 2 },
 	callback = function(c)
-		awful.client.moveresize(-900,-50,3450,250,c)
+		awful.client.moveresize(0,0,0,0,c)
 	end },
 
     { rule = { name = "Parsec" },
@@ -856,6 +860,12 @@ awful.rules.rules = {
 -- {{{ Signals
 -- Signal function to execute when a new client appears.
 client.connect_signal("manage", function (c)
+--			 c.shape = gears.shape.rounded_rect
+--			 c.shape = function(cr,w,h)
+--		      	gears.shape.rounded_rect(cr,w,h,10)
+--     		 	end
+
+
     -- Set the windows at the slave,
     -- i.e. put it at the end of others instead of setting it master.
      if not awesome.startup then awful.client.setslave(c) end

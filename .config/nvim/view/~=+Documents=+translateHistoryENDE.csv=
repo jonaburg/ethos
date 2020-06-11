@@ -122,11 +122,11 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 232 - ((31 * winheight(0) + 28) / 57)
+let s:l = 290 - ((27 * winheight(0) + 17) / 35)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-232
+290
 normal! 0
 let &so = s:so_save | let &siso = s:siso_save
 nohlsearch

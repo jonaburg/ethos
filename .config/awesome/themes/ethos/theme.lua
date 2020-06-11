@@ -1,7 +1,9 @@
 --[[
 	JB sidebar work in progress..
-	includes 2nd monitor vertical bar && better handling of tag switching.
-        Spring Switzerland Awesome WM theme 3.0 2020
+	- includes nth monitor ++ primaryh vertical bar
+	- better handling of tag switching.
+	- lf integration && independent rice per monitor
+        Early Summer Switzerland Awesome WM theme 3.0 2020
 
 --]]
 local gears = require("gears")
@@ -40,51 +42,55 @@ theme.lain_icons                                = os.getenv("HOME") .. "/.config
 
 
 --- {{{	 	TAG SWITCH BEHAVIOUR
+---  this version treats each screen as its own switch. there is no master. one screen changes one wp etc.
 --- 	multiple TAG RICING
 --wp_path= "/home/jon/.config/awesome/themes/ethos/papes1/"
 --wp_path= "/home/jon/.config/awesome/themes/ethos/papes2/"
 wp_path= "/home/jon/.config/awesome/themes/ethos/papes/"
+wp_paths1= "/home/jon/.config/awesome/themes/ethos/papes/s1/"
+wp_paths2= "/home/jon/.config/awesome/themes/ethos/papes/s2/"
+wp_paths3= "/home/jon/.config/awesome/themes/ethos/papes/s3/"
 wp_files = { "pape1.jpg","pape2.jpg","pape3.jpg","pape4.jpg","pape5.jpg","pape6.jpg","pape7.jpg", "pape8.jpg", "pape9.jpg" }
 
 xres_path = "/home/jon/Documents/Xresources/"
-xres_files = {"lambdaneutral", "wheat", "paladin", "navyblue", "lavaside", "lambdaneutral"}
+xres_files = {"lambdaneutral", "wheat", "paladin", "navyblue", "lavaside", "lambdaneutral", "bespin", "seaside" }
 
 -- per tag wallpapers && xresources...
 screen[1]:connect_signal("tag::history::update", function()
        if awful.tag.selected(1).name == "1" then
-             gears.wallpaper.maximized(wp_path .. wp_files[1], s, true)
+             gears.wallpaper.maximized(wp_path .. wp_files[7], 1, true)
 	     awful.spawn( 'xrdb -load ' .. xres_path .. xres_files[1]  )
 	     screen[1]:emit_signal("tag1")
 elseif awful.tag.selected(1).name == "2"
-	then gears.wallpaper.maximized(wp_path .. wp_files[2], s, true)
+	then gears.wallpaper.maximized(wp_path .. wp_files[2], 1, true)
 	     awful.spawn( 'xrdb -load ' .. xres_path .. xres_files[2]  )
 	     screen[1]:emit_signal("tag2")
 elseif awful.tag.selected(1).name == "3"
-	then gears.wallpaper.maximized(wp_path .. wp_files[3], s, true)
+	then gears.wallpaper.maximized(wp_path .. wp_files[3], 1, true)
 	     awful.spawn( 'xrdb -load ' .. xres_path .. xres_files[3]  )
 	     screen[1]:emit_signal("tag3")
 elseif awful.tag.selected(1).name == "4"
-	then gears.wallpaper.maximized(wp_path .. wp_files[4], s, true)
+	then gears.wallpaper.maximized(wp_path .. wp_files[4], 1, true)
 	     awful.spawn( 'xrdb -load ' .. xres_path .. xres_files[1]  )
 	     screen[1]:emit_signal("tag4")
 elseif awful.tag.selected(1).name == "5"
-	then gears.wallpaper.maximized(wp_path .. wp_files[5], s, true)
+	then gears.wallpaper.maximized(wp_path .. wp_files[5], 1, true)
 	     awful.spawn( 'xrdb -load ' .. xres_path .. xres_files[4]  )
 	     screen[1]:emit_signal("tag5")
 elseif awful.tag.selected(1).name == "6"
-	then gears.wallpaper.maximized(wp_path .. wp_files[6], s, true)
+	then gears.wallpaper.maximized(wp_path .. wp_files[6], 1, true)
 	     awful.spawn( 'xrdb -load ' .. xres_path .. xres_files[3]  )
 	     screen[1]:emit_signal("tag6")
 elseif awful.tag.selected(1).name == "7"
-	then gears.wallpaper.maximized(wp_path .. wp_files[7], s, true)
-	     awful.spawn( 'xrdb -load ' .. xres_path .. xres_files[4]  )
+	then gears.wallpaper.maximized(wp_path .. wp_files[1], 1, true)
+	     awful.spawn( 'xrdb -load ' .. xres_path .. xres_files[3]  )
 	     screen[1]:emit_signal("tag7")
 elseif awful.tag.selected(1).name == "8"
-	then gears.wallpaper.maximized(wp_path .. wp_files[8], s, true)
+	then gears.wallpaper.maximized(wp_path .. wp_files[8], 1, true)
 	     awful.spawn( 'xrdb -load ' .. xres_path .. xres_files[6]  )
 	     screen[1]:emit_signal("tag8")
 elseif awful.tag.selected(1).name == "9"
-	then gears.wallpaper.maximized(wp_path .. wp_files[9], s, true)
+	then gears.wallpaper.maximized(wp_path .. wp_files[9], 1, true)
 	     awful.spawn( 'xrdb -load ' .. xres_path .. xres_files[6]  )
 	     screen[1]:emit_signal("tag9")
 	end
@@ -93,45 +99,94 @@ end)
 
 
 ------------------------------------
---screen[2]:connect_signal("tag::history::update", function()
---       if awful.tag.selected(2).name == "1" then
---             gears.wallpaper.maximized(wp_path .. wp_files[1], s, true)
---	     awful.spawn( 'xrdb -load ' .. xres_path .. xres_files[1]  )
---	     screen[2]:emit_signal("tag1")
---elseif awful.tag.selected(2).name == "2"
---	then gears.wallpaper.maximized(wp_path .. wp_files[2], s, true)
---	     awful.spawn( 'xrdb -load ' .. xres_path .. xres_files[2]  )
---	     screen[2]:emit_signal("tag2")
---elseif awful.tag.selected(2).name == "3"
---	then gears.wallpaper.maximized(wp_path .. wp_files[3], s, true)
---	     awful.spawn( 'xrdb -load ' .. xres_path .. xres_files[3]  )
---	     screen[2]:emit_signal("tag3")
---elseif awful.tag.selected(2).name == "4"
---	then gears.wallpaper.maximized(wp_path .. wp_files[4], s, true)
---	     awful.spawn( 'xrdb -load ' .. xres_path .. xres_files[4]  )
---	     screen[2]:emit_signal("tag4")
---elseif awful.tag.selected(2).name == "5"
---	then gears.wallpaper.maximized(wp_path .. wp_files[5], s, true)
---	     awful.spawn( 'xrdb -load ' .. xres_path .. xres_files[2]  )
---	     screen[2]:emit_signal("tag5")
---elseif awful.tag.selected(2).name == "6"
---	then gears.wallpaper.maximized(wp_path .. wp_files[6], s, true)
---	     awful.spawn( 'xrdb -load ' .. xres_path .. xres_files[3]  )
---	     screen[2]:emit_signal("tag6")
---elseif awful.tag.selected(2).name == "7"
---	then gears.wallpaper.maximized(wp_path .. wp_files[7], s, true)
---	     awful.spawn( 'xrdb -load ' .. xres_path .. xres_files[4]  )
---	     screen[2]:emit_signal("tag7")
---elseif awful.tag.selected(2).name == "8"
---	then gears.wallpaper.maximized(wp_path .. wp_files[8], s, true)
---	     awful.spawn( 'xrdb -load ' .. xres_path .. xres_files[3]  )
---	     screen[2]:emit_signal("tag8")
---elseif awful.tag.selected(2).name == "9"
---	then gears.wallpaper.maximized(wp_path .. wp_files[9], s, true)
---	     awful.spawn( 'xrdb -load ' .. xres_path .. xres_files[4]  )
---	     screen[2]:emit_signal("tag9")
---	end
---end)
+-- {{ second screen's switch settings}}
+-- per tag wallpapers && xresources...
+screen[2]:connect_signal("tag::history::update", function()
+       if awful.tag.selected(2).name == "1" then
+             gears.wallpaper.maximized(wp_paths2 .. wp_files[1], 2, true)
+	     awful.spawn( 'xrdb -load ' .. xres_path .. xres_files[1]  )
+	     screen[2]:emit_signal("tag1")
+elseif awful.tag.selected(2).name == "2"
+	then gears.wallpaper.maximized(wp_paths2 .. wp_files[2], 2, true)
+	     awful.spawn( 'xrdb -load ' .. xres_path .. xres_files[2]  )
+	     screen[2]:emit_signal("tag2")
+elseif awful.tag.selected(2).name == "3"
+	then gears.wallpaper.maximized(wp_paths2 .. wp_files[3], 2, true)
+	     awful.spawn( 'xrdb -load ' .. xres_path .. xres_files[3]  )
+	     screen[2]:emit_signal("tag3")
+elseif awful.tag.selected(2).name == "4"
+	then gears.wallpaper.maximized(wp_paths2 .. wp_files[4], 2, true)
+	     awful.spawn( 'xrdb -load ' .. xres_path .. xres_files[1]  )
+	     screen[2]:emit_signal("tag4")
+elseif awful.tag.selected(2).name == "5"
+	then gears.wallpaper.maximized(wp_paths2 .. wp_files[5], 2, true)
+	     awful.spawn( 'xrdb -load ' .. xres_path .. xres_files[4]  )
+	     screen[2]:emit_signal("tag5")
+elseif awful.tag.selected(2).name == "6"
+	then gears.wallpaper.maximized(wp_paths2.. wp_files[6], 2, true)
+	     awful.spawn( 'xrdb -load ' .. xres_path .. xres_files[3]  )
+	     screen[2]:emit_signal("tag6")
+elseif awful.tag.selected(2).name == "7"
+	then gears.wallpaper.maximized(wp_paths2 .. wp_files[7], 2, true)
+	     awful.spawn( 'xrdb -load ' .. xres_path .. xres_files[3]  )
+	     screen[2]:emit_signal("tag7")
+elseif awful.tag.selected(2).name == "8"
+	then gears.wallpaper.maximized(wp_paths2 .. wp_files[8], 2, true)
+	     awful.spawn( 'xrdb -load ' .. xres_path .. xres_files[6]  )
+	     screen[2]:emit_signal("tag8")
+elseif awful.tag.selected(2).name == "9"
+	then gears.wallpaper.maximized(wp_paths2 .. wp_files[9], 2, true)
+	     awful.spawn( 'xrdb -load ' .. xres_path .. xres_files[6]  )
+	     screen[2]:emit_signal("tag9")
+	end
+end)
+--- }}}
+
+------------------------------------
+-- {{ third screen's switch settings}}
+-- per tag wallpapers && xresources...
+screen[3]:connect_signal("tag::history::update", function()
+       if awful.tag.selected(3).name == "1" then
+             gears.wallpaper.maximized(wp_paths3 .. wp_files[1], 3, true)
+	     awful.spawn( 'xrdb -load ' .. xres_path .. xres_files[1]  )
+	     screen[3]:emit_signal("tag1")
+elseif awful.tag.selected(3).name == "2"
+	then gears.wallpaper.maximized(wp_paths3 .. wp_files[2], 3, true)
+	     awful.spawn( 'xrdb -load ' .. xres_path .. xres_files[2]  )
+	     screen[3]:emit_signal("tag2")
+elseif awful.tag.selected(3).name == "3"
+	then gears.wallpaper.maximized(wp_paths3 .. wp_files[3], 3, true)
+	     awful.spawn( 'xrdb -load ' .. xres_path .. xres_files[7]  )
+	     screen[3]:emit_signal("tag3")
+elseif awful.tag.selected(3).name == "4"
+	then gears.wallpaper.maximized(wp_paths3 .. wp_files[4], 3, true)
+	     awful.spawn( 'xrdb -load ' .. xres_path .. xres_files[3]  )
+	     screen[3]:emit_signal("tag4")
+elseif awful.tag.selected(3).name == "5"
+	then gears.wallpaper.maximized(wp_paths3 .. wp_files[5], 3, true)
+	     awful.spawn( 'xrdb -load ' .. xres_path .. xres_files[8]  )
+	     screen[3]:emit_signal("tag5")
+elseif awful.tag.selected(3).name == "6"
+	then gears.wallpaper.maximized(wp_paths3 .. wp_files[6], 3, true)
+	     awful.spawn( 'xrdb -load ' .. xres_path .. xres_files[3]  )
+	     screen[3]:emit_signal("tag6")
+elseif awful.tag.selected(3).name == "7"
+	then gears.wallpaper.maximized(wp_paths3 .. wp_files[7], 3, true)
+	     awful.spawn( 'xrdb -load ' .. xres_path .. xres_files[8]  )
+	     screen[3]:emit_signal("tag7")
+elseif awful.tag.selected(3).name == "8"
+	then gears.wallpaper.maximized(wp_paths3 .. wp_files[8], 3, true)
+	     awful.spawn( 'xrdb -load ' .. xres_path .. xres_files[6]  )
+	     screen[3]:emit_signal("tag8")
+elseif awful.tag.selected(3).name == "9"
+	then gears.wallpaper.maximized(wp_paths3 .. wp_files[9], 3, true)
+	     awful.spawn( 'xrdb -load ' .. xres_path .. xres_files[6]  )
+	     screen[3]:emit_signal("tag9")
+	end
+end)
+--- }}}
+
+
 
 -----automatic wp switcher based on timer.
 ----------------------
@@ -169,7 +224,8 @@ local tag_color = "#7a7a7a"  -- some kinda brown
 theme.font          = "Iosevka 10"
 theme.taglist_font  = "Iosevka 12"
 theme.mpd_font  = "Iosevka 10"
-theme.tasklist_font = "Iosevka 12"
+--theme.tasklist_font = "Iosevka 10"
+theme.tasklist_font = "Inconsolata 10"
 --theme.fg_normal                                 = "#3f71e9"
 theme.fg_normal                                 = "#cecece"
 theme.fg_focus					= "#000000"
@@ -212,6 +268,7 @@ theme.gradbar                                       = theme.icon_dir .. "/gradba
 theme.transbar                                       = theme.icon_dir .. "/transbar.png"
 theme.transpace                                       = theme.icon_dir .. "/transpace.png"
 theme.transquare                                       = theme.icon_dir .. "/transquare.png"
+theme.transquaresmall                                       = theme.icon_dir .. "/transquaresmall.png"
 --theme.gradbar                                       = theme.icon_dir .. "/gradbarplain.png"
 --theme.bar                                       = theme.icon_dir .. "/bluebox.png"
 theme.bottom_bar                                = theme.icon_dir .. "/bottom_bar.png"
@@ -268,13 +325,13 @@ local mytextclock = wibox.widget.textclock(markup("#fffede", "   %H:%M "))
 mytextclock.font = 'Aakash 14'
 local clock_icon = wibox.widget.imagebox(theme.clock)
 --local clockbg = wibox.container.background(mytextclock, theme.bg_normal, gears.shape.rectangle)
-local clockbg = wibox.container.background(mytextclock, borders_color, gears.shape.octogon)
+local clockbg = wibox.container.background(mytextclock, borders_color, gears.shape.hexagon)
 local clockwidget = wibox.container.margin(clockbg, dpi(0), dpi(3), dpi(5), dpi(5))
 
-local mytextclock2 = wibox.widget.textclock(markup.fontfg(theme.font, "#a6e2cc", "  %a. %d.%m.%y"))
-local clockbg2 = wibox.container.background(mytextclock2, side_color, gears.shape.octogon)
+local mytextclock2 = wibox.widget.textclock(markup.fontfg(theme.font, "#FFFFFF", "  %a. %d.%m.%y"))
+local clockbg2 = wibox.container.background(mytextclock2, side_color, gears.shape.rectangle)
 local clockwidget2 = wibox.container.margin(clockbg2, dpi(10), dpi(10), dpi(5), dpi(5))
-calbox =  wibox.container.background(clockwidget2, (borders_color), gears.shape.octogon ) -- clock & layoutbox with shape
+calbox =  wibox.container.background(clockwidget2, (borders_color), gears.shape.rectangle ) -- clock & layoutbox with shape
 
 -- Calendar
 local mytextcalendar = wibox.widget.textclock(markup.fontfg(theme.font, "#FFFFFF", space3 .. "%d %b " .. markup.font("Roboto 5", " ")))
@@ -451,6 +508,7 @@ local gradbar = wibox.widget.imagebox(theme.gradbar)
 local transbar = wibox.widget.imagebox(theme.transbar)
 local transpace = wibox.widget.imagebox(theme.transpace)
 local transquare = wibox.widget.imagebox(theme.transquare)
+local transquaresmall = wibox.widget.imagebox(theme.transquaresmall)
 local bottom_bar = wibox.widget.imagebox(theme.bottom_bar)
 
 --HOW TO MAKE A GRADIENT
@@ -535,7 +593,7 @@ function set_tag_color3()
 tag_color = "#01AC8D"
 borders_color = "#6AC8C0" .. "55"
 --theme.border_focus                              = "#D8E28B" .. "05"
-theme.border_focus                              = "#6D6D6D" .. "25"
+theme.border_focus                              = "#6D6D6D" .. "55"
 volumewidget:set_color(borders_color)
 clockbg:set_bg(borders_color)
 calbox:set_bg(borders_color)
@@ -624,27 +682,31 @@ bentobox = wibox.widget{{
 mentobox,
 layout = wibox.layout.fixed.horizontal
 }
+
 mailbox = wibox.container.margin(email_widget, dpi(5), dpi(15), dpi(15),dpi(5)) -- email icon box
 mailbox:buttons(awful.util.table.join( -- left click to spawn neomutt
 		awful.button({ }, 1, function () awful.spawn("st -e neomutt")
 		end)))
+
 newsbox = wibox.container.margin(news_widget, dpi(2), dpi(2), dpi(15),dpi(2)) -- email icon box
 newsbox:buttons(awful.util.table.join( -- left click to spawn newsboat
 		awful.button({ }, 1, function () awful.spawn("st -e newsboat")
 		end)))
 
 newsandmail = wibox.widget{
-mailbox,
-winbox,
---newsbox,
-layout = wibox.layout.fixed.horizontal,
+	mailbox,
+	winbox,
+	--newsbox,
+	layout = wibox.layout.fixed.horizontal,
 }
 winbox = wibox.container.margin(windowsvm, dpi(5), dpi(15), dpi(15),dpi(5)) -- windows icon box
 winbox:buttons(awful.util.table.join( -- left click to spawn newsboat
 		--awful.button({ }, 1, function () awful.spawn("virt-manager")
 		awful.button({ }, 1, function () awful.spawn("/home/jon/.local/bin/utilities/vmtoggle")
 		end)))
+
 flowerbox = wibox.container.margin(waterflowers, dpi(2), dpi(2), dpi(15),dpi(2)) -- windows icon box
+
 winflower = wibox.widget{
 winbox,
 flowerbox,
@@ -673,11 +735,11 @@ s.mytaglist = awful.widget.taglist(s, awful.widget.taglist.filter.all, awful.uti
 	    shape = gears.shape.octogon,
         },
 	layout = {
-	    spacing = 10,
+	    spacing = 30,
             spacing_widget = {
             {
-                forced_width = 5,
-                shape        = gears.shape.circle,
+                forced_width = 10,
+                shape        = gears.shape.hexagon,
                 widget       = wibox.widget.separator
             },
             valign = 'center',
@@ -739,27 +801,24 @@ s.mysidewibox:setup {
 --  transquare,
 	--redshift,
 --  transquare,
---	  coronafull_widget,
--- 	  corona_widget,
--- 	  coronarecovered_widget,
 	{
           layout = wibox.layout.fixed.vertical,
-	  coronaukbox,
 --	  s.mytasklist,
 --        rates_widget,
 --	  bat.widget,
 --	  winflower,
 	  newsandmail,
+        wibox.widget.systray(),
+	  coronaukbox,
 	  uptimebox, -- contains uptime_widget
 --	  theme.weather.widget,
-        wibox.widget.systray(),
 	  weatherback, -- weather background
 --	  test_widget,
           volumewidget,
 --          musicwidget,
---  transquare,
+          transquaresmall,
 	wibox.container.background( wibox.widget {clockwidget,s.mylayoutbox,layout=wibox.layout.fixed.horizontal}, (side_color), gears.shape.octogon ), -- clock & layoutbox with shape
-          transquare,
+          transquaresmall,
 --	 logobox,
 --          bentobox, -- clock & layoutbox with margin..
  --         wibox.widget.systray(),

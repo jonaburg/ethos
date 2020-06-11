@@ -7,13 +7,13 @@ local wibox = require("wibox")
 local watch = require("awful.widget.watch")
 local naughty = require("naughty")
 local testwidget_widget = {}
-local noticon = '/home/jon/.config/awesome/themes/spring/icons/atreides.png'
-local hoverbgicon = '/home/jon/.config/awesome/themes/spring/icons/bluebox.png'
-local bgicon = '/home/jon/.config/awesome/themes/spring/icons/coolbox.png'
+local noticon = '/home/jon/.config/awesome/themes/ethos/icons/atreides.png'
+local hoverbgicon = '/home/jon/.config/awesome/themes/ethos/icons/bluebox.png'
+local bgicon = '/home/jon/.config/awesome/themes/ethos/icons/coolbox.png'
 
-local mailicon = '/home/jon/.config/awesome/themes/spring/icons/psoicons/mailpass.png'
-local mailhover = '/home/jon/.config/awesome/themes/spring2/icons/mailicons/mail.png'
-local newmail = '/home/jon/.config/awesome/themes/spring2/icons/mailicons/mail.png'
+local mailicon = '/home/jon/.config/awesome/themes/ethos/icons/psoicons/mailpass.png'
+local mailhover = '/home/jon/.config/awesome/themes/ethos/icons/mailicons/mail-glow.png'
+local newmail = '/home/jon/.config/awesome/themes/ethos/icons/mailicons/mail-glow.png'
 
 image_widget = wibox.widget {
         widget = wibox.widget.imagebox,
@@ -36,11 +36,11 @@ local checkemails = [[bash -c 'ls ~/.local/share/mail/outlook/Inbox/new/ 2>/dev/
 --local reademails = [[ bash -c '  for i in $(ls); do cat $i | egrep "Subject|From" | grep -v h=From | grep -v X-MS; done']]
 
 
-image_widget:connect_signal("mouse::enter", function() show_emails() end)
+--image_widget:connect_signal("mouse::enter", function() show_emails() end)
 --image_widget:connect_signal("mouse::enter", function() email_text() end)
 image_widget:connect_signal("mouse::enter", function() image_widget:set_image(mailhover) end)
 image_widget:connect_signal("mouse::leave", function() image_widget:set_image(tag_specific_mailicon) end)
-image_widget:connect_signal("mouse::leave", function() naughty.destroy_all_notifications() end )
+--image_widget:connect_signal("mouse::leave", function() naughty.destroy_all_notifications() end )
 
 
 -- automatically scans for emails and updates widget in background
@@ -94,28 +94,39 @@ function show_emails()
 end
 
 function set_tag_icon1()
-mailicon =  '/home/jon/.config/awesome/themes/spring2/icons/mailicons/mail-green.png'
+mailicon =  '/home/jon/.config/awesome/themes/ethos/icons/mailicons/mail-green.png'
 image_widget:set_image(mailicon)
 tag_specific_mailicon =  mailicon
 end
 function set_tag_icon2()
-mailicon =  '/home/jon/.config/awesome/themes/spring2/icons/mailicons/mail-red.png'
+mailicon =  '/home/jon/.config/awesome/themes/ethos/icons/mailicons/mail-yellow.png'
 image_widget:set_image(mailicon)
 tag_specific_mailicon =  mailicon
 end
 function set_tag_icon3()
-mailicon =  '/home/jon/.config/awesome/themes/spring2/icons/mailicons/mail-blue.png'
+mailicon =  '/home/jon/.config/awesome/themes/ethos/icons/mailicons/mail-blue.png'
 image_widget:set_image(mailicon)
 tag_specific_mailicon =  mailicon
 end
+function set_tag_icon4()
+mailicon =  '/home/jon/.config/awesome/themes/ethos/icons/mailicons/mail-purp.png'
+image_widget:set_image(mailicon)
+tag_specific_mailicon =  mailicon
+end
+function set_tag_icon5()
+mailicon =  '/home/jon/.config/awesome/themes/ethos/icons/mailicons/mail-red.png'
+image_widget:set_image(mailicon)
+tag_specific_mailicon =  mailicon
+end
+
 
 
 screen[1]:connect_signal("tag1", set_tag_icon1 )
 screen[1]:connect_signal("tag2", set_tag_icon2 )
 screen[1]:connect_signal("tag3", set_tag_icon3 )
-screen[1]:connect_signal("tag4", set_tag_icon3 )
-screen[1]:connect_signal("tag5", set_tag_icon2 )
-screen[1]:connect_signal("tag6", set_tag_icon3 )
+screen[1]:connect_signal("tag4", set_tag_icon4 )
+screen[1]:connect_signal("tag5", set_tag_icon5 )
+screen[1]:connect_signal("tag6", set_tag_icon7 )
 
 
 return mascarpone_widget

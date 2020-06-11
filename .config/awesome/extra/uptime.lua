@@ -43,7 +43,7 @@ end,
 
 
 function set_tag_color1()
-temp_widget:set_bg("#008800")  -- Green background
+temp_widget:set_bg("#BBF74C")  -- Green background
 end
 function set_tag_color2()
 temp_widget:set_bg("#FEE715")  -- Orangeish background
