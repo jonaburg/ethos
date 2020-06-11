@@ -348,8 +348,8 @@ awful.util.mymainmenu = freedesktop.menu.build({
 
 -- Create a wibox for each screen and add it
 --{{
-awful.screen.connect_for_each_screen(function(s) beautiful.at_screen_connect(s) end)
 --awful.screen.connect_for_each_screen(function(s) beautiful.at_screen_connect(s) end)
+awful.screen.connect_for_each_screen(function(s) beautiful.at_screen_connect(s) end)
 
 --for s in screen do
 --beautiful.at_screen_connect(s)

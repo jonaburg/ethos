@@ -56,6 +56,8 @@ xres_path = "/home/jon/Documents/Xresources/"
 xres_files = {"lambdaneutral", "wheat", "paladin", "navyblue", "lavaside", "lambdaneutral", "bespin", "seaside" }
 
 -- per tag wallpapers && xresources...
+------------------------------------
+-- {{ first screen's switch settings}}
 screen[1]:connect_signal("tag::history::update", function()
        if awful.tag.selected(1).name == "1" then
              gears.wallpaper.maximized(wp_path .. wp_files[7], 1, true)
