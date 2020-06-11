@@ -20,6 +20,8 @@ rsync -av .config/zathura ~/.config/
 rsync -av .config/compton ~/.config/
 rsync -av .config/emoji   ~/.config/
 rsync -av .config/fontawesome ~/.config/
+rsync -av .config/compton.conf ~/.config/compton.conf
+rsync -av .config/aliasrc ~/.config/aliasrc
 
 
 #syncing homedir files
