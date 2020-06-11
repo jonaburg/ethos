@@ -4,22 +4,22 @@
 #
 extract(){
 # syncing over ~/.config to new dir.
-rsync -av .config/awesome ~/.config/awesome
-rsync -av .config/dunst   ~/.config/dunst
-rsync -av .config/fontconf ~/.config/fontconfig
-rsync -av .config/lf      ~/.config/lf
-rsync -av .config/ncmpcpp ~/.config/ncmpcpp
-rsync -av .config/newsboat ~/.config/newsboat
-rsync -av .config/nvim  ~/.config/nvim
-rsync -av .config/rofi   ~/.config/rofi
-rsync -av .config/st     ~/.config/st
-rsync -av .config/mpv    ~/.config/mpv
-rsync -av .config/sxhkd  ~/.config/sxhkd
-rsync -av .config/sxiv   ~/.config/sxiv
-rsync -av .config/zathura ~/.config/zathura
-rsync -av .config/compton ~/.config/compton.conf
-rsync -av .config/emoji   ~/.config/emoji
-rsync -av .config/fontawesome ~/.config/fontawesome
+rsync -av .config/awesome ~/.config/
+rsync -av .config/dunst   ~/.config/
+rsync -av .config/fontconf ~/.config/
+rsync -av .config/lf      ~/.config/
+rsync -av .config/ncmpcpp ~/.config/
+rsync -av .config/newsboat ~/.config/
+rsync -av .config/nvim  ~/.config/
+rsync -av .config/rofi   ~/.config/
+rsync -av .config/st     ~/.config/
+rsync -av .config/mpv    ~/.config/
+rsync -av .config/sxhkd  ~/.config/
+rsync -av .config/sxiv   ~/.config/
+rsync -av .config/zathura ~/.config/
+rsync -av .config/compton ~/.config/
+rsync -av .config/emoji   ~/.config/
+rsync -av .config/fontawesome ~/.config/
 
 
 #syncing homedir files
