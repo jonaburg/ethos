@@ -1,0 +1,16 @@
+#!/bin/bash
+
+reset(){
+pidof compton 2>&1 /dev/null && kill `pidof compton`; compton &
+}
+
+toggle(){
+pidof compton 2>&1 /dev/null && killall compton || compton &
+}
+
+check(){
+pidof compton
+}
+
+"$@"
+

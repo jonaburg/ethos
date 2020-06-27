@@ -46,7 +46,8 @@ function set_tag_color1()
 temp_widget:set_bg("#BBF74C")  -- Green background
 end
 function set_tag_color2()
-temp_widget:set_bg("#FEE715")  -- Orangeish background
+--temp_widget:set_bg("#FEE715")  -- yellow background
+temp_widget:set_bg("#FF8800")  -- Orangeish background
 end
 function set_tag_color3()
 temp_widget:set_bg("#15FEC6")  -- Cyan background

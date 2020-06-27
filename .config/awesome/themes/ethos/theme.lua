@@ -23,15 +23,16 @@ local theme                                     = {}
 	local uptime_widget = require("extra.uptime")
 	local test_widget = require("extra.testwidget")
 	local corona_widget = require("extra.corona")
+	local coronaca_widget = require("extra.coronaca")
 	local coronauk_widget = require("extra.coronauk")
-	local coronarecovered_widget = require("extra.coronarecovered")
-	local coronafull_widget = require("extra.coronafull")
 	local rates_widget = require("RateWidget.rates")
 	local email_widget = require("extra.email")
 	local news_widget = require("extra.newsboat")
 	local windowsvm = require("extra.windowsvm")
 	local waterflowers = require("extra.waterflowers")
 	local redshift = require("extra.redshift")
+	local mem_widget = require("extra.mem")
+
 theme.default_dir                               = require("awful.util").get_themes_dir() .. "default"
 theme.confdir                                   = os.getenv("HOME") .. "/.config/awesome/themes/ethos"
 theme.icon_dir                                  = os.getenv("HOME") .. "/.config/awesome/themes/ethos/icons"
@@ -53,23 +54,35 @@ wp_paths3= "/home/jon/.config/awesome/themes/ethos/papes/s3/"
 wp_files = { "pape1.jpg","pape2.jpg","pape3.jpg","pape4.jpg","pape5.jpg","pape6.jpg","pape7.jpg", "pape8.jpg", "pape9.jpg" }
 
 xres_path = "/home/jon/Documents/Xresources/"
-xres_files = {"lambdaneutral", "wheat", "paladin", "navyblue", "lavaside", "lambdaneutral", "bespin", "seaside" }
+xres_files = {
+	"lambdaneutral",  -- 1
+	"wheat",  -- 2
+	"paladin",  -- 3
+	"navyblue",   -- 4
+	"lavaside",   -- 5
+	"lambdaneutral",   -- 6
+	"bespin",   -- 7
+	"seaside",   -- 8
+	"glass",   -- 9
+	"darkblue",  -- 10
+	"heath"  -- 11
+}
 
 -- per tag wallpapers && xresources...
 ------------------------------------
 -- {{ first screen's switch settings}}
 screen[1]:connect_signal("tag::history::update", function()
        if awful.tag.selected(1).name == "1" then
-             gears.wallpaper.maximized(wp_path .. wp_files[7], 1, true)
-	     awful.spawn( 'xrdb -load ' .. xres_path .. xres_files[1]  )
+             gears.wallpaper.maximized(wp_path .. wp_files[1], 1, true)
+	     awful.spawn( 'xrdb -load ' .. xres_path .. xres_files[8]  )
 	     screen[1]:emit_signal("tag1")
 elseif awful.tag.selected(1).name == "2"
 	then gears.wallpaper.maximized(wp_path .. wp_files[2], 1, true)
-	     awful.spawn( 'xrdb -load ' .. xres_path .. xres_files[2]  )
+	     awful.spawn( 'xrdb -load ' .. xres_path .. xres_files[1]  )
 	     screen[1]:emit_signal("tag2")
 elseif awful.tag.selected(1).name == "3"
 	then gears.wallpaper.maximized(wp_path .. wp_files[3], 1, true)
-	     awful.spawn( 'xrdb -load ' .. xres_path .. xres_files[3]  )
+	     awful.spawn( 'xrdb -load ' .. xres_path .. xres_files[9]  )
 	     screen[1]:emit_signal("tag3")
 elseif awful.tag.selected(1).name == "4"
 	then gears.wallpaper.maximized(wp_path .. wp_files[4], 1, true)
@@ -77,14 +90,14 @@ elseif awful.tag.selected(1).name == "4"
 	     screen[1]:emit_signal("tag4")
 elseif awful.tag.selected(1).name == "5"
 	then gears.wallpaper.maximized(wp_path .. wp_files[5], 1, true)
-	     awful.spawn( 'xrdb -load ' .. xres_path .. xres_files[4]  )
+	     awful.spawn( 'xrdb -load ' .. xres_path .. xres_files[10]  )
 	     screen[1]:emit_signal("tag5")
 elseif awful.tag.selected(1).name == "6"
 	then gears.wallpaper.maximized(wp_path .. wp_files[6], 1, true)
 	     awful.spawn( 'xrdb -load ' .. xres_path .. xres_files[3]  )
 	     screen[1]:emit_signal("tag6")
 elseif awful.tag.selected(1).name == "7"
-	then gears.wallpaper.maximized(wp_path .. wp_files[1], 1, true)
+	then gears.wallpaper.maximized(wp_path .. wp_files[7], 1, true)
 	     awful.spawn( 'xrdb -load ' .. xres_path .. xres_files[3]  )
 	     screen[1]:emit_signal("tag7")
 elseif awful.tag.selected(1).name == "8"
@@ -246,6 +259,10 @@ theme.taglist_bg_empty = "#0a0e15"
 theme.taglist_bg_focus = "#121a26"
 theme.taglist_bg_occupied = "#121a26"
 theme.taglist_fg_occupied = "#b1afa0"
+
+
+
+
 
 theme.tasklist_bg_normal                        = "#000000" .. "75"
 --theme.tasklist_fg_focus                         = "#a4d0cc"
@@ -427,11 +444,13 @@ local bat = lain.widget.bat({
 theme.volume = lain.widget.alsabar({
     notification_preset = { font = "Monospace 14"},
     --togglechannel = "IEC958,3",
-    width = dpi(80), height = dpi(30), border_width = dpi(0),ticks = true, tick_size=5,
+    width = dpi(80), height = dpi(30), border_width = dpi(0),ticks = false, tick_size=5,
     colors = {
         --background = "#212121",
         background = side_color .. "22",
 	unmute     = tag_color,
+	--unmute     = barcolor,
+	--unmute     = "#ffA333",
         mute       = "#FF9F9F"
     },
 
@@ -521,7 +540,7 @@ local barcolor  = gears.color({
     stops = { {0, theme.bg_focus}, {0.25, "#595959"}, {1, theme.bg_focus} }
 })
 
----- ANOTHER GRADIENT
+---- ANOTHER gradient
 --local barcolor2  = gears.color({
 --  type = "radial",
 -- -- from = { 5, 70, 40 },
@@ -571,6 +590,7 @@ borders_color = "#719901" .. "55"
 tag_color = "#719901"
 theme.border_focus                              = "#A7E28B" .. "05"
 volumewidget:set_color(borders_color)
+--theme.volume:colors.unmute(tag_color)
 clockbg:set_bg(borders_color)
 calbox:set_bg(borders_color)
 mentobox:set_bg(borders_color)
@@ -579,9 +599,13 @@ weatherback:set_bg(tag_color)
 end
 
 function set_tag_color2()
-tag_color = "#ACAA01"
-borders_color = "#ACAA01" .. "55"
---theme.border_focus                              = "#D8E28B" .. "05"
+	-- yellow(ish)
+--tag_color = "#ACAA01"
+--borders_color = "#ACAA01" .. "55"
+--theme.border_focus                              = "#D9574F" .. "45"
+
+tag_color = "#FF7827"
+borders_color = "#FF7100" .. "55"
 theme.border_focus                              = "#D9574F" .. "45"
 volumewidget:set_color(borders_color)
 clockbg:set_bg(borders_color)
@@ -655,7 +679,7 @@ screen[1]:connect_signal("tag9", set_tag_color3 )
 uptimebox = wibox.container.margin(uptime_widget, dpi(1), dpi(1), dpi(5),dpi(5)) -- uptime box
 logobox = wibox.container.margin(test_widget, dpi(25), dpi(25), dpi(5),dpi(15)) -- logo icon box (oot icons)
 --coronaukholder = wibox.container.background(coronauk_widget, dpi(5), dpi(5), dpi(15),dpi(15), gears.shape.octagon) -- corona icon box
-coronaukholder = wibox.container.background(coronauk_widget, (side_color), rect) -- corona icon box
+coronaukholder = wibox.container.background(coronaca_widget, (side_color), rect) -- corona icon box
 coronaukbox = wibox.widget{{
 	    left   = 0,
             right  = 0,
@@ -705,10 +729,14 @@ winbox = wibox.container.margin(windowsvm, dpi(5), dpi(15), dpi(15),dpi(5)) -- w
 winbox:buttons(awful.util.table.join( -- left click to spawn newsboat
 		--awful.button({ }, 1, function () awful.spawn("virt-manager")
 		awful.button({ }, 1, function () awful.spawn("/home/jon/.local/bin/utilities/vmtoggle")
-		end)))
+		end),
+		awful.button({ }, 3, function () awful.spawn("/home/jon/.local/bin/utilities/comptoncontrol toggle")
+		end)
+		))
+
+systrayholder = wibox.container.margin(wibox.widget.systray(), dpi(10), dpi(10), dpi(5),dpi(5)) -- windows icon box
 
 flowerbox = wibox.container.margin(waterflowers, dpi(2), dpi(2), dpi(15),dpi(2)) -- windows icon box
-
 winflower = wibox.widget{
 winbox,
 flowerbox,
@@ -782,7 +810,8 @@ s.mytaglist = awful.widget.taglist(s, awful.widget.taglist.filter.all, awful.uti
 function vertical_wibox(s)
 -- specifying sidebar wibox
 if s.index == 1
-then s.mysidewibox = awful.wibar ({ position = "right", screen = s, width = 110, x=0,y=0, bg = side_color,  border_width = dpi(0), height = s.workarea.height/1, type = "dock" }) -- without shape
+--then s.mysidewibox = awful.wibar ({ position = "right", screen = s, width = 110, x=0,y=0, bg = side_color,  border_width = dpi(0), height = s.workarea.height/1, type = "dock" }) -- without shape
+then s.mysidewibox = awful.wibar ({ position = "right", screen = s, width = 110, x=0,y=0, bg = "#0f0f0f",  border_width = dpi(0), height = s.workarea.height/1, type = "dock" }) -- without shape
 -- Add widgets to the side wibox
 s.mysidewibox:setup {
         layout = wibox.layout.align.vertical,
@@ -792,7 +821,9 @@ s.mysidewibox:setup {
 --	  clockwidget2,
 --	  transquare,
 	   calbox,
-  transquare,
+--          wibox.widget.systray(),
+	  systrayholder,
+--  transquare,
 --        wibox.widget.systray(),
         },
 	{ layout = wibox.layout.fixed.vertical,
@@ -801,7 +832,6 @@ s.mysidewibox:setup {
 --	  clockwidget,
 --	  transbar,
 --  transquare,
-	--redshift,
 --  transquare,
 	{
           layout = wibox.layout.fixed.vertical,
@@ -809,8 +839,8 @@ s.mysidewibox:setup {
 --        rates_widget,
 --	  bat.widget,
 --	  winflower,
+--	 redshift,
 	  newsandmail,
-        wibox.widget.systray(),
 	  coronaukbox,
 	  uptimebox, -- contains uptime_widget
 --	  theme.weather.widget,

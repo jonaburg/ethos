@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 
 
-browser=${BROWSER:-firefox}
+browser=${BROWSER:-brave}
 #choice=$( rofi -dmenu -config /usr/share/rofi/themes/dmenu2.rasi -p "Search     :     ")
 choice=$( rofi -dmenu -config /usr/share/rofi/themes/dmenu2.rasi -p "Search  🦆   :     ")
 

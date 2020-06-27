@@ -1,42 +1,51 @@
 
-http://rss.slashdot.org/Slashdot/slashdotMain
-
-#some economics and wepages
-#http://econlog.econlib.org/index.rdf
-#http://www.econlib.org/econlog
-
-#thelocal
-https://feeds.thelocal.com/rss/ch
-
-https://www.badscience.net/feed/
-
-http://adamsmithblog.com/feed
-http://austrianeconomists.typepad.com/weblog/rss.xml
-https://www.sciencedaily.com/rss/all.xml
-
-https://www.phoronix.com/rss.php
-
-https://www.technologyreview.com/stories.rss
-
-https://www.gamingonlinux.com/article_rss.php
-
-https://massivelyop.com/category/news/feed
-
-https://www.archlinux.org/feeds/news/ "tech"
-
-https://www.romanzolotarev.com/rss.xml
-
-http://lukesmith.xyz/rss.xml
-https://notrelated.libsyn.com/rss
-
-http://feeds.feedburner.com/RazibKhansTotalFeed
-
-https://www.i-bsd.com/feed.xml
 
 
 
-#### YT CONTENT #####
-https://www.youtube.com/feeds/videos.xml?channel_id=UC2eYFnH61tmytImy1mTYvhA "~Luke Smith (YouTube)"
+"------------ General News --------------------"
+https://feeds.thelocal.com/rss/ch "~      The Local (Swiss)"
+
+"------------ Technology --------------------"
+
+http://rss.slashdot.org/Slashdot/slashdotMain "~      Slashdot"
+https://www.sciencedaily.com/rss/all.xml "~      Science Daily (all)"
+https://www.phoronix.com/rss.php "~      Phoronix"
+https://www.technologyreview.com/stories.rss "~      MIT Technology"
+https://massivelyop.com/category/news/feed "~      Massively Overpowered MMO News"
+
+"------------ Linux --------------------"
+https://www.archlinux.org/feeds/news/ "~      Arch Linux: Recent News Updates"
+https://www.i-bsd.com/feed.xml "~      iBSD - Proving BSD as a viable alternative"
+https://www.romanzolotarev.com/rss.xml "~      Mastering the Web - Roman Zolotarev"
+https://www.gamingonlinux.com/article_rss.php "~      GamingOnLinux Latest Articles"
 
 
-https://www.youtube.com/channel/UCfUaZ8Ra7m7BqUEACv2jySw/videos "~Hyde Wars (Youtube) "
+"------------ Bloggers --------------------"
+http://lukesmith.xyz/rss.xml "~      Luke Smith"
+https://stallman.org/rss/rss.xml "~      Richard Stallman"
+https://notrelated.libsyn.com/rss "~      Not Related!"
+https://nitter.net/StefanMolyneux/rss "~      @Stefan Molyneux"
+https://nitter.net/jarettcale/rss "~      @Jarett Cale"
+http://feeds.feedburner.com/RazibKhansTotalFeed "~      Razib Khan"
+
+
+"------------ Economics --------------------"
+https://www.badscience.net/feed/ "~      Bad Science"
+http://adamsmithblog.com/feed "~      Adam Smith Blog"
+http://austrianeconomists.typepad.com/weblog/rss.xml "~      Coordination Problem"
+
+
+"------- Youtube_Channels ------------------"
+# template #### https://www.youtube.com/feeds/videos.xml?channel_id=
+https://www.youtube.com/feeds/videos.xml?channel_id=UC2eYFnH61tmytImy1mTYvhA "~      Luke Smith"
+https://www.youtube.com/feeds/videos.xml?channel_id=UC7YOGHUfC1Tb6E4pudI9STA "~      mental outlaw"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCb4pvsyqNrmBIGJFQxEukUA "~      Meme Analysis"
+https://www.youtube.com/feeds/videos.xml?channel_id=UC3TUCGI-7rSjvHsE4ONXRww "~      MilleniaThinker"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCWCV3Jdv-KUdDlWGxdzDWag "~      brum21"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCOWcZ6Wicl-1N34H0zZe38w "~      Level1Linux"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCfUaZ8Ra7m7BqUEACv2jySw "~      HydeWars"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCC3L8QaxqEGUiBC252GHy3w "~      Stef Molyneux"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCDWIvJwLJsE4LG1Atne2blQ "~      h3h3"
+#https://www.youtube.com/feeds/videos.xml?channel_id=Computerphile "~ Computerphile"
+
+

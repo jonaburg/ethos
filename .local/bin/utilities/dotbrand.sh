@@ -6,6 +6,7 @@ extract(){
 # syncing over ~/.config to new dir.
 rsync -av .config/awesome ~/.config/
 rsync -av .config/dunst   ~/.config/
+rsync -av .config/joplin    ~/.config/
 rsync -av .config/fontconf ~/.config/
 rsync -av .config/lf      ~/.config/
 rsync -av .config/ncmpcpp ~/.config/
@@ -14,6 +15,7 @@ rsync -av .config/nvim  ~/.config/
 rsync -av .config/rofi   ~/.config/
 rsync -av .config/st     ~/.config/
 rsync -av .config/mpv    ~/.config/
+rsync -av .config/mpd    ~/.config/
 rsync -av .config/sxhkd  ~/.config/
 rsync -av .config/sxiv   ~/.config/
 rsync -av .config/zathura ~/.config/

@@ -16,7 +16,7 @@ super + d
 	rofi -show run
 super + r
 #	$TERMINAL -e $FILE
-	st -e ranger
+	st -e ~/.local/bin/utilities/lf
 super + e
 	st -e neomutt
 super + m

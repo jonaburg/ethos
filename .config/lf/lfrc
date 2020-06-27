@@ -1,6 +1,10 @@
 # interpreter for shell commands (needs to be POSIX compatible)
 set shell sh
 set preview true
+set color256
+#set previewer ~/.config/lf/pv.sh
+set previewer ~/.config/lf/scope.sh
+#map i $~/.config/lf/pv.sh $f | less -R
 
 # set '-eu' options for shell commands
 # These options are used to have safer shell commands. Option '-e' is used to
@@ -40,6 +44,7 @@ map gcf cd ~/.config
 map gd cd ~/Documents
 map gD cd ~/Downloads
 map gpp cd ~/Pictures
+map gpw cd ~/Pictures/Wallpapers/
 map gl cd ~/Library
 map gm cd ~/Music
 map gW cd ~/Website
@@ -50,6 +55,10 @@ map gM cd /mnt/
 map ga cd ~/.config/awesome/
 map gs cd ~/.config/awesome/themes/ethos/
 map ge cd ~/.config/awesome/extra/
+
+
+### map for commands
+map Ya youtube-dl -xic%space
 
 ### map for image previews w3m
 #map - ~/.config/lf/draw_img.sh $f

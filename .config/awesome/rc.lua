@@ -22,6 +22,9 @@ local hotkeys_popup = require("awful.hotkeys_popup").widget
 local my_table      = awful.util.table or gears.table -- 4.{0,1} compatibility
 local dpi           = require("beautiful.xresources").apply_dpi
 
+local scratch = require("extra.scratch")
+screen_width = awful.screen.focused().geometry.width
+screen_height = awful.screen.focused().geometry.height
 -- expose addono
 local revelation=require("revelation")
 -- termgrp addon
@@ -492,9 +495,13 @@ globalkeys = my_table.join(
     awful.key({ modkey, "Shift" }, "s", function () lain.util.useless_gaps_resize(-5) end,
               {description = "decrement useless gaps", group = "tag"}),
 
+-- Scratch
+    awful.key({ modkey, "Shift" }, "n", function () scratch.toggle("st -n scratch", { instance = "scratch" }) end,
+              {description = "pop up scratchpad", group = "tag"}),
+
     -- Dynamic tagging
-    awful.key({ modkey, "Shift" }, "n", function () lain.util.add_tag() end,
-              {description = "add new tag", group = "tag"}),
+--    awful.key({ modkey, "Shift" }, "n", function () lain.util.add_tag() end,
+--              {description = "add new tag", group = "tag"}),
     awful.key({ modkey, "Shift" }, "r", function () lain.util.rename_tag() end,
               {description = "rename tag", group = "tag"}),
 --    awful.key({ modkey, "Shift" }, "Left", function () lain.util.move_tag(-1) end,
@@ -829,6 +836,31 @@ awful.rules.rules = {
                      size_hints_honor = true
      }
     },
+
+    -- Scratchpad
+       {
+        rule_any = {
+            instance = { "scratch" },
+            class = { "scratch" },
+            icon_name = { "scratchpad_st" },
+        },
+        properties = {
+            skip_taskbar = false,
+            floating = true,
+            ontop = false,
+            minimized = true,
+            sticky = false,
+            width = screen_width * 0.7,
+            height = screen_height * 0.75
+        },
+        callback = function (c)
+            awful.placement.centered(c,{honor_padding = true, honor_workarea=true})
+            gears.timer.delayed_call(function()
+                c.urgent = false
+            end)
+        end
+    },
+
 
     -- Titlebars
     { rule_any = { type = { "dialog", "normal" } },

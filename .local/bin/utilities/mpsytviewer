@@ -29,6 +29,7 @@ while IFS= read -r line
 done <<< "$result"
 ) | sed 's/<RETURN>/\n/g' | sed 's/^[ ]//' | rofi -dmenu -config /usr/share/rofi/themes/ytbarResult.rasi -p "Youtube Results:  ")
 
+
 while IFS= read -r line
   do
     if [[ $line == *'title="'* && $line == *'href="'* && $line == *'data-sessionlink="'* && $line != *'u003'* && $line != *'title="__title__"'* && $line != *'href="//www.youtube.com/upload"'* ]];
@@ -51,7 +52,11 @@ echo $link
 
 #adding escape sequence just incase
 	if [ "$link" != "" ]; then
-		dunstify -r 455 -u normal "Loading Video, please be patient, it may take some time: " "$title";
+		#youtube-dl --write-thumbnail --skip-download "$link" -o /tmp/yt.jpg
+		youtube-dl --write-thumbnail --skip-download "$link" -o ~/.local/share/mpsytquery/"$title.jpg"
+
+		#dunstify -r 455 -u normal "Loading Video, please be patient, it may take some time:" "$title" -i "/tmp/yt.jpg" ;
+		dunstify -r 455 -u normal "Loading Video, please be patient, it may take some time:" "$title" -i "~/.local/share/mpsytquery/$title.jpg" ;
 	#saving link to clipboard for copy/paste
 	echo "$title" | xsel -ib
 	else
@@ -59,7 +64,7 @@ echo $link
 	fi
 
 echo "$link" | xsel -ib
-echo " ;$link ;$title"  >> $HOME/mpsytHistory
+echo "$link;$title"  >> $HOME/mpsytHistory
 mpv --ytdl-format=22 "$link" || mpv "$link"
 
 fi
