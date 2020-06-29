@@ -1,0 +1,21 @@
+#!/bin/bash
+
+## Downloads Data pool to Locations in /tmp/
+download(){
+# if last access date 1 day old or more, then curl new data
+[[ "$(date +%s) - 3000" -gt "$(stat -c %Y /tmp/landquartweather)" ]] &&
+curl https://www.yr.no/place/Switzerland/Graub%C3%BCnden/Landquart/  1>/dev/null 2>&1 > /tmp/landquartweather
+curl wttr.in/Landquart?format=3 1>/dev/null 2>&1 > /tmp/landquartclimate
+}
+
+#  walensee water temps
+landquart(){
+download
+climate=$(awk {'print $2'} /tmp/landquartclimate)
+temp=$(grep -m 1 Temperature /tmp/landquartweather | awk -F',' {'print $2'} | cut -d' ' -f 3)
+echo "$climate lndqrt $temp°"
+}
+
+
+
+"$@"

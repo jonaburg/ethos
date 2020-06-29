@@ -5,15 +5,15 @@ local wibox = require("wibox")
 local awful = require("awful")
 local watch = require("awful.widget.watch")
 local naughty = require("naughty")
-local bgicon = '/home/jon/.config/awesome/themes/spring/icons/brit.png'
-local bgiconhover = '/home/jon/.config/awesome/themes/spring/icons/britblood.png'
+local fgicon = '/home/jon/.config/awesome/themes/spring/icons/brit.png'
+local fgiconhover = '/home/jon/.config/awesome/themes/spring/icons/britblood.png'
 local overlay = '/home/jon/.config/awesome/themes/spring/icons/harkonnen.png'
 
 
 local image2_widget = wibox.widget {
         widget = wibox.widget.imagebox,
         resize = false,
-        image = bgicon,
+        image = fgicon,
     }
 
 -- Create the text widget
@@ -27,15 +27,15 @@ local death_text = wibox.widget{ -- total dead
 	}
 local red_text = wibox.widget {  -- background holder 1
     		font = "Inconsolata 11",
-		bg = (borders_color),
-		fg = ("#000000"),
+		fg = (borders_color),
+		bg = ("#000000"),
 		temp_text,
 		widget = wibox.container.background,
 	}
 local amount_dead = wibox.widget { -- background holder 2
     		font = "Inconsolata 11",
-		bg = (borders_color),
-		fg = ("#000000"),
+		fg = (borders_color),
+		bg = ("#000000"),
 		death_text,
 		widget = wibox.container.background,
 	}
@@ -52,35 +52,35 @@ layout = wibox.layout.fixed.vertical,
 function set_tag_color1()
 --borders_color = "#719901" .. "35"
 borders_color = "#9BBA5A" .. "75"
-red_text:set_bg(borders_color)
-amount_dead:set_bg(borders_color)
+red_text:set_fg(borders_color)
+amount_dead:set_fg(borders_color)
 end
 
 function set_tag_color2()
 	--yellow
 --borders_color = "#ACAA01" .. "75"
 borders_color = "#B64400"
-red_text:set_bg(borders_color)
-amount_dead:set_bg(borders_color)
+red_text:set_fg(borders_color)
+amount_dead:set_fg(borders_color)
 end
 
 function set_tag_color3()
 borders_color = "#6AC8C0" .. "75"
-red_text:set_bg(borders_color)
-amount_dead:set_bg(borders_color)
+red_text:set_fg(borders_color)
+amount_dead:set_fg(borders_color)
 end
 
 
 function set_tag_color4()
 borders_color = "#6C7AF4" .. "85"
-red_text:set_bg(borders_color)
-amount_dead:set_bg(borders_color)
+red_text:set_fg(borders_color)
+amount_dead:set_fg(borders_color)
 end
 
 function set_tag_color5()
 borders_color = "#C8030F" .. "85"
-red_text:set_bg(borders_color)
-amount_dead:set_bg(borders_color)
+red_text:set_fg(borders_color)
+amount_dead:set_fg(borders_color)
 end
 
 

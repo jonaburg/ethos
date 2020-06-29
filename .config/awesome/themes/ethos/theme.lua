@@ -31,6 +31,9 @@ local theme                                     = {}
 	local windowsvm = require("extra.windowsvm")
 	local waterflowers = require("extra.waterflowers")
 	local redshift = require("extra.redshift")
+	local watertemp = require("extra.watertemp")
+	local worldtemps = require("extra.worldtemps")
+	local cryptomon = require("extra.cryptomon")
 	local mem_widget = require("extra.mem")
 
 theme.default_dir                               = require("awful.util").get_themes_dir() .. "default"
@@ -508,7 +511,7 @@ theme.weather = lain.widget.weather({
     settings = function()
         descr = weather_now["weather"][1]["description"]:lower()
         units = math.floor(weather_now["main"]["temp"])
-        widget:set_markup(markup.fontfg(theme.font, "#000000",  units .. "°C" .. " 🌤" ))
+        widget:set_markup(markup.fontfg(theme.font, "#000000", "🌤 ldqrt " .. units .."°"  ))
     end
 })
 weatherback = wibox.widget.background()
@@ -595,7 +598,7 @@ clockbg:set_bg(borders_color)
 calbox:set_bg(borders_color)
 mentobox:set_bg(borders_color)
 musicbg:set_bg(borders_color)
-weatherback:set_bg(tag_color)
+--weatherback:set_bg(tag_color)
 end
 
 function set_tag_color2()
@@ -612,7 +615,7 @@ clockbg:set_bg(borders_color)
 calbox:set_bg(borders_color)
 mentobox:set_bg(borders_color)
 musicbg:set_bg(borders_color)
-weatherback:set_bg(tag_color)
+--weatherback:set_bg(tag_color)
 end
 
 function set_tag_color3()
@@ -625,7 +628,7 @@ clockbg:set_bg(borders_color)
 calbox:set_bg(borders_color)
 mentobox:set_bg(borders_color)
 musicbg:set_bg(borders_color)
-weatherback:set_bg(tag_color)
+--weatherback:set_bg(tag_color)
 end
 
 function set_tag_color4()
@@ -637,7 +640,7 @@ clockbg:set_bg(borders_color)
 calbox:set_bg(borders_color)
 mentobox:set_bg(borders_color)
 musicbg:set_bg(borders_color)
-weatherback:set_bg(tag_color)
+--weatherback:set_bg(tag_color)
 end
 
 function set_tag_color5()
@@ -649,7 +652,7 @@ clockbg:set_bg(borders_color)
 calbox:set_bg(borders_color)
 musicbg:set_bg(borders_color)
 mentobox:set_bg(borders_color)
-weatherback:set_bg(tag_color)
+--weatherback:set_bg(tag_color)
 end
 --
 screen[1]:connect_signal("tag1", set_tag_color1 )
@@ -676,15 +679,20 @@ screen[1]:connect_signal("tag9", set_tag_color3 )
 
 --additional widgets
 
-uptimebox = wibox.container.margin(uptime_widget, dpi(1), dpi(1), dpi(5),dpi(5)) -- uptime box
+uptimebox = wibox.container.margin(uptime_widget, dpi(0), dpi(0), dpi(-12),dpi(5)) -- uptime box
 logobox = wibox.container.margin(test_widget, dpi(25), dpi(25), dpi(5),dpi(15)) -- logo icon box (oot icons)
 --coronaukholder = wibox.container.background(coronauk_widget, dpi(5), dpi(5), dpi(15),dpi(15), gears.shape.octagon) -- corona icon box
+
+cryptomonholder = wibox.container.margin(cryptomon, dpi(10), dpi(10), dpi(0), dpi(-15))
+worldtempsholder = wibox.container.margin(worldtemps, dpi(0), dpi(0), dpi(0), dpi(-15))
+watertempholder = wibox.container.margin(watertemp, dpi(0), dpi(0), dpi(1), dpi(10))
+
 coronaukholder = wibox.container.background(coronaca_widget, (side_color), rect) -- corona icon box
 coronaukbox = wibox.widget{{
 	    left   = 0,
             right  = 0,
-            top    = 40,
-            bottom = 0,
+            top    = 10,
+            bottom = 10,
             widget = wibox.container.margin
         },
 coronaukholder,
@@ -734,7 +742,7 @@ winbox:buttons(awful.util.table.join( -- left click to spawn newsboat
 		end)
 		))
 
-systrayholder = wibox.container.margin(wibox.widget.systray(), dpi(10), dpi(10), dpi(5),dpi(5)) -- windows icon box
+systrayholder = wibox.container.margin(wibox.widget.systray(), dpi(10), dpi(10), dpi(5),dpi(-30)) -- windows icon box
 
 flowerbox = wibox.container.margin(waterflowers, dpi(2), dpi(2), dpi(15),dpi(2)) -- windows icon box
 winflower = wibox.widget{
@@ -760,7 +768,7 @@ s.mytaglist = awful.widget.taglist(s, awful.widget.taglist.filter.all, awful.uti
     	--filter = awful.widget.tasklist.filter.focused,
   	buttons = awful.util.tasklist_buttons,
    	style = {
-	    shape_border_width = 1,
+	    shape_border_width = 2,
 	    shape_border_color = '#777777',
 	    shape = gears.shape.octogon,
         },
@@ -821,6 +829,7 @@ s.mysidewibox:setup {
 --	  clockwidget2,
 --	  transquare,
 	   calbox,
+	   cryptomonholder,
 --          wibox.widget.systray(),
 	  systrayholder,
 --  transquare,
@@ -844,7 +853,9 @@ s.mysidewibox:setup {
 	  coronaukbox,
 	  uptimebox, -- contains uptime_widget
 --	  theme.weather.widget,
-	  weatherback, -- weather background
+	  --weatherback, -- weather background
+	  worldtempsholder,
+	  watertempholder,
 --	  test_widget,
           volumewidget,
 --          musicwidget,
