@@ -1,9 +1,7 @@
 sw_volume: 96
 audio_device_state:1:pulse audio
 audio_device_state:1:toggle_visualizer
-state: pause
-current: 0
-time: 62.391000
+state: stop
 random: 0
 repeat: 0
 single: 0
@@ -13,4 +11,59 @@ mixrampdb: 0.000000
 mixrampdelay: -1.000000
 playlist_begin
 0:C in Corporate Diner/Missouri 2nd/Missouri 2nd - C in Corporate Diner - 04 The Headcount.mp3
+1:C in Corporate Diner/Missouri 2nd/Missouri 2nd - C in Corporate Diner - 05 Sordid Mess.mp3
+2:C in Corporate Diner/Mis/Misery Chick - From Nowhere- To Back Here - 01 Not Drinking Booze Blues.mp3
+3:C in Corporate Diner/Mis/Misery Chick - From Nowhere- To Back Here - 02 Excuse me... Is this coffee anarchist-.mp3
+4:C in Corporate Diner/Mis/Misery Chick - From Nowhere- To Back Here - 03 Trans-Pacific Ho-Down(Alive song).mp3
+5:C in Corporate Diner/Mis/Misery Chick - From Nowhere- To Back Here - 04 Extra song that is so garbage if you've made it here you're a true friend. I can kinda shred tho.mp3
+6:C in Corporate Diner/Mis/Misery Chick - From Nowhere- To Back Here - 01 Not Drinking Booze Blues.mp3
+7:C in Corporate Diner/Mis/Misery Chick - From Nowhere- To Back Here - 02 Excuse me... Is this coffee anarchist-.mp3
+8:C in Corporate Diner/Mis/Misery Chick - From Nowhere- To Back Here - 03 Trans-Pacific Ho-Down(Alive song).mp3
+9:C in Corporate Diner/Mis/Misery Chick - From Nowhere- To Back Here - 04 Extra song that is so garbage if you've made it here you're a true friend. I can kinda shred tho.mp3
+10:C in Corporate Diner/Mis/Misery Chick - From Nowhere- To Back Here - 01 Not Drinking Booze Blues.mp3
+11:C in Corporate Diner/Mis/Misery Chick - From Nowhere- To Back Here - 02 Excuse me... Is this coffee anarchist-.mp3
+12:C in Corporate Diner/Mis/Misery Chick - From Nowhere- To Back Here - 03 Trans-Pacific Ho-Down(Alive song).mp3
+13:C in Corporate Diner/Mis/Misery Chick - From Nowhere- To Back Here - 04 Extra song that is so garbage if you've made it here you're a true friend. I can kinda shred tho.mp3
+14:C in Corporate Diner/Missouri 2nd/Missouri 2nd - C in Corporate Diner - 01 Left is America right-.mp3
+15:C in Corporate Diner/Missouri 2nd/Missouri 2nd - C in Corporate Diner - 02 If We Were Cowboys We'd Both Be Dead.mp3
+16:C in Corporate Diner/Missouri 2nd/Missouri 2nd - C in Corporate Diner - 03 Freedom Song.mp3
+17:C in Corporate Diner/Missouri 2nd/Missouri 2nd - C in Corporate Diner - 04 The Headcount.mp3
+18:C in Corporate Diner/Missouri 2nd/Missouri 2nd - C in Corporate Diner - 05 Sordid Mess.mp3
+19:C in Corporate Diner/Missouri 2nd/Missouri 2nd - C in Corporate Diner - 06 Proudhon In Manhattan.mp3
+20:C in Corporate Diner/Missouri 2nd/Missouri 2nd - C in Corporate Diner - 07 Communist Kid.mp3
+21:C in Corporate Diner/Missouri 2nd/Only Trains Will Bump In The Night.m4a
+22:C in Corporate Diner/Missouri 2nd/Missouri 2nd - C in Corporate Diner.zip/Missouri 2nd - C in Corporate Diner - 01 Left is America right-.mp3
+23:C in Corporate Diner/Missouri 2nd/Missouri 2nd - C in Corporate Diner.zip/Missouri 2nd - C in Corporate Diner - 02 If We Were Cowboys We'd Both Be Dead.mp3
+24:C in Corporate Diner/Missouri 2nd/Missouri 2nd - C in Corporate Diner.zip/Missouri 2nd - C in Corporate Diner - 03 Freedom Song.mp3
+25:C in Corporate Diner/Missouri 2nd/Missouri 2nd - C in Corporate Diner.zip/Missouri 2nd - C in Corporate Diner - 04 The Headcount.mp3
+26:C in Corporate Diner/Missouri 2nd/Missouri 2nd - C in Corporate Diner.zip/Missouri 2nd - C in Corporate Diner - 05 Sordid Mess.mp3
+27:C in Corporate Diner/Missouri 2nd/Missouri 2nd - C in Corporate Diner.zip/Missouri 2nd - C in Corporate Diner - 06 Proudhon In Manhattan.mp3
+28:C in Corporate Diner/Missouri 2nd/Missouri 2nd - C in Corporate Diner.zip/Missouri 2nd - C in Corporate Diner - 07 Communist Kid.mp3
+29:Rooftops/A Forest of Polarity/6 - Tear As I Fly.mp3
+30:Rooftops/A Forest of Polarity/1 - Fiery Atlas (Intro).mp3
+31:Rooftops/A Forest of Polarity/2 - Astray Life.mp3
+32:Rooftops/A Forest of Polarity/3 - I Fast Early.mp3
+33:Rooftops/A Forest of Polarity/4 - Raft Easily.mp3
+34:Rooftops/A Forest of Polarity/5 - Year As Lift.mp3
+35:Rooftops/A Forest of Polarity/6 - Tear As I Fly.mp3
+36:Rooftops/A Forest of Polarity/7 - A Layer Fits.mp3
+37:Rooftops/A Forest of Polarity/8 - Leafy Stair.mp3
+38:Rooftops/A Forest of Polarity/9 - Era Falsity.mp3
+39:Rooftops/A Forest of Polarity/10 - Sea Frailty.mp3
+40:2019/April/deaddogstwo.opus
+41:2019/March/Turquoise Hexagon Sun.m4a
+42:2019/March/Zoetrope.ogg
+43:2019/April/deaddogstwo.opus
+44:2019/March/Turquoise Hexagon Sun.m4a
+45:2019/March/Zoetrope.ogg
+46:HangingTreeAlgorithm/Eclipse/Hanging Tree Algorithm - Eclipse - 01 Eclipse 1.mp3
+47:HangingTreeAlgorithm/Eclipse/Hanging Tree Algorithm - Eclipse - 02 Eclipse 2.mp3
+48:HangingTreeAlgorithm/Eclipse/Hanging Tree Algorithm - Eclipse - 03 Four Point Seven Point Two.mp3
+49:Standing On The Corner/Red Burns/Standing On The Corner - RED BURNS - 01 Side X.mp3
+50:2019/May/HOME - PEE IS STORED INTHEBALLS - 03 Chicken Soup.mp3
+51:2019/May/HOME - PEE IS STORED INTHEBALLS - 06 Handshake.mp3
+52:2019/May/HOME - PEE IS STORED INTHEBALLS - 10 Joy Division Shirt.mp3
+53:2019/May/HOME - PEE IS STORED INTHEBALLS - 11 Completely Still.mp3
+54:2019/May/HOME - PEE IS STORED INTHEBALLS - 14 Easter Island.mp3
+55:2019/May/HOME - PEE IS STORED INTHEBALLS - 15 Goodnight Bean.mp3
 playlist_end

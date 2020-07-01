@@ -535,23 +535,45 @@ local transquare = wibox.widget.imagebox(theme.transquare)
 local transquaresmall = wibox.widget.imagebox(theme.transquaresmall)
 local bottom_bar = wibox.widget.imagebox(theme.bottom_bar)
 
---HOW TO MAKE A GRADIENT
+
+
+--gradients
+-- tasklist gradient
 local barcolor  = gears.color({
     type  = "linear",
     from  = { dpi(32), 0 },
     to    = { dpi(32), dpi(32) },
     stops = { {0, theme.bg_focus}, {0.25, "#595959"}, {1, theme.bg_focus} }
 })
-
----- ANOTHER gradient
---local barcolor2  = gears.color({
+-- BLUE linear gradient
+local bluelingrad  = gears.color({
+    type  = "linear",
+    from  = { dpi(32), 0 },
+    to    = { dpi(52), dpi(42) },
+    stops = { {0.2, "#89a0a8" .. "50"}, {0.45, "#A0C1E2" .. "70"} }
+})
+-- RED linear gradient
+local redlingrad  = gears.color({
+    type  = "linear",
+    from  = { dpi(32), dpi(42) },
+    to    = { dpi(24) , dpi(32) },
+    stops = { {0.2, "#aa0002" .. "75"}, {1000, "#D95B67" .. "50"} }
+})
+---- redshift radial gradient (redbg)
+--local redgrad  = gears.color({
 --  type = "radial",
--- -- from = { 5, 70, 40 },
--- -- to = { 90, 90, 30 },
---  from = { 0, 0, 0 },
---  to = { 0, 90, 0 },
---  stops = { { 70, "#ff0000" }, { 0.5, "#00ff00" }, { 1000, "#0000ff" } }
+--  from = { 5, 70, 40 },
+--  to = { 90, 90, 30 },
+--  stops = { { 70, "#ff0000" }, { 35, "#00ff00" }, { 1000, "#0000ff" } }
+--})
 --
+---- redshift radial gradient (bluefg)
+--local bluegrad  = gears.color({
+--  type = "radial",
+--  from = { 53, 50, 50 },
+--  to = { 50, 50, 50 },
+----  stops = { { 40, "#ff0000" }, { 85, "#00ff00" }, { 73, "#0000ff" } }
+--  stops = { { 40, "#68a9df" }, { 35, "#68a9df" }, { 73, "#68a9df" } }
 --})
 
 function theme.at_screen_connect(s)
@@ -593,7 +615,7 @@ borders_color = "#719901" .. "55"
 tag_color = "#719901"
 theme.border_focus                              = "#A7E28B" .. "05"
 volumewidget:set_color(borders_color)
---theme.volume:colors.unmute(tag_color)
+--theme.volume.bar:alsabar.colors.unmute(tag_color)
 clockbg:set_bg(borders_color)
 calbox:set_bg(borders_color)
 mentobox:set_bg(borders_color)
@@ -751,6 +773,11 @@ flowerbox,
 layout = wibox.layout.fixed.horizontal,
 }
 
+-- Redshift Bar
+--redshiftholder = wibox.container.margin(redshift({ main_color = barcolor, forced_height = 1, mute_color = '#ff0000', margins = 0.1, shape = 'hexagon',}), dpi(2), dpi(2), dpi(0),dpi(15))
+redshiftholder = wibox.container.margin(redshift({ main_color = bluelingrad, background_color = redlingrad, margins = 0.05, shape = 'hexagon',}), dpi(25), dpi(25), dpi(0),dpi(15))
+--redshiftholder = wibox.container.margin(redshift({ forced_height = 1,  margins = 0.1, shape = 'hexagon',}), dpi(25), dpi(25), dpi(0),dpi(15))
+
 -- Create a taglist widget
 s.mytaglist = awful.widget.taglist(s, awful.widget.taglist.filter.all, awful.util.taglist_buttons, { bg_focus = barcolor })
   mytaglistcont = wibox.container.background(s.mytaglist, theme.bg_focus, gears.shape.powerline )
@@ -815,6 +842,7 @@ s.mytaglist = awful.widget.taglist(s, awful.widget.taglist.filter.all, awful.uti
 }
 
 
+
 function vertical_wibox(s)
 -- specifying sidebar wibox
 if s.index == 1
@@ -832,6 +860,7 @@ s.mysidewibox:setup {
 	   cryptomonholder,
 --          wibox.widget.systray(),
 	  systrayholder,
+	  redshiftholder,
 --  transquare,
 --        wibox.widget.systray(),
         },

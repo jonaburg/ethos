@@ -67,6 +67,9 @@ sudo ddcutil setvcp --bus 4 10 $num2
 fi
 }
 
+value(){
+	echo $(< /home/jon/.local/bin/utilities/RV)
+}
 
 
 "$@"

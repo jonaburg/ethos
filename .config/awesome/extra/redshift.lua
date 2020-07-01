@@ -1,109 +1,111 @@
 -------------------------------------------------
--- red shifter
+-- Redshift Bar Widget for Awesome Window Manager
+-- Shows the current color temperature
+-- to be used with shifter (utilities/shifter)
+
+-- @author Jon Burga
+-- @copyright 2020 Jon Burga
 -------------------------------------------------
-local gears = require("gears")
-local lain  = require("lain")
+
 local awful = require("awful")
+local beautiful = require("beautiful")
+local gears = require("gears")
+local spawn = require("awful.spawn")
 local watch = require("awful.widget.watch")
 local wibox = require("wibox")
-local dpi   = require("beautiful.xresources").apply_dpi
-local math, string, tag, tonumber, type, os = math, string, tag, tonumber, type, os
-local naughty = require("naughty")
-local theme_assets = require("beautiful.theme_assets")
-local string, os = string, os
-local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
-local gfs = require("gears.filesystem")
-local themes_path = gfs.get_themes_dir()
-local theme                                     = {}
 
 
-local checkgamma = [[bash -c 'cat /home/jon/.local/bin/utilities/RV']]
+local GET_WARMTH_CMD = '/home/jon/.local/bin/utilities/shifter value'
+local INC_WARMTH_CMD = '/home/jon/.local/bin/utilities/shifter warmer'
+local DEC_WARMTH_CMD = '/home/jon/.local/bin/utilities/shifter colder'
 
-function readgamma ()
-	awful.spawn.easy_async([[bash -c 'cat /home/jon/.local/bin/utilities/RV']],
-	function (stdout,stderr,reason,exit_code)
-		_G.colortemp = tostring(stdout) or 0
-		naughty.notify{
-		text = stdout,
-		title = "",
-		timeout = 10, hover_timeout = 1,
-		width = 500,
-		position = 'top_middle',
-		}
-	end)
-end
+local widget = {}
 
+local function worker(args)
 
-function readctglobal ()
-		naughty.notify{
-		text = _G.colortemp,
-		title = "",
-		timeout = 10, hover_timeout = 1,
-		width = 500,
-		position = 'top_middle',
-		}
-end
+    local args = args or {}
 
+    local main_color = args.main_color
+    local background_color = args.background_color or beautiful.bg_urgent
+    local width = args.width or 20
+    local height = args.height or 100
+    local forced_height = args.forced_height or 1
+    local shape = args.shape or 'bar'
+    local margins = args.margins or 750
 
-function setinfo()
-	red_bar:set_value(_G.colortemp)
-	temp_text:set_text("   " .. _G.colortemp or nil)
-end
+    local get_warmth_cmd = args.get_warmth_cmd or GET_WARMTH_CMD
+    local inc_warmth_cmd = args.inc_warmth_cmd or INC_WARMTH_CMD
+    local dec_warmth_cmd = args.dec_warmth_cmd or DEC_WARMTH_CMD
 
---local colortemp = tostring(stdout) or 0
-
---watch(readgamma, 2)
----function getgamma()
---	--awful.spawn.easy_async([[bash -c 'cat ~/.local/bin/utilities/RV']],
---function (widget, stdout, stderr, exitreason, exitcode)
---	local colortemp = tostring(stdout) or 0
---	end
---end)
---
-
-
-local colortemp = 6750
---local colortemp = 6750
--- Create the text widget
-temp_text = wibox.widget{
-	    font = "Inconsolata 9",
-		text = "    " .. colortemp,
-	        widget = wibox.widget.textbox,
-	}
-back_box = wibox.widget{
-   	        font = "Inconsolata 9",
-		fg = "#000000",
-		bg = "#ffffff",
-		temp_text,
-		shape = gears.shape.hexagon,
-		widget = wibox.container.background,
-	}
-
--- Create the bar widget
-red_bar = wibox.widget{
-        max_value     = 6750,
-        value         = colortemp,
-        forced_height = 10,
-        forced_width  = 100,
-        paddings      = 1,
-        border_width  = 1,
-	background_color = "#4433ff",
-        border_color  =  "#ff0000",
-	shape 	      = gears.shape.hexagon,
-        widget        = wibox.widget.progressbar,
+    local redshiftbar_widget = wibox.widget {
+        max_value = 1,
+        forced_width = 1,
+	forced_height = 55,
+--        color = main_color,
+        color = fgcolor,
+--        background_color = '#ffffff11',
+        background_color = bgcolor,
+        shape = gears.shape[shape],
+        margins = {
+            top = margins,
+            bottom = margins,
+        },
+        widget = wibox.widget.progressbar
     }
--- Combine them together
-redshift = wibox.widget{
-red_bar,
-back_box,
-layout = wibox.layout.stack
-}
+
+    local update_graphic = function(widget, stdout, _, _, _)
+        local shift = string.match(stdout, '%d+')   -- (\d?\d?\d)\%)
+        currentval = tonumber(shift)
+        widget.value = currentval/6750;
+        widget.color = main_color
+	widget.background_color = background_color
+
+    end
+
+-- gradient
+local fgcolor  = gears.color({
+  type = "radial",
+  from = { 53, 50, 50 },
+  to = { 50, 50, 50 },
+--  stops = { { 40, "#ff0000" }, { 85, "#00ff00" }, { 73, "#0000ff" } }
+  stops = { { 40, "#68a9df" }, { 35, "#68a9df" }, { 73, "#68a9df" } }
+})
+
+-- ANOTHER gradient
+local bgcolor  = gears.color({
+  type = "radial",
+  from = { 5, 70, 40 },
+  to = { 90, 90, 30 },
+  stops = { { 70, "#ff0000" }, { 35, "#00ff00" }, { 1000, "#0000ff" } }
+})
 
 
+--    local update_graphic = function(widget, stdout, _, _, _)
+--        local shift = string.match(stdout, "(%d?%d?%d)%%")  -- (\d?\d?\d)\%)
+--        shift = tonumber(string.format("% 3d", volume))
+--
+--        widget.value = shift / 100;
+--
+--    end
 
-red_bar:connect_signal("mouse::enter", function() readgamma() end)
-red_bar:connect_signal("mouse::leave", function() setinfo() end)
+    redshiftbar_widget:connect_signal("button::press", function(_, _, _, button)
+        if (button == 4) then
+            awful.spawn(dec_warmth_cmd)
+        elseif (button == 5) then
+            awful.spawn(inc_warmth_cmd)
+        elseif (button == 1) then
+        end
 
--- Export the widget
-return redshift
+        spawn.easy_async(get_warmth_cmd, function(stdout, stderr, exitreason, exitcode)
+            update_graphic(redshiftbar_widget, stdout, stderr, exitreason, exitcode)
+        end)
+    end)
+
+    watch(get_warmth_cmd, 1, update_graphic, redshiftbar_widget)
+    watch(update_graphic, 2)
+
+    return redshiftbar_widget
+end
+
+return setmetatable(widget, { __call = function(_, ...) return worker(...) end })
 

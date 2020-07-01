@@ -29,6 +29,9 @@ screen_height = awful.screen.focused().geometry.height
 local revelation=require("revelation")
 -- termgrp addon
 
+-- radical menues/addon
+local radical = require("radical")
+
 --local termgrp = require('termgrp')
 --	termgrp.terminal = "st"
 --	termgrp.dmenu = "rofi -dmenu"
