@@ -40,7 +40,7 @@ local function worker(args)
     local redshiftbar_widget = wibox.widget {
         max_value = 1,
         forced_width = 1,
-	forced_height = 55,
+	forced_height = 15,
 --        color = main_color,
         color = fgcolor,
 --        background_color = '#ffffff11',

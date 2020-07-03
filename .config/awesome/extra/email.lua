@@ -50,8 +50,8 @@ function(widget, stdout, stderr, exitreason, exitcode)
   local unread_emails_num = tonumber(stdout) or 0
         if (unread_emails_num > 0) then
 	        textbox_widget:set_text( stdout .. " " )
-		mailicon = '/home/jon/.config/awesome/themes/spring2/icons/mailicons/mail.png'
-		image_widget:set_image(mailicon)
+	--	mailicon = '/home/jon/.config/awesome/themes/spring2/icons/mailicons/mail.png'
+	--      image_widget:set_image(mailicon)
         elseif (unread_emails_num == 0) then
 		image_widget:set_image(tag_specific_mailicon )
    	        textbox_widget:set_text(" ")

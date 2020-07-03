@@ -548,16 +548,16 @@ local barcolor  = gears.color({
 -- BLUE linear gradient
 local bluelingrad  = gears.color({
     type  = "linear",
-    from  = { dpi(32), 0 },
-    to    = { dpi(52), dpi(42) },
-    stops = { {0.2, "#89a0a8" .. "50"}, {0.45, "#A0C1E2" .. "70"} }
+    from  = { dpi(12), 0 },
+    to    = { dpi(52), dpi(20) },
+    stops = { {0.1, "#FF1b4d" .. "40"}, {0.45, "#60ebf0" .. "70"} }
 })
 -- RED linear gradient
 local redlingrad  = gears.color({
     type  = "linear",
     from  = { dpi(32), dpi(42) },
     to    = { dpi(24) , dpi(32) },
-    stops = { {0.2, "#aa0002" .. "75"}, {1000, "#D95B67" .. "50"} }
+    stops = { {0.2, "#f06062" .. "35"}, {0.4, "#D95B67" .. "20"} }
 })
 ---- redshift radial gradient (redbg)
 --local redgrad  = gears.color({
@@ -707,7 +707,7 @@ logobox = wibox.container.margin(test_widget, dpi(25), dpi(25), dpi(5),dpi(15)) 
 
 cryptomonholder = wibox.container.margin(cryptomon, dpi(10), dpi(10), dpi(0), dpi(-15))
 worldtempsholder = wibox.container.margin(worldtemps, dpi(0), dpi(0), dpi(0), dpi(-15))
-watertempholder = wibox.container.margin(watertemp, dpi(0), dpi(0), dpi(1), dpi(10))
+watertempholder = wibox.container.margin(watertemp, dpi(0), dpi(0), dpi(1), dpi(-25))
 
 coronaukholder = wibox.container.background(coronaca_widget, (side_color), rect) -- corona icon box
 coronaukbox = wibox.widget{{
@@ -775,7 +775,7 @@ layout = wibox.layout.fixed.horizontal,
 
 -- Redshift Bar
 --redshiftholder = wibox.container.margin(redshift({ main_color = barcolor, forced_height = 1, mute_color = '#ff0000', margins = 0.1, shape = 'hexagon',}), dpi(2), dpi(2), dpi(0),dpi(15))
-redshiftholder = wibox.container.margin(redshift({ main_color = bluelingrad, background_color = redlingrad, margins = 0.05, shape = 'hexagon',}), dpi(25), dpi(25), dpi(0),dpi(15))
+redshiftholder = wibox.container.margin(redshift({ main_color = bluelingrad, background_color = barcolor, margins = 0.05, shape = 'hexagon',}), dpi(15), dpi(15), dpi(-10),dpi(35))
 --redshiftholder = wibox.container.margin(redshift({ forced_height = 1,  margins = 0.1, shape = 'hexagon',}), dpi(25), dpi(25), dpi(0),dpi(15))
 
 -- Create a taglist widget
@@ -879,16 +879,16 @@ s.mysidewibox:setup {
 --	  winflower,
 --	 redshift,
 	  newsandmail,
+	  watertempholder,
 	  coronaukbox,
 	  uptimebox, -- contains uptime_widget
 --	  theme.weather.widget,
 	  --weatherback, -- weather background
 	  worldtempsholder,
-	  watertempholder,
 --	  test_widget,
           volumewidget,
 --          musicwidget,
-          transquaresmall,
+--          transquaresmall,
 	wibox.container.background( wibox.widget {clockwidget,s.mylayoutbox,layout=wibox.layout.fixed.horizontal}, (side_color), gears.shape.octogon ), -- clock & layoutbox with shape
           transquaresmall,
 --	 logobox,

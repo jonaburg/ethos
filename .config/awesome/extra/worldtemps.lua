@@ -90,7 +90,7 @@ screen[1]:connect_signal("tag5", set_tag_color5 )
 
 local catter = [[bash -c '/home/jon/.local/bin/utilities/worldtemps landquart']]
 watch (
-	catter,3600,
+	catter,1200,
 	function(_, stdout, stderr, reason, exit_code)
 --	landquart_text:set_text( "🌤 lndqrt " .. stdout)
 	landquart_text:set_text( "" .. stdout)
