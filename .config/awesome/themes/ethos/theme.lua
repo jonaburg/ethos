@@ -68,7 +68,8 @@ xres_files = {
 	"seaside",   -- 8
 	"glass",   -- 9
 	"darkblue",  -- 10
-	"heath"  -- 11
+	"heath",  -- 11
+	"forest"  -- 12
 }
 
 -- per tag wallpapers && xresources...
@@ -89,11 +90,11 @@ elseif awful.tag.selected(1).name == "3"
 	     screen[1]:emit_signal("tag3")
 elseif awful.tag.selected(1).name == "4"
 	then gears.wallpaper.maximized(wp_path .. wp_files[4], 1, true)
-	     awful.spawn( 'xrdb -load ' .. xres_path .. xres_files[1]  )
+	     awful.spawn( 'xrdb -load ' .. xres_path .. xres_files[10]  )
 	     screen[1]:emit_signal("tag4")
 elseif awful.tag.selected(1).name == "5"
 	then gears.wallpaper.maximized(wp_path .. wp_files[5], 1, true)
-	     awful.spawn( 'xrdb -load ' .. xres_path .. xres_files[10]  )
+	     awful.spawn( 'xrdb -load ' .. xres_path .. xres_files[12]  )
 	     screen[1]:emit_signal("tag5")
 elseif awful.tag.selected(1).name == "6"
 	then gears.wallpaper.maximized(wp_path .. wp_files[6], 1, true)

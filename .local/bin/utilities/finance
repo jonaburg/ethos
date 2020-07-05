@@ -1,6 +1,9 @@
 #!/bin/bash
 
 download(){
+if [ ! -d ~/.cache/finance ]; then
+	mkdir ~/.cache/finance
+fi
 [ "$(stat -c %y /tmp/finance/btc | cut -d ' ' -f1 )" != "$(date '+%Y-%m-%d')" ]  &&
 coinmon -f BTC | grep BTC > /tmp/finance/btc
 [[ "$(date +%s) - 3000" -gt "$(stat -c %Y /tmp/finance/tft)" ]] &&

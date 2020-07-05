@@ -1,7 +1,9 @@
 sw_volume: 96
 audio_device_state:1:pulse audio
 audio_device_state:1:toggle_visualizer
-state: stop
+state: play
+current: 16
+time: 4.029000
 random: 0
 repeat: 0
 single: 0
@@ -10,4 +12,30 @@ crossfade: 0
 mixrampdb: 0.000000
 mixrampdelay: -1.000000
 playlist_begin
+0:2019/April/deaddogstwo.opus
+1:2020/April/Carpenter Brut - Trilogy.ogg
+2:Chon - Homey (2017) FLAC/01. Sleepy Tea.flac
+3:Chon - Homey (2017) FLAC/02. Waterslide.flac
+4:Chon - Homey (2017) FLAC/03. Berry Streets (feat. GoYama).flac
+5:Chon - Homey (2017) FLAC/04. No Signal.flac
+6:Chon - Homey (2017) FLAC/05. Checkpoint.flac
+7:Chon - Homey (2017) FLAC/06. Nayhoo (feat. Masego & Lophile).flac
+8:Chon - Homey (2017) FLAC/07. Here and There.flac
+9:Chon - Homey (2017) FLAC/08. The Space.flac
+10:Chon - Homey (2017) FLAC/09. Feel This Way (feat. Giraffage).flac
+11:Chon - Homey (2017) FLAC/10. Continue.flac
+12:Chon - Homey (2017) FLAC/11. Glitch (feat. ROM).flac
+13:Chon - Homey (2017) FLAC/12. Wave Bounce.flac
+14:Single Songs/11 - Red Moon Lagoon.mp3
+15:he - Three lines on Paper [2010.03.24] [192kbps]/01 tracks and noise.mp3
+16:he - Three lines on Paper [2010.03.24] [192kbps]/02 L.O.mp3
+17:he - Three lines on Paper [2010.03.24] [192kbps]/03 float.mp3
+18:he - Three lines on Paper [2010.03.24] [192kbps]/04 fade away.mp3
+19:he - Three lines on Paper [2010.03.24] [192kbps]/05 sweet violet.mp3
+20:he - Three lines on Paper [2010.03.24] [192kbps]/06 hours.mp3
+21:he - Three lines on Paper [2010.03.24] [192kbps]/07 sleet.mp3
+22:he - Three lines on Paper [2010.03.24] [192kbps]/08 answer me.mp3
+23:he - Three lines on Paper [2010.03.24] [192kbps]/09 whitebait curry bread.mp3
+24:he - Three lines on Paper [2010.03.24] [192kbps]/10 ambient lighting.mp3
+25:he - Three lines on Paper [2010.03.24] [192kbps]/11 [Secret Track].mp3
 playlist_end

@@ -3,22 +3,34 @@
 ## Downloads Data pool to Locations in Temp
 download(){
 # if last access date 1 day old or more, then curl new data
-[ "$(stat -c %y /tmp/walenseetemp | cut -d ' ' -f1 )" != "$(date '+%Y-%m-%d')" ]  &&
-curl https://www.boat24.ch/chen/service/temperaturen/walensee/  1>/dev/null 2>&1 > /tmp/walenseetemp
-curl https://www.boat24.ch/chen/service/temperaturen/lakeofzurich/ 1>/dev/null 2>&1 > /tmp/zurichtemp
+[ "$(stat -c %y /tmp/walenseewtemp | cut -d ' ' -f1 )" != "$(date '+%Y-%m-%d')" ]  &&
+curl https://www.boat24.ch/chen/service/temperaturen/walensee/ 1>/dev/null 2>&1 > /tmp/walenseewtemp
+
+[ "$(stat -c %y /tmp/zurichwtemp | cut -d ' ' -f1 )" != "$(date '+%Y-%m-%d')" ]  &&
+curl https://www.boat24.ch/chen/service/temperaturen/lakeofzurich/ 1>/dev/null 2>&1 > /tmp/zurichwtemp
 }
+
+[ "$(stat -c %y /tmp/zugwtemp | cut -d ' ' -f1 )" != "$(date '+%Y-%m-%d')" ]  &&
+curl https://www.boat24.ch/chen/service/temperaturen/zugersee/ 1>/dev/null 2>&1 > /tmp/zugwtemp
 
 #  walensee water temps
 walensee(){
 download
-temp=$(grep Today /tmp/walenseetemp | grep "td class=\"temp\"" |  sed 's/>/\n/g' | grep -m 1 deg | cut -d '&' -f 1)
+temp=$(grep Today /tmp/walenseewtemp | grep "td class=\"temp\"" |  sed 's/>/\n/g' | grep -m 1 deg | cut -d '&' -f 1)
 echo "$temp°"
 }
 
 zurich(){
 # lake of zurich water temps
 download
-temp=$(grep Today /tmp/zurichtemp | grep "td class=\"temp\"" |  sed 's/>/\n/g' | grep -m 1 deg | cut -d '&' -f 1)
+temp=$(grep Today /tmp/zurichwtemp | grep "td class=\"temp\"" |  sed 's/>/\n/g' | grep -m 1 deg | cut -d '&' -f 1)
+echo "$temp°"
+}
+
+zug(){
+# lake of zurich water temps
+download
+temp=$(grep Today /tmp/zugwtemp | grep "td class=\"temp\"" |  sed 's/>/\n/g' | grep -m 1 deg | cut -d '&' -f 1)
 echo "$temp°"
 }
 

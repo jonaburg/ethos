@@ -15,6 +15,6 @@ mpdupdate &
 caffeine &
 barrier &
 dropbox &
-nm-applet &
+#nm-applet & # don't need this on my desktop..
 
 xrdb .Xresources
