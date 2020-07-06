@@ -1,11 +1,13 @@
 #!/bin/bash
 
 reset(){
-pidof compton 2>&1 /dev/null && kill `pidof compton`; compton &
+#pidof compton 2>&1 /dev/null && kill `pidof compton`; compton &
+pidof picom 2>&1 /dev/null && killall picom || ~/Work/Compositing/picom/build/src/picom --config ~/.config/picom.conf.2 --experimental-backend &
 }
 
 toggle(){
-pidof compton 2>&1 /dev/null && killall compton || compton &
+#pidof compton 2>&1 /dev/null && killall compton || compton &
+pidof picom 2>&1 /dev/null && killall picom || ~/Work/Compositing/picom/build/src/picom --config ~/.config/picom.conf.2 --experimental-backend &
 }
 
 check(){

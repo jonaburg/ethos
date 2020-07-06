@@ -3,8 +3,7 @@
 -- Shows the current color temperature
 -- to be used with shifter (utilities/shifter)
 
--- @author Jon Burga
--- @copyright 2020 Jon Burga
+-- @Jon Burga 2020
 -------------------------------------------------
 
 local awful = require("awful")
@@ -102,7 +101,7 @@ local bgcolor  = gears.color({
     end)
 
     watch(get_warmth_cmd, 1, update_graphic, redshiftbar_widget)
-    watch(update_graphic, 2)
+    watch(update_graphic, 1)
 
     return redshiftbar_widget
 end

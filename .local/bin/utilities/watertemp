@@ -34,5 +34,15 @@ temp=$(grep Today /tmp/zugwtemp | grep "td class=\"temp\"" |  sed 's/>/\n/g' | g
 echo "$temp°"
 }
 
+all(){
+ws=$(grep Today /tmp/walenseewtemp | grep "td class=\"temp\"" |  sed 's/>/\n/g' | grep -m 1 deg | cut -d '&' -f 1)
+zrh=$(grep Today /tmp/zurichwtemp | grep "td class=\"temp\"" |  sed 's/>/\n/g' | grep -m 1 deg | cut -d '&' -f 1)
+zg=$(grep Today /tmp/zugwtemp | grep "td class=\"temp\"" |  sed 's/>/\n/g' | grep -m 1 deg | cut -d '&' -f 1)
+
+echo "Walensee: $ws"
+echo "Zurich: $zrh"
+echo "Zug: $zg"
+}
+
 
 "$@"

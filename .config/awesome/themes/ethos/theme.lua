@@ -65,11 +65,12 @@ xres_files = {
 	"lavaside",   -- 5
 	"lambdaneutral",   -- 6
 	"bespin",   -- 7
-	"seaside",   -- 8
+	"seaside",   -- 8 (greenish)
 	"glass",   -- 9
 	"darkblue",  -- 10
 	"heath",  -- 11
-	"forest"  -- 12
+	"forest",  -- 12
+	"qualitative",  -- 13 (blackish modern)
 }
 
 -- per tag wallpapers && xresources...
@@ -78,7 +79,7 @@ xres_files = {
 screen[1]:connect_signal("tag::history::update", function()
        if awful.tag.selected(1).name == "1" then
              gears.wallpaper.maximized(wp_path .. wp_files[1], 1, true)
-	     awful.spawn( 'xrdb -load ' .. xres_path .. xres_files[8]  )
+	     awful.spawn( 'xrdb -load ' .. xres_path .. xres_files[13]  )
 	     screen[1]:emit_signal("tag1")
 elseif awful.tag.selected(1).name == "2"
 	then gears.wallpaper.maximized(wp_path .. wp_files[2], 1, true)
@@ -848,7 +849,7 @@ function vertical_wibox(s)
 -- specifying sidebar wibox
 if s.index == 1
 --then s.mysidewibox = awful.wibar ({ position = "right", screen = s, width = 110, x=0,y=0, bg = side_color,  border_width = dpi(0), height = s.workarea.height/1, type = "dock" }) -- without shape
-then s.mysidewibox = awful.wibar ({ position = "right", screen = s, width = 110, x=0,y=0, bg = "#0f0f0f",  border_width = dpi(0), height = s.workarea.height/1, type = "dock" }) -- without shape
+then s.mysidewibox = awful.wibar ({ position = "right", screen = s, width = 115, x=0,y=0, bg = "#0f0f0f",  border_width = dpi(0), height = s.workarea.height/1, type = "dock" }) -- without shape
 -- Add widgets to the side wibox
 s.mysidewibox:setup {
         layout = wibox.layout.align.vertical,

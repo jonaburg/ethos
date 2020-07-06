@@ -452,12 +452,12 @@ globalkeys = my_table.join(
 
 --    awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end,
 --              {description = "swap with next client by index", group = "client"}),
-    awful.key({ modkey, "Shift"   }, "k", function () awful.client.swap.byidx( -1)    end,
-              {description = "swap with previous client by index", group = "client"}),
---    awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end,
---              {description = "swap with next client by index", group = "client"}),
 --    awful.key({ modkey, "Shift"   }, "k", function () awful.client.swap.byidx( -1)    end,
 --              {description = "swap with previous client by index", group = "client"}),
+    awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end,
+              {description = "swap with next client by index", group = "client"}),
+    awful.key({ modkey, "Shift"   }, "k", function () awful.client.swap.byidx( -1)    end,
+              {description = "swap with previous client by index", group = "client"}),
 --    awful.key({ modkey, "Control" }, "j", function () awful.screen.focus_relative( 1) end,
 --              {description = "focus the next screen", group = "screen"}),
 --    awful.key({ modkey, "Control" }, "k", function () awful.screen.focus_relative(-1) end,
@@ -577,6 +577,27 @@ globalkeys = my_table.join(
     awful.key({ }, "XF86MonBrightnessDown", function () os.execute("xbacklight -dec 10") end,
               {description = "-10%", group = "hotkeys"}),
 
+    -- Volume (physical keyboard)
+    awful.key({ }, "XF86AudioRaiseVolume",
+    function ()
+	    os.execute(string.format("amixer -q set %s 1%%+", beautiful.volume.channel))
+            beautiful.volume.update()
+        end,
+        {description = "+10% volume", group = "hotkeys"}),
+
+    awful.key({ }, "XF86AudioLowerVolume",
+        function ()
+            os.execute(string.format("amixer -q set %s 1%%-", beautiful.volume.channel))
+            beautiful.volume.update()
+        end,
+        {description = "-10% volume", group = "hotkeys"}),
+    awful.key({ }, "XF86AudioMute",
+        function ()
+            os.execute(string.format("amixer -q set %s toggle", beautiful.volume.togglechannel or beautiful.volume.channel))
+            beautiful.volume.update()
+        end,
+        {description = "toggle mute", group = "hotkeys"}),
+
     -- ALSA volume control
     awful.key({ modkey }, "=",
     function ()
@@ -634,6 +655,8 @@ globalkeys = my_table.join(
             beautiful.mpd.update()
         end,
         {description = "mpc next", group = "widgets"}),
+
+    -- Some MPD toggle notification
     awful.key({ altkey }, "0",
         function ()
             local common = { text = "MPD widget ", position = "top_middle", timeout = 2 }
