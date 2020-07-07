@@ -22,6 +22,7 @@ rsync -av ~/.config/sxhkd ~/.local/backups/.config/
 rsync -av ~/.config/sxiv ~/.local/backups/.config/
 rsync -av ~/.config/zathura ~/.local/backups/.config/
 rsync -av ~/.config/compton.conf ~/.local/backups/.config/
+rsync -av ~/.config/picom.conf ~/.local/backups/.config/
 rsync -av ~/.config/emoji ~/.local/backups/.config/
 rsync -av ~/.config/fontawesome ~/.local/backups/.config/
 

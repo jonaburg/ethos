@@ -99,9 +99,9 @@ local themes = {
     "vertex",          -- 10
     "jontheme",        -- 11
     "winter",          -- 12
-    "spring",          -- 13
-    "spring2",          -- 14
-    "ethos",          -- 15
+    "spring",          -- 13 --broken?
+    "spring2",         -- 14
+    "ethos",           -- 15
 }
 
 local chosen_theme = themes[15]

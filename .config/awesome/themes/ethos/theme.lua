@@ -766,7 +766,7 @@ winbox:buttons(awful.util.table.join( -- left click to spawn newsboat
 		end)
 		))
 
-systrayholder = wibox.container.margin(wibox.widget.systray(), dpi(10), dpi(10), dpi(5),dpi(-30)) -- windows icon box
+systrayholder = wibox.container.margin(wibox.widget.systray(), dpi(25), dpi(25), dpi(5),dpi(-20)) -- windows icon box
 
 flowerbox = wibox.container.margin(waterflowers, dpi(2), dpi(2), dpi(15),dpi(2)) -- windows icon box
 winflower = wibox.widget{
@@ -797,9 +797,9 @@ s.mytaglist = awful.widget.taglist(s, awful.widget.taglist.filter.all, awful.uti
     	--filter = awful.widget.tasklist.filter.focused,
   	buttons = awful.util.tasklist_buttons,
    	style = {
-	    shape_border_width = 2,
+	    shape_border_width = 1,
 	    shape_border_color = '#777777',
-	    shape = gears.shape.octogon,
+	    shape = gears.shape.rectangle,
         },
 	layout = {
 	    spacing = 30,
