@@ -52,6 +52,7 @@ map gL cd ~/.local/bin/utilities/
 map gb cd ~/Dropbox/NEETLiving
 map gw cd ~/Work
 map gM cd /mnt/
+map gv cd ~/Videos
 map ga cd ~/.config/awesome/
 map gs cd ~/.config/awesome/themes/ethos/
 map ge cd ~/.config/awesome/extra/

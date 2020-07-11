@@ -27,6 +27,8 @@ colo elflord
       autocmd VimEnter * call s:SetCursorLine()
 
 
+" adding image support ASCII in vim"
+au BufRead *.png,*.jpg,*.jpeg :call DisplayImage()
 
 
 

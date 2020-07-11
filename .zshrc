@@ -21,7 +21,8 @@ export LESS_TERMCAP_us=$'\e[1;4;31m'
 #prompt theme:
 autoload -Uz promptinit
 promptinit
-prompt fade
+#prompt fade
+prompt bigfade
 autoload -U colors && colors
 PS2="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
 
@@ -94,6 +95,8 @@ set -o GLOB_SUBST
 
 PROMPT_COMMAND='echo -ne "\033]0;$PWD\007"'
 
+#ls colors..
+. /usr/share/LS_COLORS/dircolors.sh
 
 #lf icons
 export LF_ICONS="\

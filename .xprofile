@@ -1,5 +1,6 @@
 #!/bin/bash
 
+source ~/.zshrc
 setbg &		# Set the background
 sxhkd &	# Bind keys
 # Switch to US international with Caps as Mod/Escape
@@ -8,8 +9,9 @@ setxkbmap -option caps:super -variant altgr-intl && killall xcape 2>/dev/null ; 
 xmodmap -e 'keycode 135 = Super_R' &
 xset r rate 200 40 &	# Speed xrate up
 unclutter &		# Remove mouse when idle
-compton --config ~/.config/compton.conf &		# xcompmgr for transparency
+#compton --config ~/.config/compton.conf &		# xcompmgr for transparency
 #picom --config ~/.config/picom.conf &		# xcompmgr for transparency
+picom --experimental-backend &
 dunst &			# dunst for notifications
 mpdupdate &
 caffeine &
