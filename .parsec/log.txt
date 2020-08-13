@@ -1,2 +1,3 @@
-[D 2020-06-21 17:08:04] net           = BUD|::ffff:192.168.122.122|21984
-[I 2020-06-21 17:08:05] VAAPI: (1.7) Splitted-Desktop Systems VDPAU backend for VA-API - 0.7.4
+[D 2020-07-30 12:21:22] net           = BUD|::ffff:192.168.122.122|21984
+[I 2020-07-30 12:21:23] VAAPI: (1.7) Splitted-Desktop Systems VDPAU backend for VA-API - 0.7.4
+[I 2020-07-30 12:21:24] VAAPI: (1.7) Splitted-Desktop Systems VDPAU backend for VA-API - 0.7.4

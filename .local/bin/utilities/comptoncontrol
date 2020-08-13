@@ -7,7 +7,9 @@ pidof picom 2>&1 /dev/null && killall picom || ~/Work/Compositing/joncom/build/s
 
 toggle(){
 #pidof compton 2>&1 /dev/null && killall compton || compton &
-pidof picom 2>&1 /dev/null && killall picom || ~/Work/Compositing/joncom/build/src/picom --experimental-backend &
+#pidof picom 2>&1 /dev/null && killall picom || ~/Work/Compositing/joncom/build/src/picom --experimental-backend &
+#pidof picom 2>&1 /dev/null && killall picom || ~/Work/Compositing/joncom/build/src/picom --experimental-backend -CG --xrender-sync-fence --no-fading-argb --blur-method dual_kawase --blur-strength 10 &
+pidof picom 2>&1 /dev/null && killall picom || ~/Work/Compositing/joncom/build/src/picom --experimental-backend -CG --xrender-sync-fence --blur-method dual_kawase --blur-strength 10 &
 }
 
 check(){

@@ -235,9 +235,9 @@ end)
 --wp_timer:start()
 --------------------------------------
 -- transparent/ global color declarations
-local side_color 				= "#000000" .. "95" -- dark
+--local side_color 				= "#000000" .. "95" -- dark
 --local side_color 				= "#001326"  -- darker no trans
---local side_color 				= "#001326"  .. "85" -- darker
+local side_color 				= "#001326"  .. "85" -- darker
 --local side_color 				= "#6d6d6d"  .. "85" -- lighter
 local tag_color = "#7a7a7a"  -- some kinda brown
 
@@ -848,8 +848,8 @@ s.mytaglist = awful.widget.taglist(s, awful.widget.taglist.filter.all, awful.uti
 function vertical_wibox(s)
 -- specifying sidebar wibox
 if s.index == 1
---then s.mysidewibox = awful.wibar ({ position = "right", screen = s, width = 110, x=0,y=0, bg = side_color,  border_width = dpi(0), height = s.workarea.height/1, type = "dock" }) -- without shape
-then s.mysidewibox = awful.wibar ({ position = "right", screen = s, width = 115, x=0,y=0, bg = "#0f0f0f",  border_width = dpi(0), height = s.workarea.height/1, type = "dock" }) -- without shape
+then s.mysidewibox = awful.wibar ({ position = "right", screen = s, width = 110, x=0,y=0, bg = side_color,  border_width = dpi(0), height = s.workarea.height/1, type = "dock" }) -- without shape
+--then s.mysidewibox = awful.wibar ({ position = "right", screen = s, width = 115, x=0,y=0, bg = "#0f0f0f",  border_width = dpi(0), height = s.workarea.height/1, type = "dock" }) -- without shape
 -- Add widgets to the side wibox
 s.mysidewibox:setup {
         layout = wibox.layout.align.vertical,

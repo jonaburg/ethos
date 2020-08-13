@@ -1,7 +1,9 @@
 sw_volume: 96
 audio_device_state:1:pulse audio
 audio_device_state:1:toggle_visualizer
-state: stop
+state: play
+current: 13
+time: 97.500000
 random: 0
 repeat: 0
 single: 0
@@ -18,4 +20,10 @@ playlist_begin
 5:2020/June/Rappin 4 Tay - I'll Be Around-K8gk7bWu5Jg.opus
 6:2020/June/Tarrey Town - The Legend of Zelda - Breath of the Wild Soundtrack-SqhZbK6RI8g.opus
 7:2020/June/Tarrey Town (The Legend of Zelda - Breath of the Wild OST)-2pGapEXcn30.opus
+8:2019/April/Second Sun.opus
+9:for_audio_test.opus
+10:for_audio_test.opus
+11:2020/April/Carpenter Brut - Trilogy.ogg
+12:2019/March/KOKOROKO - ABUSEY JUNCTION _ WE OUT HERE-tSv04ylc6To.opus
+13:2019/March/KOKOROKO - ABUSEY JUNCTION _ WE OUT HERE-tSv04ylc6To.opus
 playlist_end

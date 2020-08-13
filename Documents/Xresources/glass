@@ -46,8 +46,8 @@
 
 !*.alpha: 0.7
 !*.alpha:0.9
-*.alpha: 0.85
-!*.alpha: 0.3 -- typical kawase glass blur strength
+!*.alpha: 0.85
+*.alpha: 0.3
 
 
 Xft.autohint: 0
