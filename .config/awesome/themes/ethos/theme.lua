@@ -162,49 +162,49 @@ elseif awful.tag.selected(2).name == "9"
 end)
 --- }}}
 
-------------------------------------
--- {{ third screen's switch settings}}
--- per tag wallpapers && xresources...
-screen[3]:connect_signal("tag::history::update", function()
-       if awful.tag.selected(3).name == "1" then
-             gears.wallpaper.maximized(wp_paths3 .. wp_files[1], 3, true)
-	     awful.spawn( 'xrdb -load ' .. xres_path .. xres_files[1]  )
-	     screen[3]:emit_signal("tag1")
-elseif awful.tag.selected(3).name == "2"
-	then gears.wallpaper.maximized(wp_paths3 .. wp_files[2], 3, true)
-	     awful.spawn( 'xrdb -load ' .. xres_path .. xres_files[2]  )
-	     screen[3]:emit_signal("tag2")
-elseif awful.tag.selected(3).name == "3"
-	then gears.wallpaper.maximized(wp_paths3 .. wp_files[3], 3, true)
-	     awful.spawn( 'xrdb -load ' .. xres_path .. xres_files[7]  )
-	     screen[3]:emit_signal("tag3")
-elseif awful.tag.selected(3).name == "4"
-	then gears.wallpaper.maximized(wp_paths3 .. wp_files[4], 3, true)
-	     awful.spawn( 'xrdb -load ' .. xres_path .. xres_files[3]  )
-	     screen[3]:emit_signal("tag4")
-elseif awful.tag.selected(3).name == "5"
-	then gears.wallpaper.maximized(wp_paths3 .. wp_files[5], 3, true)
-	     awful.spawn( 'xrdb -load ' .. xres_path .. xres_files[8]  )
-	     screen[3]:emit_signal("tag5")
-elseif awful.tag.selected(3).name == "6"
-	then gears.wallpaper.maximized(wp_paths3 .. wp_files[6], 3, true)
-	     awful.spawn( 'xrdb -load ' .. xres_path .. xres_files[3]  )
-	     screen[3]:emit_signal("tag6")
-elseif awful.tag.selected(3).name == "7"
-	then gears.wallpaper.maximized(wp_paths3 .. wp_files[7], 3, true)
-	     awful.spawn( 'xrdb -load ' .. xres_path .. xres_files[8]  )
-	     screen[3]:emit_signal("tag7")
-elseif awful.tag.selected(3).name == "8"
-	then gears.wallpaper.maximized(wp_paths3 .. wp_files[8], 3, true)
-	     awful.spawn( 'xrdb -load ' .. xres_path .. xres_files[6]  )
-	     screen[3]:emit_signal("tag8")
-elseif awful.tag.selected(3).name == "9"
-	then gears.wallpaper.maximized(wp_paths3 .. wp_files[9], 3, true)
-	     awful.spawn( 'xrdb -load ' .. xres_path .. xres_files[6]  )
-	     screen[3]:emit_signal("tag9")
-	end
-end)
---- }}}
+-- ------------------------------------
+-- -- {{ third screen's switch settings}}
+-- -- per tag wallpapers && xresources...
+-- screen[3]:connect_signal("tag::history::update", function()
+--        if awful.tag.selected(3).name == "1" then
+--              gears.wallpaper.maximized(wp_paths3 .. wp_files[1], 3, true)
+-- 	     awful.spawn( 'xrdb -load ' .. xres_path .. xres_files[1]  )
+-- 	     screen[3]:emit_signal("tag1")
+-- elseif awful.tag.selected(3).name == "2"
+-- 	then gears.wallpaper.maximized(wp_paths3 .. wp_files[2], 3, true)
+-- 	     awful.spawn( 'xrdb -load ' .. xres_path .. xres_files[2]  )
+-- 	     screen[3]:emit_signal("tag2")
+-- elseif awful.tag.selected(3).name == "3"
+-- 	then gears.wallpaper.maximized(wp_paths3 .. wp_files[3], 3, true)
+-- 	     awful.spawn( 'xrdb -load ' .. xres_path .. xres_files[7]  )
+-- 	     screen[3]:emit_signal("tag3")
+-- elseif awful.tag.selected(3).name == "4"
+-- 	then gears.wallpaper.maximized(wp_paths3 .. wp_files[4], 3, true)
+-- 	     awful.spawn( 'xrdb -load ' .. xres_path .. xres_files[3]  )
+-- 	     screen[3]:emit_signal("tag4")
+-- elseif awful.tag.selected(3).name == "5"
+-- 	then gears.wallpaper.maximized(wp_paths3 .. wp_files[5], 3, true)
+-- 	     awful.spawn( 'xrdb -load ' .. xres_path .. xres_files[8]  )
+-- 	     screen[3]:emit_signal("tag5")
+-- elseif awful.tag.selected(3).name == "6"
+-- 	then gears.wallpaper.maximized(wp_paths3 .. wp_files[6], 3, true)
+-- 	     awful.spawn( 'xrdb -load ' .. xres_path .. xres_files[3]  )
+-- 	     screen[3]:emit_signal("tag6")
+-- elseif awful.tag.selected(3).name == "7"
+-- 	then gears.wallpaper.maximized(wp_paths3 .. wp_files[7], 3, true)
+-- 	     awful.spawn( 'xrdb -load ' .. xres_path .. xres_files[8]  )
+-- 	     screen[3]:emit_signal("tag7")
+-- elseif awful.tag.selected(3).name == "8"
+-- 	then gears.wallpaper.maximized(wp_paths3 .. wp_files[8], 3, true)
+-- 	     awful.spawn( 'xrdb -load ' .. xres_path .. xres_files[6]  )
+-- 	     screen[3]:emit_signal("tag8")
+-- elseif awful.tag.selected(3).name == "9"
+-- 	then gears.wallpaper.maximized(wp_paths3 .. wp_files[9], 3, true)
+-- 	     awful.spawn( 'xrdb -load ' .. xres_path .. xres_files[6]  )
+-- 	     screen[3]:emit_signal("tag9")
+-- 	end
+-- end)
+-- --- }}}
 
 
 
@@ -881,7 +881,7 @@ s.mysidewibox:setup {
 --	  winflower,
 --	 redshift,
 	  newsandmail,
-	  watertempholder,
+--	  watertempholder,
 	  coronaukbox,
 	  uptimebox, -- contains uptime_widget
 --	  theme.weather.widget,

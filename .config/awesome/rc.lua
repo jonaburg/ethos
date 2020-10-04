@@ -102,9 +102,10 @@ local themes = {
     "spring",          -- 13 --broken?
     "spring2",         -- 14
     "ethos",           -- 15
+    "focus",           -- 16
 }
 
-local chosen_theme = themes[15]
+local chosen_theme = themes[16]
 local modkey       = "Mod4"
 local altkey       = "Mod1"
 local terminal     = "st"

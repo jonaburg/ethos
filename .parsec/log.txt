@@ -1,3 +1,12 @@
-[D 2020-07-30 12:21:22] net           = BUD|::ffff:192.168.122.122|21984
-[I 2020-07-30 12:21:23] VAAPI: (1.7) Splitted-Desktop Systems VDPAU backend for VA-API - 0.7.4
-[I 2020-07-30 12:21:24] VAAPI: (1.7) Splitted-Desktop Systems VDPAU backend for VA-API - 0.7.4
+[D 2020-09-19 14:50:13] net           = BUD|::ffff:77.102.80.89|22391
+[I 2020-09-19 14:50:13] VAAPI: (1.8) Splitted-Desktop Systems VDPAU backend for VA-API - 0.7.4
+[D 2020-09-19 14:53:13] net           = BUD|::ffff:77.102.80.89|22391
+[I 2020-09-19 14:53:13] VAAPI: (1.8) Splitted-Desktop Systems VDPAU backend for VA-API - 0.7.4
+[I 2020-09-19 14:55:11] VAAPI: (1.8) Splitted-Desktop Systems VDPAU backend for VA-API - 0.7.4
+[I 2020-09-19 14:55:13] VAAPI: (1.8) Splitted-Desktop Systems VDPAU backend for VA-API - 0.7.4
+[I 2020-09-19 15:05:00] VAAPI: (1.8) Splitted-Desktop Systems VDPAU backend for VA-API - 0.7.4
+[I 2020-09-19 15:05:01] VAAPI: (1.8) Splitted-Desktop Systems VDPAU backend for VA-API - 0.7.4
+[I 2020-09-19 15:10:13] VAAPI: (1.8) Splitted-Desktop Systems VDPAU backend for VA-API - 0.7.4
+[I 2020-09-19 15:10:14] VAAPI: (1.8) Splitted-Desktop Systems VDPAU backend for VA-API - 0.7.4
+[I 2020-09-19 15:13:35] VAAPI: (1.8) Splitted-Desktop Systems VDPAU backend for VA-API - 0.7.4
+[I 2020-09-19 15:13:36] VAAPI: (1.8) Splitted-Desktop Systems VDPAU backend for VA-API - 0.7.4

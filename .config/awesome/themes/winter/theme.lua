@@ -473,30 +473,30 @@ end
     }
 
 
--- 	create side wibox
---    s.mysidewibox = awful.wibar({ position = "right", screen = s, width =60, x=0,y=0, border_width = dpi(0), height = s.workarea.height, type = "dock" })
-
-    screen[1].mysidewibox = awful.wibar ({ position = "right", screen = s, width =60, x=0,y=0, border_width = dpi(0), height = s.workarea.height, type = "dock" })
-
-    -- Add widgets to the bottom wibox
-    screen[1].mysidewibox:setup {
-        layout = wibox.layout.align.vertical,
-        { -- bottom widgets
-            layout = wibox.layout.fixed.vertical,
---            musicwidget2,
-            spr_side,
---            spr_side,
---            spr_side,
---	    calendarwidget2,
-	    theme.weather.widget,
-            cpuwidget,
-	    clockwidget2,
---            volumewidget,
-            wibox.widget.systray(),
---            wibox.widget.systray(),
-        },
-    }
-
+-- -- 	create side wibox
+-- --    s.mysidewibox = awful.wibar({ position = "right", screen = s, width =60, x=0,y=0, border_width = dpi(0), height = s.workarea.height, type = "dock" })
+--
+--     screen[1].mysidewibox = awful.wibar ({ position = "right", screen = s, width =60, x=0,y=0, border_width = dpi(0), height = s.workarea.height, type = "dock" })
+--
+--     -- Add widgets to the bottom wibox
+--     screen[1].mysidewibox:setup {
+--         layout = wibox.layout.align.vertical,
+--         { -- bottom widgets
+--             layout = wibox.layout.fixed.vertical,
+-- --            musicwidget2,
+--             spr_side,
+-- --            spr_side,
+-- --            spr_side,
+-- --	    calendarwidget2,
+-- 	    theme.weather.widget,
+--             cpuwidget,
+-- 	    clockwidget2,
+-- --            volumewidget,
+--             wibox.widget.systray(),
+-- --            wibox.widget.systray(),
+--         },
+--     }
+--
 end
 
 

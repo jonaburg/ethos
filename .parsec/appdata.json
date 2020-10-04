@@ -1,5 +1,1 @@
-{
-	"entry_symbol":	"wx_main",
-	"hash":	"6ed88b7b3c2a39d11fee66666ee30be46a3d798b75a78bb15b5da949cbce6ebb",
-	"so_name":	"parsecd-150-42.so"
-}
+{"entry_symbol":"wx_main","hash":"decbc7245c0729109dc98c0b49572854bc88eed001bb7f06acbe9482bc4d8332","so_name":"parsecd-150-47a.so"}

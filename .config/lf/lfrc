@@ -59,7 +59,8 @@ map ge cd ~/.config/awesome/extra/
 
 
 ### map for commands
-map Ya youtube-dl -xic%space
+map Ya youtube-dl -xic %space
+map Yv youtube-dl -ic %space
 
 ### map for image previews w3m
 #map - ~/.config/lf/draw_img.sh $f
