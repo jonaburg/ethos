@@ -68,6 +68,7 @@ Xft.hinting: 1
 Xft.antialias: 1
 Xft.rgba: rgb
 
-rofi.font: InconsolataForPowerline Nerd Font 11
+#rofi.font: InconsolataForPowerline Nerd Font 11
+rofi.font: Open Sans 12
 Xft.dpi:110
 rofi.dpi:120

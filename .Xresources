@@ -32,8 +32,10 @@
 *.color15:      #ffffff
 
 
+!*.font: droid sans mono-10;
+!*.font: fira mono-10;
 *.font: inconsolata-12;
-!*.font: unifont-13.5;
+!*.font: unifont-11;
 
 
 !*.alpha: 0.7

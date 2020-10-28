@@ -20,7 +20,7 @@ then
 	echo "$((num+=250))" > RV
 	redshift -O ${num}
 	cat RV
-	dunstify -r 454 -u low "Colour Temperature :  $(<RV)"
+#	dunstify -r 454 -u low "Colour Temperature :  $(<RV)"
 fi
 }
 
@@ -32,7 +32,7 @@ then
 	echo "$((num-=250))" > RV
 	redshift -O ${num}
 	cat RV
-	dunstify -r 454 -u low "Colour Temperature :  $(<RV)"
+#	dunstify -r 454 -u low "Colour Temperature :  $(<RV)"
 fi
 }
 

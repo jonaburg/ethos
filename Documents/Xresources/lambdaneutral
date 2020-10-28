@@ -43,9 +43,10 @@
 !*.font: unifont-13.5;
 
 
+*.alpha: 0.7
 !*.alpha: 0.7
 !*.alpha:1
-*.alpha: 0.85
+!*.alpha: 0.85
 !*.alpha: 1
 
 

@@ -1,38 +1,25 @@
-sw_volume: 100
+sw_volume: 94
 audio_device_state:1:pulse audio
 audio_device_state:1:toggle_visualizer
 state: stop
 random: 0
 repeat: 0
-single: 0
+single: 1
 consume: 0
 crossfade: 0
 mixrampdb: 0.000000
 mixrampdelay: -1.000000
 playlist_begin
-0:2020/Sept/Thom Yorke - Unmade (instrumental cover)-534383691.mp3
-1:2020/Sept/Django Reinhardt - Djangology-YPG1OnOrhis.opus
-2:2020/Sept/Dubliners (2008)-38529922.mp3
-3:2020/Oct/03 - Little Bubble, Where Are You Going-3745386.mp3
-4:2020/Oct/Climbing A Wall-204036691.mp3
-5:2020/Oct/Icronic-331749420.mp3
-6:2020/Oct/Jazz Math Rock Thing (mastered)-170875929.mp3
-7:2020/Oct/LITE - 'Echolocation'-163998424.mp3
-8:2020/Oct/Never Went-649728806.mp3
-9:2020/Oct/This Town Needs Guns - Gibbon-184989470.mp3
-10:2020/Oct/Toe - Past and Language-81893083.mp3
-11:2020/Oct/Town Portal - Uncle Genie-57535718.mp3
-12:2020/Oct/Unfair Treaty-228843335.mp3
-13:2020/Oct/Jean Jean - With Mountains As Witness-221026430.mp3
-14:2020/Oct/Na pět-206995257.mp3
-15:2020/Oct/Polyphia _ G.O.A.T. (Official Music Video)-9_gkpYORQLU.opus
-16:2020/June/Rappin 4 Tay - I'll Be Around-K8gk7bWu5Jg.opus
-17:2020/June/E.S.T. Esbjorn Svensson Trio - Jazzwoche Burghausen 2004-XhdlVXxp1nw.opus
-18:2020/June/Tarrey Town - The Legend of Zelda - Breath of the Wild Soundtrack-SqhZbK6RI8g.opus
-19:2020/June/Tarrey Town (The Legend of Zelda - Breath of the Wild OST)-2pGapEXcn30.opus
-20:2020/Jan/Marcy Playground - Sex And Candy (Official Video)--KT-r2vHeMM.opus
-21:2020/April/Carpenter Brut - Trilogy.ogg
-22:2020/April/Crisis Core Final Fantasy VII Music - Why (Guitar Version)-qX1CfvJpr4k.opus
-23:2020/April/Final Fantasy 7 Battle Theme - Metal Cover-WlJ9UBfnApk.opus
-24:2020/April/Final Fantasy VII ~ Fighting Metal Remix ♫-Lszli4Wtiig.opus
+0:2020/Oct/FF7 Remake OST - Smash 'Em Rip 'Em (Official Version)-hT2VbBAWJbA.opus
+1:2020/Oct/Climbing A Wall-204036691.mp3
+2:2020/Oct/ff7cut.opus
+3:2020/Oct/FF7RMaintheme.opus
+4:2020/Oct/FINAL FANTASY 7 Remake - Tifa's Theme - Violin and Guitar cover-aRwoVGDOXDs.m4a
+5:2020/Oct/ff7rmain.mp3
+6:2020/Oct/ff7rmain2.mp3
+7:2020/Oct/Aerith's' Theme (from 'Final Fantasy VII') Cello and Piano-ABSRgPwBYo8.opus
+8:2020/Oct/ff7cut.mp3
+9:2020/Oct/Bunda Internacionale-115581127.mp3
+10:2020/Oct/03 - Little Bubble, Where Are You Going-3745386.mp3
+11:2020/Oct/Final Fantasy VII - Jazz version-ew_JVr7qaTo.opus
 playlist_end

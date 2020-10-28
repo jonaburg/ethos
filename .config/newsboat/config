@@ -23,12 +23,22 @@ bind-key U show-urls
 bind-key x pb-delete
 bind-key ^t next-unread
 
-color listnormal cyan default
-color listfocus black yellow standout bold
-color listnormal_unread blue default
+
+color listnormal red default
+color listnormal_unread green default
+color listfocus yellow default bold
 color listfocus_unread yellow default bold
-color info red black bold
+color info yellow black bold
 color article default default
+
+
+
+#color listnormal cyan default
+#color listfocus black yellow standout bold
+#color listnormal_unread blue default
+#color listfocus_unread yellow default bold
+#color info red black bold
+#color article default default
 
 browser linkhandler
 macro , open-in-browser

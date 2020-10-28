@@ -1,6 +1,5 @@
 --[[
-	JB sidebar work in progress..
-        Winter Awesome WM theme 3.0
+	FOCUS_mbelish ver.
 
 --]]
 
@@ -23,14 +22,17 @@ theme.icon_dir                                  = os.getenv("HOME") .. "/.config
 theme.wallpaper                                 = os.getenv("HOME") .. "/.config/awesome/themes/focus/wall.png"
 theme.lain_icons                                = os.getenv("HOME") .. "/.config/awesome/themes/focus"
 
+	local redshift = require("extra.redshift")
 
-theme.font          = "Inconsolata 12"
-theme.taglist_font  = "Inconsolata 15"
-theme.mpd_font  = "Inconsolata 10"
+
+theme.font          = "Open Sans 10"
+theme.taglist_font  = "Open Sans 10"
+theme.mpd_font  = "Open Sans 10"
 
 --theme.tasklist_font = "Inconsolata 12"
 --theme.tasklist_font = "Linux Biolinum 12"
-theme.tasklist_font = "Times New Roman 12"
+--theme.tasklist_font = "Times New Roman 12"
+theme.tasklist_font = "Open Sans 10"
 
 
 --theme.fg_normal                                 = "#FFFFFF"
@@ -46,7 +48,7 @@ theme.bg_focus                                  = "#242424"
 theme.bg_normal                                 = "#141414"
 theme.fg_urgent                                 = "#CC9393"
 theme.bg_urgent                                 = "#006B8E"
-theme.border_width                              = dpi(3)
+theme.border_width                              = dpi(2)
 theme.border_normal                             = "#252525"
 --theme.border_focus                              = "#0099CC"
 theme.border_focus                              = "#c5c69a"
@@ -277,12 +279,13 @@ theme.volume = lain.widget.alsabar({
     width = dpi(80), height = dpi(20), border_width = dpi(0),ticks = true, tick_size=3,
     colors = {
         background = "#383838",
-        unmute     = "#80CCE6",
+        --unmute     = "#80CCE6",
+        unmute     = "#465DFF",
         mute       = "#FF9F9F"
     },
 })
 theme.volume.bar.paddings = dpi(0)
-theme.volume.bar.margins = dpi(3)
+theme.volume.bar.margins = dpi(6)
 theme.volume.bar:buttons(awful.util.table.join(
     awful.button({}, 3, function() -- left click
         awful.spawn(string.format("%s -e alsamixer", terminal))
@@ -407,6 +410,25 @@ awful.widget.taglist.filter.all = function (t, args)
     end
 end
 
+systrayholder = wibox.container.margin(wibox.widget.systray(), dpi(1), dpi(1), dpi(2),dpi(2)) -- sytstray
+
+local bluelingrad = gears.color({
+	type = "linear",
+	from = { dpi(12), 0},
+	to   = { dpi(52), dpi(22)},
+	stops = { {0.1, "#FF1b4d" .. "20"}, {0.45, "#FF464F" .. "70"} }
+})
+
+local brightgrad = gears.color({
+	type = "linear",
+	from = { dpi(12), 0},
+	to   = { dpi(52), dpi(22)},
+	stops = { {0.1, "#FFFFFF" .. "50"}, {3.45, "#bdbdbd" .. "60"} }
+})
+
+-- Redshift Bar
+redshiftholder = wibox.container.margin(redshift({ main_color = bluelingrad, background_color = barcolor, margins=6, shape = 'hexagon',}), dpi(5), dpi(5), dpi(5), dpi(5))
+
     -- Tags
   --  awful.layout.layouts = {layouts[1],layouts[2],layouts[1],layouts[1],layouts[1],layouts[1]},
     awful.tag(awful.util.tagnames, s, awful.layout.layouts)
@@ -464,10 +486,13 @@ end
 --            mpd_icon,
 --            bar,
 --            spr_very_small,
+	    redshiftholder,
+	    volumewidget,
 	    clockwidget,
 --            volumewidget,
-            wibox.widget.systray(),
-            volumewidget,
+            systrayholder,
+      --      wibox.widget.systray(),
+--            volumewidget,
 --            spr_left,
         },
     }

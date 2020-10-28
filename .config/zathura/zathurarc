@@ -1,3 +1,5 @@
+set default-bg "#000000"
+set default-fg "#E2E1B1"
 set statusbar-h-padding 0
 set statusbar-v-padding 0
 set page-padding 1

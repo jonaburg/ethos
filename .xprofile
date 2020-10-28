@@ -10,7 +10,7 @@ xmodmap -e 'keycode 135 = Super_R' &
 xset r rate 200 40 &	# Speed xrate up
 unclutter &		# Remove mouse when idle
 #compton --config ~/.config/compton.conf &		# xcompmgr for transparency
-picom --config ~/.config/picom.conf --experimental-backend &		# xcompmgr for transparency
+/home/jon/Work/Compositing/test/picom/build/src/picom --config ~/.config/picom.conf --experimental-backend &		# xcompmgr for transparency
 #picom --experimental-backend &
 dunst &			# dunst for notifications
 mpdupdate &
