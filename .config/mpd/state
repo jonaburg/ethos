@@ -1,25 +1,35 @@
-sw_volume: 94
+sw_volume: 100
 audio_device_state:1:pulse audio
 audio_device_state:1:toggle_visualizer
 state: stop
 random: 0
 repeat: 0
-single: 1
+single: 0
 consume: 0
 crossfade: 0
 mixrampdb: 0.000000
 mixrampdelay: -1.000000
 playlist_begin
-0:2020/Oct/FF7 Remake OST - Smash 'Em Rip 'Em (Official Version)-hT2VbBAWJbA.opus
-1:2020/Oct/Climbing A Wall-204036691.mp3
-2:2020/Oct/ff7cut.opus
-3:2020/Oct/FF7RMaintheme.opus
-4:2020/Oct/FINAL FANTASY 7 Remake - Tifa's Theme - Violin and Guitar cover-aRwoVGDOXDs.m4a
-5:2020/Oct/ff7rmain.mp3
-6:2020/Oct/ff7rmain2.mp3
-7:2020/Oct/Aerith's' Theme (from 'Final Fantasy VII') Cello and Piano-ABSRgPwBYo8.opus
-8:2020/Oct/ff7cut.mp3
-9:2020/Oct/Bunda Internacionale-115581127.mp3
-10:2020/Oct/03 - Little Bubble, Where Are You Going-3745386.mp3
-11:2020/Oct/Final Fantasy VII - Jazz version-ew_JVr7qaTo.opus
+0:2020/May/The Pillows - Beautiful morning with you (FLCL OST No. 3) [HQ]-wj5hmkhUntM.opus
+1:2020/Nov/Fire Emblem Main Theme (Fire Emblem  Shadow Dragons and the Blade of Light)-38149933.mp3
+2:2020/Nov/fable and chill-Dgxcij40me4.opus
+3:2020/Nov/Fable 1, 2 and 3's Most Peaceful and Calm Songs (Albions Greatest Hit's)-9_9_HxGl844.opus
+4:2020/June/E.S.T. Esbjorn Svensson Trio - Jazzwoche Burghausen 2004-XhdlVXxp1nw.opus
+5:2020/Nov/14 The Mists Cleared-251289045.mp3
+6:2020/Nov/Bravely Second- End Layer OST - Battle Of Providence [HQ]-251303153.mp3
+7:2020/Nov/Daft Punk - Horizon  (Henry Saiz Just wanted you to stay Remix)-115375991.mp3
+8:2020/Nov/Kirby  Triple Deluxe Final Boss Theme 2 [星のカービィトリプルデラックス ラスボスBGM2]-136522350.mp3
+9:2020/Nov/Kitt'Indie Space Disco Triangle-129278244.mp3
+10:2020/Nov/Night in Bangladesh-703987378.mp3
+11:2020/Nov/Soul Calibur VI OST City Ruins Soul NieR Automata-547220730.mp3
+12:2020/Nov/Tongue Wrong Song-126421164.mp3
+13:2020/Nov/Tron Legacy   Soundtrack OST   15 Solar Sailer   Daft Punk-124387576.mp3
+14:2020/Nov/Water Temple - Oregon Eclipse Festival 2017 (Ambient Set)-341181351.mp3
+15:2020/Nov/You Will Know Our Names-196047263.mp3
+16:2020/Oct/03 - Little Bubble, Where Are You Going-3745386.mp3
+17:2020/June/Tarrey Town (The Legend of Zelda - Breath of the Wild OST)-2pGapEXcn30.opus
+18:2020/Oct/Aerith's' Theme (from 'Final Fantasy VII') Cello and Piano-ABSRgPwBYo8.opus
+19:2020/Oct/FF7RMaintheme.opus
+20:2020/Oct/FINAL FANTASY 7 Remake - Tifa's Theme - Violin and Guitar cover-aRwoVGDOXDs.m4a
+21:2020/Oct/FF7 Remake OST - Smash 'Em Rip 'Em (Official Version)-hT2VbBAWJbA.opus
 playlist_end

@@ -36,7 +36,7 @@
 *.color15:      #dbd6d1
 
 
-*.font: Iosevka-11;
+*.font: Iosevka-12;
 !*.font: unifont-13.5;
 
 

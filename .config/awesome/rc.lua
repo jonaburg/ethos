@@ -103,9 +103,11 @@ local themes = {
     "spring2",         -- 14
     "ethos",           -- 15
     "focus",           -- 16
+    "hunter",          -- 17
+    "hunterbadbar",          -- 18
 }
 
-local chosen_theme = themes[16]
+local chosen_theme = themes[17]
 local modkey       = "Mod4"
 local altkey       = "Mod1"
 local terminal     = "st"
@@ -153,7 +155,7 @@ tags = {
 
 awful.util.terminal = st
  awful.util.tagnames = { "1", "2", "3", "4", "5", "6", "7","8", "9" }
--- awful.util.tagnames = { " ", " ", " ", " ", " ", " ", "7", "8", "9" }
+ awful.util.tagnames2 = { " ", " ", " ", " ", " ", " ", "7", "8", "9" }
 --awful.layout.layouts = {
 --    lain.layout.uselesstilecenter,
 --    awful.layout.suit.tile,
@@ -491,6 +493,8 @@ globalkeys = my_table.join(
         end,
         {description = "toggle wibox", group = "awesome"}),
 
+--    awful.key({}, "Super_L", function() awesome.emit_signal("bringup", function() end) end,
+--    {description = "brings up slidebar", group = "client"}),
 
 
     -- On the fly useless gaps change
@@ -753,6 +757,11 @@ clientkeys = my_table.join(
       c.y = c.screen.geometry.height* 0.04
     end)
 
+
+
+--    awful.key({}, "Super_L", function() awesome.emit_signal("asgotab", function() end) end,
+--    {description = "brings up animated slidebar", group = "client"}),
+
 --    awful.key({ modkey,           }, "t",      function (c) c.ontop = not c.ontop            end,
 --              {description = "toggle keep on top", group = "client"}),
 --    awful.key({ modkey,           }, "n",
@@ -900,12 +909,12 @@ awful.rules.rules = {
     { rule = { class = "Gimp", role = "gimp-image-window" },
           properties = { maximized = true } },
 
-    { rule = { name = "Looking Glass (client)" },
---      properties = { floating = true, screen = 1, tag = awful.util.tagnames[1] },
-      properties = { floating = true, screen = 2 },
-	callback = function(c)
-		awful.client.moveresize(0,0,0,0,c)
-	end },
+--    { rule = { name = "Looking Glass (client)" },
+----      properties = { floating = true, screen = 1, tag = awful.util.tagnames[1] },
+--      properties = { floating = true, screen = 2 },
+--	callback = function(c)
+--		awful.client.moveresize(0,0,0,0,c)
+--	end },
 
     { rule = { name = "Parsec" },
 --      properties = { floating = true, screen = 1, tag = awful.util.tagnames[1] },

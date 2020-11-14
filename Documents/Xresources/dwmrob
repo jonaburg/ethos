@@ -37,6 +37,8 @@
 
 
 *.font: Iosevka-12;
+!*.font: fira mono-11;
+!*.font: envy code r-11.5;
 !*.font: unifont-13.5;
 
 

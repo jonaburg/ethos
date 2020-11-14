@@ -4,16 +4,19 @@
 
 function tolaptop (){
 #going to laptop via barrier
-sudo ddcutil setvcp --bus 3 60 0x01
+#sudo ddcutil setvcp --bus 2 60 0x01 # AOC
+sudo ddcutil setvcp --bus 2 60 0x11 # ASUS
 }
 
 function topc (){
 #going back to pc after moving mouse to barrier
-sudo ddcutil setvcp --bus 3 60 0x03
+#sudo ddcutil setvcp --bus 2 60 0x03 # AOC
+sudo ddcutil setvcp --bus 2 60 0x0f # ASUS
 }
 
 function towindows(){
-[[ $(sudo virsh list --all | grep 2 | awk {'print $3'}) == "running" ]] && sudo ddcutil setvcp --bus 3 60 0x11  ||  notify-send "VM paused.. consider starting it"
+#[[ $(sudo virsh list --all | grep 2 | awk {'print $3'}) == "running" ]] && sudo ddcutil setvcp --bus 2 60 0x11  ||  notify-send "VM paused.. consider starting it" #AOC
+[[ $(sudo virsh list --all | grep 2 | awk {'print $3'}) == "running" ]] && sudo ddcutil setvcp --bus 2 60 0x03  ||  notify-send "VM paused.. consider starting it" #ASUS
 }
 
 #flips 3rd monitor orientation

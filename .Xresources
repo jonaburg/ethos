@@ -1,47 +1,51 @@
+! special
+*.foreground:   #ffffff
+!*.background:   #000000
+!*.background:   #2c2c2c
+!#blueish
+*.background:   #181d29
+*.cursorColor:  #ffffff
 
 ! black
-*.color0:       #101010
-*.color8:       #434758
+*.color0:       #151515
+*.color8:       #505450
 
 ! red
-*.color1:       #f07178
-*.color9:       #ff8b92
+*.color1:       #bf7979
+*.color9:       #f4a45f
 
 ! green
-*.color2:       #c3e88d
-*.color10:      #ddffa7
+*.color2:       #97b26b
+*.color10:      #c5f779
 
 ! yellow
-*.color3:       #ffcb6b
-*.color11:      #ffe585
+*.color3:       #cdcda1
+*.color11:      #ffffaf
 
 ! blue
-*.color4:       #82aaff
-*.color12:      #9cc4ff
+*.color4:       #4a5463
+*.color12:      #7d8794
 
 ! magenta
-*.color5:       #c792ea
-*.color13:      #e1acff
+*.color5:       #9c3885
+*.color13:      #e628ba
 
 ! cyan
-*.color6:       #89ddff
-*.color14:      #a3f7ff
+*.color6:       #88aadd
+*.color14:      #99ccff
 
 ! white
-*.color7:       #d0d0d0
-*.color15:      #ffffff
+*.color7:       #ffffff
+*.color15:      #dedede
 
 
-!*.font: droid sans mono-10;
-!*.font: fira mono-10;
-*.font: inconsolata-12;
-!*.font: unifont-11;
+*.font: Iosevka-12;
+!*.font: unifont-13.5;
 
 
-!*.alpha: 0.7
+*.alpha: 0.85
 !*.alpha:1
 !*.alpha: 0.85
-*.alpha: 0.9
 !*.alpha: 1
 
 
@@ -53,5 +57,6 @@ Xft.antialias: 1
 Xft.rgba: rgb
 
 rofi.font: InconsolataForPowerline Nerd Font 11
-Xft.dpi:110
-rofi.dpi:120
+!Xft.dpi:80
+Xft.dpi:100
+rofi.dpi:100

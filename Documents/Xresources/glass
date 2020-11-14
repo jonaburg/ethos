@@ -40,7 +40,7 @@
 *.color15: nord6
 
 !*.font: Iosevka-11;
-*.font: iosevka-10;
+*.font: iosevka-12;
 !*.font: nerd-fonts-Iosevka-13.5;
 
 
@@ -57,6 +57,6 @@ Xft.hinting: 1
 Xft.antialias: 1
 Xft.rgba: rgb
 
-rofi.font: InconsolataForPowerline Nerd Font 11
-Xft.dpi:110
-rofi.dpi:110
+rofi.font: InconsolataForPowerline Nerd Font 10
+Xft.dpi:100
+rofi.dpi:100
