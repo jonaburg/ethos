@@ -1,7 +1,9 @@
 sw_volume: 100
 audio_device_state:1:pulse audio
 audio_device_state:1:toggle_visualizer
-state: stop
+state: pause
+current: 23
+time: 252.628000
 random: 0
 repeat: 0
 single: 0
@@ -32,4 +34,7 @@ playlist_begin
 19:2020/Oct/FF7RMaintheme.opus
 20:2020/Oct/FINAL FANTASY 7 Remake - Tifa's Theme - Violin and Guitar cover-aRwoVGDOXDs.m4a
 21:2020/Oct/FF7 Remake OST - Smash 'Em Rip 'Em (Official Version)-hT2VbBAWJbA.opus
+22:2019/April/deaddogstwo.opus
+23:2019/March/Turquoise Hexagon Sun.m4a
+24:2019/March/Zoetrope.ogg
 playlist_end

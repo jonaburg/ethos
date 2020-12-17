@@ -22,10 +22,11 @@ theme.icon_dir                                  = os.getenv("HOME") .. "/.config
 theme.wallpaper                                 = os.getenv("HOME") .. "/.config/awesome/themes/hunter/wall.png"
 theme.lain_icons                                = os.getenv("HOME") .. "/.config/awesome/themes/hunter"
 
-local redshift = require("extra.redshift")
-local email = require("extra.emailhunter")
+local redshift = require('extra.redshift')
+local email = require('extra.emailhunter')
 local tagbar = require('slidebar.tagbar')
 local titlebar = require('slidebar.titlebar')
+local vm = require('extra.vmhunter')
 
 
 theme.font          = "Open Sans 10"
@@ -287,7 +288,8 @@ theme.volume = lain.widget.alsabar({
     --togglechannel = "IEC958,3",
     width = dpi(80), height = dpi(50), border_width = dpi(0),ticks = false, tick_size=3,
     colors = {
-        background = "#383838",
+        --background = "#383838",
+        background = "#C2C3C2",
         --unmute     = "#80CCE6",
         unmute     = "#465DFF",
         mute       = "#FF9F9F"
@@ -321,7 +323,7 @@ theme.volume.bar:buttons(awful.util.table.join(
     ))
 
 local volumewidget = wibox.container.background(theme.volume.bar, theme.bg_focus, gears.shape.rectangle)
-volumewidget = wibox.container.margin(volumewidget, dpi(0), dpi(10), dpi(11), dpi(11))
+volumewidget = wibox.container.margin(volumewidget, dpi(10), dpi(10), dpi(8), dpi(8))
 
 -- CPU
 local cpu = lain.widget.cpu({
@@ -332,7 +334,7 @@ local cpu = lain.widget.cpu({
 
 local cpu_widget_icon = wibox.widget {
 	text = " 💽 ",
-	font = "Iosevka 12",
+	font = "Iosevka 10",
 	widget = wibox.widget.textbox,
 }
 local cpu_widget_icon_handle = wibox.widget {
@@ -488,9 +490,11 @@ function show_systray() mysystray.visible = true end
 function hide_systray() mysystray.visible = false end
 
 
---emailholder = wibox.container.margin(email, dpi(0), dpi(10), dpi(5),dpi(5)) -- sytstray
---emailbg = wibox.container.background(email, "#Bd78D2", gears.shape.rectangle)
-emailholder = wibox.container.margin(email, dpi(0), dpi(0), dpi(5),dpi(5)) -- sytstray
+-- EMAIL
+emailholder = wibox.container.margin(email, dpi(0), dpi(0), dpi(5),dpi(5)) -- email
+
+-- WINDOWS VM identifier.
+vmholder = wibox.container.margin(vm, dpi(0), dpi(0), dpi(5),dpi(5)) -- windows vm
 
 local bluelingrad = gears.color({
 	type = "linear",
@@ -498,10 +502,9 @@ local bluelingrad = gears.color({
 	--to   = { dpi(52), 20},
 	--to   = { dpi(152), 20},
 	to   = { dpi(182), 20},
---	stops = { {0.1, "#FF1b4d" .. "50"}, {0.45, "#FF000C" .. "75"} }
-	stops = { {0.15, "#FF1b4d" .. "100"}, {0.55, "#0083ff" .. "75"} }
+--	stops = { {0.1, "#FF1b4d" .. "50"}, {0.45, "#FF000C" .. "75"} } -- was 0.55 before too
+	stops = { {0.15, "#FF1b4d" .. "100"}, {0.75, "#0083ff" .. "75"} }
 })
-
 
 local redshiftbg  = gears.color({
     type  = "linear",
@@ -518,11 +521,10 @@ local brightgrad = gears.color({
 })
 
 -- Redshift Bar
-redshiftholder = wibox.container.margin(redshift({ main_color = bluelingrad, background_color = barcolor, margins=8, shape = 'hexagon',}), dpi(5), dpi(5), dpi(6), dpi(6))
+local redshiftholder = wibox.container.margin(redshift({ main_color = bluelingrad, background_color = tagbarcolor, margins=8, shape = 'hexagon',}), dpi(5), dpi(5), dpi(6), dpi(6))
 
 
-
-    -- Tags
+  -- Tags
   --  awful.layout.layouts = {layouts[1],layouts[2],layouts[1],layouts[1],layouts[1],layouts[1]},
     awful.tag(awful.util.tagnames, s, awful.layout.layouts)
   --  awful.tag(awful.util.tagnames2, s, awful.layout.layouts)
@@ -658,7 +660,7 @@ end)
 
 
 
-    mytaglistcont2 = wibox.container.background(s.mytaglist3, "#ffffff" .. "00", gears.shape.hexagon)
+    local mytaglistcont2 = wibox.container.background(s.mytaglist3, "#ffffff" .. "00", gears.shape.hexagon)
     s.mytag2 = wibox.container.margin(mytaglistcont2, dpi(15), dpi(15), dpi(15), dpi(10))
 
     -- Create a tasklist widget
@@ -680,16 +682,19 @@ end)
 --   s.myleftwibox = wibox({screen = s, x=1240, y=s.workarea.height, width = s.workarea.width, height = dpi(32), fg = theme.fg_normal, bg = theme.bg_normal, ontop = true, visible = true, type = "dock" })
 
 
-
-
-    -- Create the main taskbar wibox.
+-- Create the main taskbar wibox.
     screen[1].mywibox = awful.wibar(
+--    screen[1].mywibox = wibox(
         { position = "top",
          screen = s,
          height = dpi(32),
-         width = s.workarea.width - 50,
+         width = s.workarea.width,
+         --width = s.workarea.width - 50,
          type = "dock",
-         y = 240,
+         --y = 8,
+         --x = 20,
+        --ontop = true,
+        --visible = true,
 --         shape = gears.shape.rounded_rect 
         }
     )
@@ -701,6 +706,7 @@ end)
         { -- Left widgets
             layout = wibox.layout.fixed.horizontal,
             s.mytag,
+            s.mypromptbox,
         },
         s.mytasklist, -- Middle widget
         { -- Right widgets
@@ -708,6 +714,7 @@ end)
         musicwidget,
 	    redshiftholder,
         volumewidget,
+        vmholder,
         cpuwidget,
 	    emailholder,
         spr_small,
@@ -753,6 +760,7 @@ function tagbar_hor(s)
 end
 end
 
+--------- TITLEBAR DROPDOWN  -----------------------------------------------------
 function titlebar_hor(s)
 	if s.index == 1
 		then screen[1].mytitlebar = titlebar {
@@ -771,7 +779,6 @@ function titlebar_hor(s)
      hide_delay = 0.1,
      easing = 70,
      delta = 20,
-
   --   screen = nil
 }
  screen[1].mytitlebar:setup {
@@ -787,6 +794,56 @@ function titlebar_hor(s)
     }
 end
 end
+------------------------------------------------------------------------------------
+
+------------ VOLUME NOTIFICATION UPON CHANGE CENTER SCREEN -------------------------
+local volumebox = wibox({
+    x =  1100,
+    y = 1000,
+    width = 200,
+    height = 100,
+    ontop = true,
+    visible = false,
+    --screen = awful.screen.focused(),
+    screen = 1,
+    widget = volumewidget
+    }
+)
+local function invis_vol()
+   volumebox.visible = false
+end
+awesome.connect_signal("volumeup", function()
+ volumebox.visible = true
+ gears.timer.start_new(3, invis_vol)
+end)
+awesome.connect_signal("volumedown", function()
+ volumebox.visible = true
+ gears.timer.start_new(3, invis_vol)
+end)
+------------------------------------------------------------------------------------
+
+------------ REDSHIFT NOTIFICATION UPON CHANGE CENTER SCREEN -------------------------
+local redshifterbox = wibox({
+    x =  1100,
+    y = 1000,
+    width = 340,
+    height = 100,
+    ontop = true,
+    visible = false,
+    --screen = awful.screen.focused(),
+    screen = 1,
+    widget = redshiftholder
+    }
+)
+local function invis_redshift()
+   redshifterbox.visible = false
+end
+awesome.connect_signal("redshiftup", function()
+ invis_vol()
+ redshifterbox.visible = true
+ gears.timer.start_new(3, invis_redshift)
+end)
+------------------------------------------------------------------------------------
 
 
 gears.timer.delayed_call(tagbar_hor, s)

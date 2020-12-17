@@ -606,13 +606,15 @@ globalkeys = my_table.join(
     -- ALSA volume control
     awful.key({ modkey }, "=",
     function ()
-	    os.execute(string.format("amixer -q set %s 1%%+", beautiful.volume.channel))
+        os.execute(string.format("amixer -q set %s 1%%+", beautiful.volume.channel))
+            awesome.emit_signal("volumeup", function() end)
             beautiful.volume.update()
         end,
         {description = "volume up", group = "hotkeys"}),
     awful.key({ modkey }, "-",
         function ()
             os.execute(string.format("amixer -q set %s 1%%-", beautiful.volume.channel))
+            awesome.emit_signal("volumedown", function() end)
             beautiful.volume.update()
         end,
         {description = "volume down", group = "hotkeys"}),

@@ -88,9 +88,9 @@ local bgcolor  = gears.color({
 --    end
 
     redshiftbar_widget:connect_signal("button::press", function(_, _, _, button)
-        if (button == 4) then
+        if (button == 4) then -- scroll down
             awful.spawn(dec_warmth_cmd)
-        elseif (button == 5) then
+        elseif (button == 5) then -- scroll up
             awful.spawn(inc_warmth_cmd)
         elseif (button == 1) then
         end

@@ -20,6 +20,7 @@ then
 	echo "$((num+=250))" > RV
 	redshift -O ${num}
 	cat RV
+	echo 'awesome.emit_signal("redshiftup", function() end)' | awesome-client
 #	dunstify -r 454 -u low "Colour Temperature :  $(<RV)"
 fi
 }
@@ -31,6 +32,7 @@ if (( $num >= 1500 ))
 then
 	echo "$((num-=250))" > RV
 	redshift -O ${num}
+	echo 'awesome.emit_signal("redshiftup", function() end)' | awesome-client
 	cat RV
 #	dunstify -r 454 -u low "Colour Temperature :  $(<RV)"
 fi
