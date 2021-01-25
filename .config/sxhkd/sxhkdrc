@@ -104,7 +104,7 @@ Print
 	maim pic-full-$(date '+%y%m%d-%H%M-%S').png
 # Pick screenshot type
 shift + Print
-	maimpick
+	import png:- | xclip -selection clipboard -t image/png
 # Record audio or video
 super + Print
 	dmenurecord

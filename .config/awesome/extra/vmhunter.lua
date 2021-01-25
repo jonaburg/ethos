@@ -21,7 +21,8 @@ local textbox_notify_widget = wibox.widget {
 	}
 local textbox_notify_widget_box = wibox.widget {
 	textbox_notify_widget,
-	bg = "#c3c2c3",
+--	bg = "#c3c2c3", -- dark
+	bg = "#A5A5A6", -- even darker
 	fg = "#000000",
 	widget = wibox.container.background,
 }
@@ -30,7 +31,8 @@ local mascarpone_widget = wibox.widget {
 	textbox_notify_widget_box,
 	layout = wibox.layout.fixed.horizontal,
 }
-local windowsvm = wibox.container.background(mascarpone_widget, "#4e78a3")
+local windowsvm = wibox.container.background(mascarpone_widget, "#4e78a3") -- windows era blue
+--local windowsvm = wibox.container.background(mascarpone_widget, "#97c3c9") -- new windows blue
 
 --	        textbox_widget:set_text( " 📨 ")
 --	        textbox_widget:set_markup(markup("#000000", " 📨 "))

@@ -40,6 +40,7 @@
 
 
 *.font: Iosevka-12;
+!*.font: sf mono-12;
 !*.font: unifont-13.5;
 
 

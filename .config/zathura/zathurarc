@@ -1,5 +1,16 @@
+
+# open docos in fit-width mode by default
+set adjust-open "best-fit"
+
+set font "Iosevka 15"
+
 set default-bg "#000000"
 set default-fg "#E2E1B1"
+set recolor true
+set recolor-darkcolor "#000000"
+set recolor-lightcolor "#D9D0b3"
+#set recolor-darkcolor           "#93a1a1" # base1
+set recolor-keephue             true      # keep original color
 set statusbar-h-padding 0
 set statusbar-v-padding 0
 set page-padding 1

@@ -36,15 +36,15 @@
 *.color15:      #dedede
 
 
-*.font: Iosevka-12;
+*.font: Iosevka-14;
 !*.font: fira mono-11;
 !*.font: envy code r-11.5;
 !*.font: unifont-13.5;
 
 
-*.alpha: 0.65
+!*.alpha: 0.65
 !*.alpha:1
-!*.alpha: 0.85
+*.alpha: 0.85
 !*.alpha: 1
 
 

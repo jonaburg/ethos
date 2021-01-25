@@ -13,7 +13,6 @@ unclutter &		# Remove mouse when idle
 /home/jon/Work/Compositing/test/picom/build/src/picom --config ~/.config/picom.conf --experimental-backend &		# xcompmgr for transparency
 #picom --experimental-backend &
 dunst &			# dunst for notifications
-#python ~/.config/awesome/autohidewibox/autohidewibox.py
 mpdupdate &
 caffeine &
 barrier &
@@ -21,3 +20,4 @@ dropbox &
 #nm-applet & # don't need this on my desktop..
 
 xrdb .Xresources
+#python ~/.config/awesome/autohidewibox/autohidewibox.py

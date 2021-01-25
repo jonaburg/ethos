@@ -29,16 +29,24 @@ local titlebar = require('slidebar.titlebar')
 local vm = require('extra.vmhunter')
 
 
-theme.font          = "Open Sans 10"
+--theme.font          = "sf mono 12"
+--theme.taglist_font  = "sf mono 12"
+--theme.mpd_font  = "sf mono 10"
+--theme.tasklist_font = "sf mono 12"
+
+
+theme.font          = "Iosevka 12"
 theme.taglist_font  = "Iosevka 12"
 theme.mpd_font  = "Open Sans 10"
-
-theme.tasklist_font = "Linux Biolinum 12"
+--theme.tasklist_font = "Linux Biolinum 12"
+theme.tasklist_font = "sf mono 13"
+--theme.tasklist_font = "Iosevka 14"
 
 
 theme.fg_normal                                 = "#bababa"
 theme.fg_focus					= "#e33a6e"
-theme.bg_focus                                  = "#242424"
+--theme.bg_focus                                  = "#242424"
+theme.bg_focus                                  = "#141c29"
 --theme.bg_focus = "#B6BD68"
 
 theme.bg_normal                                 = "#141414"
@@ -56,7 +64,8 @@ theme.border_focus                              = "#ADAFFF" .. "15"
 --taglist colors
 theme.taglist_fg_focus = "#000000"
 --theme.taglist_bg_empty = "#f5f5f6" -- light
-theme.taglist_bg_empty = "#c2c3c2" -- darker
+--theme.taglist_bg_empty = "#c2c3c2" -- darker
+theme.taglist_bg_empty = "#A5A5A6" -- evendarker
 theme.taglist_fg_empty = "#000000"
 theme.taglist_bg_occupied = "#6c8797"
 theme.taglist_fg_occupied = "#000000"
@@ -75,7 +84,8 @@ theme.tasklist_bg_normal                        = "#141414"
 --theme.tasklist_fg_focus                         = "#b6deaf"
 --theme.tasklist_fg_focus                         = "#e33a6e"
 --theme.tasklist_fg_focus                         = "#c5c69a"
-   theme.tasklist_fg_focus                         = "#ADAFFF" --Light purple
+ --  theme.tasklist_fg_focus                         = "#ADAFFF" --Light purple
+   theme.tasklist_fg_focus                         = "#F9A256" --Light Orange
 --   theme.tasklist_fg_focus                         = "#000000" -- BLACK
 --theme.tasklist_fg_focus                         = "#96d58b"
 theme.menu_height                               = dpi(20)
@@ -112,6 +122,8 @@ theme.net_down                                  = theme.icon_dir .. "/net_down.p
     theme.layout_tile                               = theme.confdir .. "/icons/tile.png"
     theme.layout_cascade                            = theme.confdir .. "/icons/magnifier.png"
     theme.layout_uselesstile                        = theme.confdir .. "/icons/centerwork.png"
+    theme.layout_strutwide                        = theme.confdir .. "/icons/tile.png"
+    theme.layout_strutcenter                        = theme.confdir .. "/icons/centerwork.png"
 --theme.layout_tileleft                           = theme.icon_dir .. "/tileleft.png"
 --theme.layout_tilebottom                         = theme.icon_dir .. "/tilebottom.png"
 --theme.layout_tiletop                            = theme.icon_dir .. "/tiletop.png"
@@ -168,7 +180,8 @@ local clock_widget_text_icon1 = wibox.widget {
 }
 local clock_widget_icon1 = wibox.widget {
 	clock_widget_text_icon1,
-	bg = "#E7D469",
+	--bg = "#E7D469",
+	bg = "#c3c997",
 	fg = "#000000",
 	widget = wibox.container.background,
 }
@@ -179,7 +192,8 @@ local clock_widget_text_icon2 = wibox.widget {
 }
 local clock_widget_icon2 = wibox.widget {
 	clock_widget_text_icon2,
-	bg = "#05C6E2",
+	--bg = "#05C6E2", -- bright overbearing blue
+	bg = "#97c3c9",
 	fg = "#000000",
 	widget = wibox.container.background,
 }
@@ -289,9 +303,13 @@ theme.volume = lain.widget.alsabar({
     width = dpi(80), height = dpi(50), border_width = dpi(0),ticks = false, tick_size=3,
     colors = {
         --background = "#383838",
-        background = "#C2C3C2",
+        --background = "#C2C3C2",
+        --background = "#A5A5A6",
+        --background = "#ABB1DD",
+        background = "#343434",
         --unmute     = "#80CCE6",
-        unmute     = "#465DFF",
+        --unmute     = "#465DFF",
+        unmute     = "#8c9aff",
         mute       = "#FF9F9F"
     },
 })
@@ -328,7 +346,7 @@ volumewidget = wibox.container.margin(volumewidget, dpi(10), dpi(10), dpi(8), dp
 -- CPU
 local cpu = lain.widget.cpu({
 	settings = function()
-        widget:set_markup(markup.fontbg(theme.font, "#C2C3C2", cpu_now.usage .. "%"))
+        widget:set_markup(markup.fontbg(theme.font, "#A5A5A6", cpu_now.usage .. "% "))
 	end
 })
 
@@ -339,13 +357,14 @@ local cpu_widget_icon = wibox.widget {
 }
 local cpu_widget_icon_handle = wibox.widget {
 	cpu_widget_icon,
-	bg = "#02Ad9B",
+	--bg = "#02Ad9B", -- deep green
+	bg = "#93C8b0", -- pale green
 	fg = "#000000",
 	widget = wibox.container.background,
 }
 local cpu_bg_handle = wibox.widget {
 	cpu,
-	bg = "#C2C3C2",
+    bg = "#A5A5A6",
 	fg = "#000000",
 	widget = wibox.container.background,
 }
@@ -354,7 +373,7 @@ local full_cpu_widget = wibox.widget {
     cpu_bg_handle,
 	layout = wibox.layout.fixed.horizontal,
 }
-local cpuwidget = wibox.container.margin(full_cpu_widget, dpi(3), dpi(3), dpi(5), dpi(5))
+local cpuwidget = wibox.container.margin(full_cpu_widget, dpi(2), dpi(2), dpi(5), dpi(5))
 
 -- Net
 local netdown_icon = wibox.widget.imagebox(theme.net_down)
@@ -423,7 +442,8 @@ local tagbarcolor  = gears.color({
     type  = "linear",
     from  = { 0, 120 },
     to    = { 0, 0 },
-    stops = { {0, "#000000"}, {0.9, "#505050" .. "75"}} -- grey
+    stops = { {0, "#000000"}, {0.9, "#141c29" .. "98"}} -- grey
+--    stops = { {0, "#000000"}, {0.9, "#505050" .. "95"}} -- grey
 --    stops = { {0, "#000000"}, {0.9, "#4E78A3" .. "75"}} -- blueish (light)
 })
 
@@ -444,7 +464,8 @@ local tagbarselcolor  = gears.color({
     type  = "linear",
     from  = { 0, 120 },
     to    = { 0, 0 },
-    stops = { {0.9, "#b6Bd68" .. "80"}, {0, "#505050" .. "85"}}
+    --stops = { {0.9, "#b6Bd68" .. "80"}, {0, "#505050" .. "85"}} -- Green?
+    stops = { {0.9, "#f9a256" .. "80"}, {0, "#f9a256" .. "25"}}
 
 })
 
@@ -483,7 +504,7 @@ function theme.at_screen_connect(s)
 mysystray = wibox.widget.systray()
 mysystray.visible = false
 systraybg = wibox.container.background(mysystray, "#ff0000", gears.shape.rectangle)
-systrayholder = wibox.container.margin(systraybg, dpi(16), dpi(16), dpi(7),dpi(7)) -- sytstray
+systrayholder = wibox.container.margin(systraybg, dpi(5), dpi(5), dpi(7),dpi(7)) -- sytstray
 systrayholder:connect_signal("mouse::enter", function() show_systray() end)
 systrayholder:connect_signal("mouse::leave", function() hide_systray() end)
 function show_systray() mysystray.visible = true end
@@ -491,10 +512,10 @@ function hide_systray() mysystray.visible = false end
 
 
 -- EMAIL
-emailholder = wibox.container.margin(email, dpi(0), dpi(0), dpi(5),dpi(5)) -- email
+emailholder = wibox.container.margin(email, dpi(0), dpi(2), dpi(5),dpi(5)) -- email
 
 -- WINDOWS VM identifier.
-vmholder = wibox.container.margin(vm, dpi(0), dpi(0), dpi(5),dpi(5)) -- windows vm
+vmholder = wibox.container.margin(vm, dpi(0), dpi(0), dpi(5),dpi(5)) -- c893c5 vm
 
 local bluelingrad = gears.color({
 	type = "linear",
@@ -521,13 +542,14 @@ local brightgrad = gears.color({
 })
 
 -- Redshift Bar
-local redshiftholder = wibox.container.margin(redshift({ main_color = bluelingrad, background_color = tagbarcolor, margins=8, shape = 'hexagon',}), dpi(5), dpi(5), dpi(6), dpi(6))
-
+local redshiftholder = wibox.container.margin(redshift({ main_color = bluelingrad, background_color = "#343434", margins=8, shape = 'hexagon',}), dpi(5), dpi(5), dpi(6), dpi(6))
 
   -- Tags
   --  awful.layout.layouts = {layouts[1],layouts[2],layouts[1],layouts[1],layouts[1],layouts[1]},
     awful.tag(awful.util.tagnames, s, awful.layout.layouts)
-  --  awful.tag(awful.util.tagnames2, s, awful.layout.layouts)
+--    awful.tag(awful.util.icons, s, awful.layout.layouts)
+--    awful.tag(awful.util.tagnames2, s, awful.layout.layouts)
+
 
     -- Create a promptbox for each screen
     --s.mypromptbox = awful.widget.prompt()
@@ -545,9 +567,18 @@ local redshiftholder = wibox.container.margin(redshift({ main_color = bluelingra
 
     layoutboxcontainer = wibox.container.margin(s.mylayoutbox, dpi(10), dpi(10), dpi(10), dpi(10))
     -- Create a taglist widget
-    s.mytaglist = awful.widget.taglist(s, awful.widget.taglist.filter.all, awful.util.taglist_buttons, { bg_focus = "#B6BD68" })
+    s.mytaglist = awful.widget.taglist(s, awful.widget.taglist.filter.all, awful.util.taglist_buttons, {
+         bg_focus = "#B6BD68" ,
+          font = "Iosevka 14",
+          icons = {
+                 "/home/jon/.config/awesome/themes/jontheme/icons/titlebar/slot.png",
+                 "/home/jon/.config/awesome/themes/jontheme/icons/titlebar/slot.png",
+                 "/home/jon/.config/awesome/themes/jontheme/icons/titlebar/slot.png",
+                 "/home/jon/.config/awesome/themes/jontheme/icons/titlebar/slot.png"
+               }
+        })
     mytaglistcont = wibox.container.background(s.mytaglist, theme.bg_focus, gears.shape.rectangle)
-    s.mytag = wibox.container.margin(mytaglistcont, dpi(5), dpi(5), dpi(3), dpi(3))
+    s.mytag = wibox.container.margin(mytaglistcont, dpi(1), dpi(1), dpi(2), dpi(2))
 
     -- Create a taglist widget for the slidebar at the bottom.. big ones now.
     s.mytaglist2 = awful.widget.taglist(s, awful.widget.taglist.filter.all, awful.util.taglist_buttons, {
@@ -582,7 +613,7 @@ end)
         shape = gears.shape.rounded_rect
     },
     layout   = {
-        spacing = 10,
+        spacing = 30,
         spacing_widget = {
             color  = '#dddddd' .. "00",
             bg  = '#ff0000' .. "00",
@@ -591,55 +622,49 @@ end)
         },
         layout  = wibox.layout.fixed.horizontal
     },
-    widget_template = {
+
+       widget_template = {
         {
             {
+               {
+                   text = " ",
+                   font = "Iosevka 14",
+                   widget = wibox.widget.textbox,
+               },
                 {
                     {
                         {
                             id     = 'index_role',
                             widget = wibox.widget.textbox,
                         },
-                        margins = 3,
+                        margins = 2,
                         widget  = wibox.container.margin,
                     },
-                    bg     = '#dddddd' .. "00",
-                    fg     = '#dddddd' .. "00",
-                    shape  = gears.shape.circle,
+                    fg = '#dddddd' ..'50',
+            --        bg     = '#dddddd',
+            --       shape  = gears.shape.circle,
                     widget = wibox.container.background,
                 },
-                {   {
-                       font = "iosevka 5",
-                       text     = ' ',
-                       widget = wibox.widget.textbox,
-                    },
+                {
                     {
-                       font = "iosevka 5",
-                       text     = ' ',
-                       widget = wibox.widget.textbox,
+                        id     = 'icon_role',
+                        widget = wibox.widget.imagebox,
                     },
-                    {
-                        
-                        {
-                           font = "iosevka 5",
-                           id     = 'text_role',
-                           widget = wibox.widget.textbox,
-                       },
-                          layout = wibox.layout.align.horizontal,
-                    },
-                    layout = wibox.layout.align.vertical,
+                    margins = 3,
+                    widget  = wibox.container.margin,
                 },
                 layout = wibox.layout.fixed.horizontal,
             },
-            left  = 18,
-            right = 18,
+            left  = 25,
+            right = 25,
             widget = wibox.container.margin
         },
+
         id     = 'background_role',
         widget = wibox.container.background,
         -- Add support for hover colors and an index label
         create_callback = function(self, c3, index, objects) --luacheck: no unused args
-            self:get_children_by_id('index_role')[1].markup = '<b> '..c3.index..' </b>'
+            self:get_children_by_id('index_role')[1].markup = '<b> '..index..' </b>'
             self:connect_signal('mouse::enter', function()
                 if self.bg ~= '#ff0000' .. "20" then
                     self.backup     = self.bg
@@ -652,9 +677,77 @@ end)
             end)
         end,
         update_callback = function(self, c3, index, objects) --luacheck: no unused args
-            self:get_children_by_id('index_role')[1].markup = '<b> '..c3.index..' </b>'
+            self:get_children_by_id('index_role')[1].markup = '<b> '..index..' </b>'
         end,
     },
+
+
+
+   -- widget_template = {
+   --     {
+   --         {
+   --             {
+   --                 {
+   --                     {
+   --                         id     = 'index_role',
+   --                         widget = wibox.widget.textbox,
+   --                     },
+   --                     margins = 3,
+   --                     widget  = wibox.container.margin,
+   --                 },
+   --                 bg     = '#dddddd' .. "00",
+   --                 fg     = '#dddddd' .. "00",
+   --                 shape  = gears.shape.circle,
+   --                 widget = wibox.container.background,
+   --             },
+   --             {   {
+   --                    font = "iosevka 5",
+   --                    text     = ' ',
+   --                    widget = wibox.widget.textbox,
+   --                 },
+   --                 {
+   --                    font = "iosevka 5",
+   --                    text     = ' ',
+   --                    widget = wibox.widget.textbox,
+   --                 },
+   --                 {
+   --                     {
+   --                      --  font = "iosevka 5",
+   --                      --  id     = 'text_role', -- contains the actual text names of the tags
+   --                      --   widget = wibox.widget.textbox,
+   --                        id     = 'icon_role', -- contains the actual text names of the tags
+   --                        widget = wibox.widget.imagebox,
+   --                    },
+   --                       layout = wibox.layout.align.horizontal,
+   --                 },
+   --                 layout = wibox.layout.align.vertical,
+   --             },
+   --             layout = wibox.layout.fixed.horizontal,
+   --         },
+   --         left  = 18,
+   --         right = 18,
+   --         widget = wibox.container.margin
+   --     },
+   --     id     = 'background_role',
+   --     widget = wibox.container.background,
+   --     -- Add support for hover colors and an index label
+   --     create_callback = function(self, c3, index, objects) --luacheck: no unused args
+   --         self:get_children_by_id('index_role')[1].markup = '<b> '..c3.index..' </b>'
+   --         self:connect_signal('mouse::enter', function()
+   --             if self.bg ~= '#ff0000' .. "20" then
+   --                 self.backup     = self.bg
+   --                 self.has_backup = true
+   --             end
+   --             self.bg = '#ff0000' .. "40"
+   --         end)
+   --         self:connect_signal('mouse::leave', function()
+   --             if self.has_backup then self.bg = self.backup end
+   --         end)
+   --     end,
+   --     update_callback = function(self, c3, index, objects) --luacheck: no unused args
+   --         self:get_children_by_id('index_role')[1].markup = '<b> '..c3.index..' </b>'
+   --     end,
+   -- },
     buttons = awful.util.taglist_buttons
 }
 
@@ -683,19 +776,23 @@ end)
 
 
 -- Create the main taskbar wibox.
-    screen[1].mywibox = awful.wibar(
---    screen[1].mywibox = wibox(
-        { position = "top",
+screen[1].mywibox = awful.wibar(
+   -- screen[1].mywibox = wibox(
+        {
+        --position = "top",
          screen = s,
          height = dpi(32),
+--         height = 50,
+         --height = 40,
          width = s.workarea.width,
          --width = s.workarea.width - 50,
-         type = "dock",
-         --y = 8,
-         --x = 20,
+         --type = "dock",
+  --       type = "bar",
+--         y = 1440,
+--         x = 900,
         --ontop = true,
-        --visible = true,
---         shape = gears.shape.rounded_rect 
+        visible = true,
+--         shape = gears.shape.rectangle
         }
     )
 --    s.myleftwibox = awful.wibar({ position = "top", screen = s, height = dpi(32), })
@@ -717,13 +814,20 @@ end)
         vmholder,
         cpuwidget,
 	    emailholder,
-        spr_small,
+    --    spr_small,
 	    clockwidget,
-        spr_small,
         s.mylayoutbox,
         systrayholder,
         },
     }
+-- if main screen then indent topbar down.
+    if s.index == 1
+    then
+         screen[1].mywibox.width = s.workarea.width - 50
+         screen[1].mywibox.height = dpi(38)
+         screen[1].mywibox.y = 10
+         screen[1].mywibox:struts({left=0, right=0, top=45, bottom=0}) 
+    end
 
 function tagbar_hor(s)
 	if s.index == 1
@@ -734,13 +838,13 @@ function tagbar_hor(s)
      screen = s,
      position = "bottom",
      --size = 60,
-     size = 85,
+     size = 80,
      ontop = true,
     -- size_activator = 5,
     -- show_delay = 0.25,
      hide_delay = 0.2,
-     easing = 70,
-     delta = 20,
+     easing = 5,
+     delta = 90,
 }
  screen[1].mytagbar:setup {
         layout = wibox.layout.align.horizontal,
@@ -760,94 +864,95 @@ function tagbar_hor(s)
 end
 end
 
---------- TITLEBAR DROPDOWN  -----------------------------------------------------
-function titlebar_hor(s)
-	if s.index == 1
-		then screen[1].mytitlebar = titlebar {
---		screen[1].mytitlebar = titlebar {
-     --bg = "#121212" .. "5",
-     bg = titlebarcolor,
-     screen = s,
-     position = "top",
-     --size = 60,
-     --size = 45,
-     --size = 45, -- just the topbar
-     size = 65,
-     ontop = true,
-    -- size_activator = 5,
---     show_delay = 0.2,
-     hide_delay = 0.1,
-     easing = 70,
-     delta = 20,
-  --   screen = nil
-}
- screen[1].mytitlebar:setup {
-        layout = wibox.layout.align.horizontal,
-        { -- Left widgets
-            layout = wibox.layout.fixed.horizontal,
-        --s.titletasklist, -- Middle widget
-        s.tasklistholder, -- Middle widget
-        },
-        { -- Right widgets
-           layout = wibox.layout.fixed.horizontal,
-        },
-    }
-end
-end
+
+----------- TITLEBAR DROPDOWN  -----------------------------------------------------
+--function titlebar_hor(s)
+--	if s.index == 1
+--		then screen[1].mytitlebar = titlebar {
+----		screen[1].mytitlebar = titlebar {
+--     --bg = "#121212" .. "5",
+--     bg = titlebarcolor,
+--     screen = s,
+--     position = "top",
+--     --size = 60,
+--     --size = 45,
+--     --size = 45, -- just the topbar
+--     size = 65,
+--     ontop = true,
+--    -- size_activator = 5,
+----     show_delay = 0.2,
+--     hide_delay = 0.1,
+--     easing = 70,
+--     delta = 20,
+--  --   screen = nil
+--}
+-- screen[1].mytitlebar:setup {
+--        layout = wibox.layout.align.horizontal,
+--        { -- Left widgets
+--            layout = wibox.layout.fixed.horizontal,
+--        --s.titletasklist, -- Middle widget
+--        s.tasklistholder, -- Middle widget
+--        },
+--        { -- Right widgets
+--           layout = wibox.layout.fixed.horizontal,
+--        },
+--    }
+--end
+--end
+--------------------------------------------------------------------------------------
+
+-------------- VOLUME NOTIFICATION UPON CHANGE CENTER SCREEN -------------------------
+--local volumebox = wibox({
+--    x =  1100,
+--    y = 1000,
+--    width = 200,
+--    height = 100,
+--    ontop = true,
+--    visible = false,
+--    --screen = awful.screen.focused(),
+--    screen = 1,
+--    widget = volumewidget
+--    }
+--)
+--local function invis_vol()
+--   volumebox.visible = false
+--end
+--awesome.connect_signal("volumeup", function()
+-- volumebox.visible = true
+-- gears.timer.start_new(3, invis_vol)
+--end)
+--awesome.connect_signal("volumedown", function()
+-- volumebox.visible = true
+-- gears.timer.start_new(3, invis_vol)
+--end)
 ------------------------------------------------------------------------------------
 
------------- VOLUME NOTIFICATION UPON CHANGE CENTER SCREEN -------------------------
-local volumebox = wibox({
-    x =  1100,
-    y = 1000,
-    width = 200,
-    height = 100,
-    ontop = true,
-    visible = false,
-    --screen = awful.screen.focused(),
-    screen = 1,
-    widget = volumewidget
-    }
-)
-local function invis_vol()
-   volumebox.visible = false
-end
-awesome.connect_signal("volumeup", function()
- volumebox.visible = true
- gears.timer.start_new(3, invis_vol)
-end)
-awesome.connect_signal("volumedown", function()
- volumebox.visible = true
- gears.timer.start_new(3, invis_vol)
-end)
-------------------------------------------------------------------------------------
-
------------- REDSHIFT NOTIFICATION UPON CHANGE CENTER SCREEN -------------------------
-local redshifterbox = wibox({
-    x =  1100,
-    y = 1000,
-    width = 340,
-    height = 100,
-    ontop = true,
-    visible = false,
-    --screen = awful.screen.focused(),
-    screen = 1,
-    widget = redshiftholder
-    }
-)
-local function invis_redshift()
-   redshifterbox.visible = false
-end
-awesome.connect_signal("redshiftup", function()
- invis_vol()
- redshifterbox.visible = true
- gears.timer.start_new(3, invis_redshift)
-end)
+-------------- REDSHIFT NOTIFICATION UPON CHANGE CENTER SCREEN -------------------------
+--local redshifterbox = wibox({
+--    x =  1100,
+--    y = 1000,
+--    width = 340,
+--    height = 100,
+--    ontop = true,
+--    visible = false,
+--    --screen = awful.screen.focused(),
+--    screen = 1,
+--    widget = redshiftholder
+--    }
+--)
+--local function invis_redshift()
+--   redshifterbox.visible = false
+--end
+--awesome.connect_signal("redshiftup", function()
+-- invis_vol()
+-- redshifterbox.visible = true
+-- gears.timer.start_new(3, invis_redshift)
+--end)
 ------------------------------------------------------------------------------------
 
 
 gears.timer.delayed_call(tagbar_hor, s)
-gears.timer.delayed_call(titlebar_hor, s)
+--gears.timer.delayed_call(titlebar_hor, s)
 
 end
 return theme

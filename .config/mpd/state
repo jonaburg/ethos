@@ -2,8 +2,8 @@ sw_volume: 100
 audio_device_state:1:pulse audio
 audio_device_state:1:toggle_visualizer
 state: pause
-current: 29
-time: 526.712000
+current: 64
+time: 3384.219000
 random: 0
 repeat: 0
 single: 0
@@ -17,56 +17,65 @@ playlist_begin
 2:2020/Oct/Bunda Internacionale-115581127.mp3
 3:2020/Oct/latinos....'Yo voy A votar por Donald Trump' Temazo!!!!-QNMsw9oADgM.opus
 4:2020/Oct/Na pět-206995257.mp3
-5:2020/Oct/Never Went-649728806.mp3
-6:Attic Abasement/09.ogg
-7:godspeed/01 Peasantry or ‘Light! Inside of Light!’.mp3
-8:C in Corporate Diner/Misery Chick/FolkPunkLullabies/Misery Chick - Folk Punk Lullabies (Lullabies inspired by folk punk) - 02 Never Going (to sleep).mp3
-9:C in Corporate Diner/Misery Chick/FolkPunkLullabies/Misery Chick - Folk Punk Lullabies (Lullabies inspired by folk punk) - 03 Sleepless in 1905.mp3
-10:C in Corporate Diner/Misery Chick/FolkPunkLullabies/Misery Chick - Folk Punk Lullabies (Lullabies inspired by folk punk) - 04 Sleep Thistle.mp3
-11:2020/June/E.S.T. Esbjorn Svensson Trio - Jazzwoche Burghausen 2004-XhdlVXxp1nw.opus
-12:2020/June/Tarrey Town - The Legend of Zelda - Breath of the Wild Soundtrack-SqhZbK6RI8g.opus
-13:2020/Nov/Fable 1, 2 and 3's Most Peaceful and Calm Songs (Albions Greatest Hit's)-9_9_HxGl844.opus
-14:2020/Nov/fable and chill-Dgxcij40me4.opus
-15:2020/Nov/Bravely Second- End Layer OST - Battle Of Providence [HQ]-251303153.mp3
-16:2020/Nov/aebee-204596596.mp3
-17:2020/Nov/Fire Emblem Main Theme (Fire Emblem  Shadow Dragons and the Blade of Light)-38149933.mp3
-18:2020/Nov/Wild O (http -_cabbi.bo_DRAGONFISH)-187973219.mp3
-19:2020/Nov/Tongue Wrong Song-126421164.mp3
-20:2020/Nov/Tron Legacy   Soundtrack OST   15 Solar Sailer   Daft Punk-124387576.mp3
-21:2020/Nov/Kitt'Indie Space Disco Triangle-129278244.mp3
-22:2020/Oct/Town Portal - Uncle Genie-57535718.mp3
-23:2020/Oct/Unfair Treaty-228843335.mp3
-24:2020/Oct/White Lies (feat. Jenni Potts)-166946567.mp3
-25:2020/Oct/Polyphia _ G.O.A.T. (Official Music Video)-9_gkpYORQLU.opus
-26:2020/Oct/Satellite (feat. Ellie Price)-185160510.mp3
-27:2020/Oct/PG Films-117499723.mp3
-28:2020/Sept/Django Reinhardt - Djangology-YPG1OnOrhis.opus
-29:2020/Sept/Dubliners (2008)-38529922.mp3
-30:Attic Abasement/01.ogg
-31:Attic Abasement/02.ogg
-32:Attic Abasement/03.ogg
-33:Attic Abasement/04.ogg
-34:Attic Abasement/05.ogg
-35:Attic Abasement/06.ogg
-36:Attic Abasement/07.ogg
-37:Attic Abasement/08.ogg
-38:Attic Abasement/09.ogg
-39:Attic Abasement/10.ogg
-40:Dusk Warrior/Dusk Warrior - With Love and Kisses - 01 Duskdown Showdown.flac
-41:Dusk Warrior/Dusk Warrior - With Love and Kisses - 02 Thunder Smile.flac
-42:Dusk Warrior/Dusk Warrior - With Love and Kisses - 03 Intermission.flac
-43:Dusk Warrior/Dusk Warrior - With Love and Kisses - 04 Lovers End.flac
-44:Dusk Warrior/Dusk Warrior - With Love and Kisses - 05 Wondrous Horizon.flac
-45:Nenem/Unknown/0 - Black & Gold.mp3
-46:Turnover - Good Nature (2017) FLAC/Turnover - Good Nature - 01 Super Natural.flac
-47:Turnover - Good Nature (2017) FLAC/Turnover - Good Nature - 02 Sunshine Type.flac
-48:Turnover - Good Nature (2017) FLAC/Turnover - Good Nature - 03 What Got In The Way.flac
-49:Turnover - Good Nature (2017) FLAC/Turnover - Good Nature - 04 Butterfly Dream.flac
-50:Turnover - Good Nature (2017) FLAC/Turnover - Good Nature - 05 Curiosity.flac
-51:Turnover - Good Nature (2017) FLAC/Turnover - Good Nature - 06 Pure Devotion.flac
-52:Turnover - Good Nature (2017) FLAC/Turnover - Good Nature - 07 Nightlight Girl.flac
-53:Turnover - Good Nature (2017) FLAC/Turnover - Good Nature - 08 Breeze.flac
-54:Turnover - Good Nature (2017) FLAC/Turnover - Good Nature - 09 All That It Ever Was.flac
-55:Turnover - Good Nature (2017) FLAC/Turnover - Good Nature - 10 Living Small.flac
-56:Turnover - Good Nature (2017) FLAC/Turnover - Good Nature - 11 Bonnie (Rhythm & Melody).flac
+5:Attic Abasement/09.ogg
+6:godspeed/01 Peasantry or ‘Light! Inside of Light!’.mp3
+7:C in Corporate Diner/Misery Chick/FolkPunkLullabies/Misery Chick - Folk Punk Lullabies (Lullabies inspired by folk punk) - 02 Never Going (to sleep).mp3
+8:C in Corporate Diner/Misery Chick/FolkPunkLullabies/Misery Chick - Folk Punk Lullabies (Lullabies inspired by folk punk) - 03 Sleepless in 1905.mp3
+9:C in Corporate Diner/Misery Chick/FolkPunkLullabies/Misery Chick - Folk Punk Lullabies (Lullabies inspired by folk punk) - 04 Sleep Thistle.mp3
+10:2020/June/E.S.T. Esbjorn Svensson Trio - Jazzwoche Burghausen 2004-XhdlVXxp1nw.opus
+11:2020/June/Tarrey Town - The Legend of Zelda - Breath of the Wild Soundtrack-SqhZbK6RI8g.opus
+12:2020/Nov/Fable 1, 2 and 3's Most Peaceful and Calm Songs (Albions Greatest Hit's)-9_9_HxGl844.opus
+13:2020/Nov/fable and chill-Dgxcij40me4.opus
+14:2020/Nov/Bravely Second- End Layer OST - Battle Of Providence [HQ]-251303153.mp3
+15:2020/Nov/aebee-204596596.mp3
+16:2020/Nov/Fire Emblem Main Theme (Fire Emblem  Shadow Dragons and the Blade of Light)-38149933.mp3
+17:2020/Nov/Wild O (http -_cabbi.bo_DRAGONFISH)-187973219.mp3
+18:2020/Nov/Tongue Wrong Song-126421164.mp3
+19:2020/Nov/Tron Legacy   Soundtrack OST   15 Solar Sailer   Daft Punk-124387576.mp3
+20:2020/Nov/Kitt'Indie Space Disco Triangle-129278244.mp3
+21:2020/Oct/Town Portal - Uncle Genie-57535718.mp3
+22:2020/Oct/Unfair Treaty-228843335.mp3
+23:2020/Oct/White Lies (feat. Jenni Potts)-166946567.mp3
+24:2020/Oct/Polyphia _ G.O.A.T. (Official Music Video)-9_gkpYORQLU.opus
+25:2020/Oct/Satellite (feat. Ellie Price)-185160510.mp3
+26:2020/Oct/PG Films-117499723.mp3
+27:2020/Sept/Django Reinhardt - Djangology-YPG1OnOrhis.opus
+28:2020/Sept/Dubliners (2008)-38529922.mp3
+29:Attic Abasement/01.ogg
+30:Attic Abasement/02.ogg
+31:Attic Abasement/03.ogg
+32:Attic Abasement/04.ogg
+33:Attic Abasement/05.ogg
+34:Attic Abasement/06.ogg
+35:Attic Abasement/07.ogg
+36:Attic Abasement/08.ogg
+37:Attic Abasement/09.ogg
+38:Attic Abasement/10.ogg
+39:Dusk Warrior/Dusk Warrior - With Love and Kisses - 01 Duskdown Showdown.flac
+40:Dusk Warrior/Dusk Warrior - With Love and Kisses - 02 Thunder Smile.flac
+41:Dusk Warrior/Dusk Warrior - With Love and Kisses - 03 Intermission.flac
+42:Dusk Warrior/Dusk Warrior - With Love and Kisses - 04 Lovers End.flac
+43:Dusk Warrior/Dusk Warrior - With Love and Kisses - 05 Wondrous Horizon.flac
+44:Nenem/Unknown/0 - Black & Gold.mp3
+45:Turnover - Good Nature (2017) FLAC/Turnover - Good Nature - 01 Super Natural.flac
+46:Turnover - Good Nature (2017) FLAC/Turnover - Good Nature - 02 Sunshine Type.flac
+47:Turnover - Good Nature (2017) FLAC/Turnover - Good Nature - 03 What Got In The Way.flac
+48:Turnover - Good Nature (2017) FLAC/Turnover - Good Nature - 04 Butterfly Dream.flac
+49:Turnover - Good Nature (2017) FLAC/Turnover - Good Nature - 05 Curiosity.flac
+50:Turnover - Good Nature (2017) FLAC/Turnover - Good Nature - 06 Pure Devotion.flac
+51:Turnover - Good Nature (2017) FLAC/Turnover - Good Nature - 07 Nightlight Girl.flac
+52:Turnover - Good Nature (2017) FLAC/Turnover - Good Nature - 08 Breeze.flac
+53:Turnover - Good Nature (2017) FLAC/Turnover - Good Nature - 09 All That It Ever Was.flac
+54:Turnover - Good Nature (2017) FLAC/Turnover - Good Nature - 10 Living Small.flac
+55:Turnover - Good Nature (2017) FLAC/Turnover - Good Nature - 11 Bonnie (Rhythm & Melody).flac
+56:2021/1January/Dancing on the Moon - DÉSØVZÅ & DREYMIX-232668290.mp3
+57:2021/1January/J.S. Aurelius - Music For Programming (mix)-167829125.mp3
+58:2021/1January/Leo Delibes, Duo des Fleurs-123530088.mp3
+59:2021/1January/mumric @ Forest Star Festival 2017 [Chill Set]-337879434.mp3
+60:2020/May/The Pillows - Beautiful morning with you (FLCL OST No. 3) [HQ]-wj5hmkhUntM.opus
+61:2020/Oct/Jean Jean - With Mountains As Witness-221026430.mp3
+62:2020/Oct/Jazz Math Rock Thing (mastered)-170875929.mp3
+63:2020/Oct/Icronic-331749420.mp3
+64:2020/Oct/Final Fantasy VII - Jazz version-ew_JVr7qaTo.opus
+65:2021/1January/Icarus (Main Theme)-80204248.mp3
 playlist_end

@@ -40,7 +40,7 @@
 *.color15: nord6
 
 !*.font: Iosevka-11;
-*.font: iosevka-10;
+*.font: iosevka-13;
 !*.font: nerd-fonts-Iosevka-13.5;
 
 

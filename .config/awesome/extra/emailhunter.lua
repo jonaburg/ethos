@@ -21,7 +21,8 @@ textbox_notify_widget = wibox.widget {
 	}
 textbox_notify_widget_box = wibox.widget {
 	textbox_notify_widget,
-	bg = "#c3c2c3",
+--	bg = "#c3c2c3", -- dark
+	bg = "#A5A5A6", -- even darker
 	fg = "#000000",
 	widget = wibox.container.background,
 }
@@ -52,12 +53,13 @@ function(widget, stdout, stderr, exitreason, exitcode)
 	        textbox_widget:set_text( " 📨 ")
 	        textbox_widget:set_markup(markup("#000000", " 📨 "))
 	        textbox_notify_widget:set_text( "  " ..  stdout .. "  " )
-            emailbg:set_bg("#D9574F")
+            emailbg:set_bg("#D9574F") -- striking red
         elseif (unread_emails_num == 0) then
    	        textbox_widget:set_text(" 📨")
 	        textbox_widget:set_markup(markup("#000000", " 📨 "))
-	        textbox_notify_widget:set_text("  ")
-            emailbg:set_bg("#Bd78D2")
+	        textbox_notify_widget:set_text("__ ")
+            emailbg:set_bg("#Bd78D2") -- placehold bright pink
+            emailbg:set_bg("#c893c5") -- annoying pink
         end
     end
 )

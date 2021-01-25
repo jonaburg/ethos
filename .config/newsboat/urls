@@ -40,7 +40,8 @@ http://austrianeconomists.typepad.com/weblog/rss.xml blog "~      Coordination P
 
 "------- Youtube_Channels ------------------"
 # template #### https://www.youtube.com/feeds/videos.xml?channel_id=
-https://www.youtube.com/feeds/videos.xml?channel_id=UC2eYFnH61tmytImy1mTYvhA videos "~      Luke Smith"
+https://videos.lukesmith.xyz/feeds/videos.xml?accountId=3                           "~      Luke Smith 1"
+https://www.youtube.com/feeds/videos.xml?channel_id=UC2eYFnH61tmytImy1mTYvhA videos "~      Luke Smith YT"
 https://www.youtube.com/feeds/videos.xml?channel_id=UC7YOGHUfC1Tb6E4pudI9STA videos "~      mental outlaw"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCb4pvsyqNrmBIGJFQxEukUA videos "~      Meme Analysis"
 https://www.youtube.com/feeds/videos.xml?channel_id=UC3TUCGI-7rSjvHsE4ONXRww videos "~      MilleniaThinker"
@@ -52,6 +53,9 @@ https://www.youtube.com/feeds/videos.xml?channel_id=UCVls1GmFKf6WlTraIb_IaJg vid
 https://www.youtube.com/feeds/videos.xml?channel_id=UCfUaZ8Ra7m7BqUEACv2jySw videos "~      HydeWars"
 https://www.youtube.com/feeds/videos.xml?channel_id=UC9-y-6csu5WGm29I7JiwpnA videos "~      ComputerPhile"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCYZtp0YIxYOipX15v_h_jnA videos "~      Crowbcat"
+
+https://www.youtube.com/feeds/videos.xml?channel_id=UCcukTqc1cJJ4K3c4uzxTzjA videos "~      ADV Podcasts"
+
 https://www.youtube.com/feeds/videos.xml?channel_id=UCFFLP0dKesrKWccYscdAr9A videos "~      The Urban Penguin"
 https://www.bitchute.com/feeds/rss/channel/brodierobertson videos "~      Brodie Robertson (bitchute)"
 https://www.bitchute.com/feeds/rss/channel/freedomainradio/ videos "~      Stef Molyneux (bitchute)"

@@ -97,14 +97,15 @@ local themes = {
     "rainbow",         -- 8
     "steamburn",       -- 9
     "vertex",          -- 10
-    "jontheme",        -- 11
-    "winter",          -- 12
+    "jontheme",        -- 11 -- broken
+    "winter",          -- 12 -- broken
     "spring",          -- 13 --broken?
     "spring2",         -- 14
     "ethos",           -- 15
     "focus",           -- 16
     "hunter",          -- 17
     "hunterbadbar",          -- 18
+    "cesious", -- 19
 }
 
 local chosen_theme = themes[17]
@@ -123,10 +124,12 @@ local scrlocker    = "slock"
 awful.layout.layouts = {
 --    lain.layout.termfair.center,
 --    lain.layout.centerwork,
-    lain.layout.uselesstilecenter,
 --    awful.layout.suit.floating,
-    awful.layout.suit.tile,
-    lain.layout.cascade,
+    lain.layout.strutwide,
+    lain.layout.strutcenter,
+----    lain.layout.uselesstilecenter,
+----    awful.layout.suit.tile,
+----    lain.layout.cascade,
 --    awful.layout.suit.spiral,
     --awful.layout.suit.magnifier,
     }
@@ -136,16 +139,16 @@ layouts = awful.layout.layouts
 tags = {
 --	names = { " ", " ", " ", " ", " ", " ", "7", "8", "9" },
 --	names = { "1 ", "2 ", "3 ", "4 ", "5 ", "6 ", "7 ", "8 ", "9 " },
-	layout = {layouts[1],layouts[2],layouts[1],layouts[1],layouts[1],layouts[1],
---	icons = {
---       		 "/home/jon/.config/awesome/themes/jontheme/icons/titlebar/slot.png",
---       		 "/home/jon/.config/awesome/themes/jontheme/icons/titlebar/slot.png",
---       		 "/home/jon/.config/awesome/themes/jontheme/icons/titlebar/slot.png",
---           	 "/home/jon/.config/awesome/themes/jontheme/icons/titlebar/slot.png"
+	layout = {layouts[1],layouts[1],layouts[1],layouts[1],layouts[1],layouts[1],
+	icons = {
+       		 "/home/jon/.config/awesome/themes/jontheme/icons/titlebar/slot.png",
+       		 "/home/jon/.config/awesome/themes/jontheme/icons/titlebar/slot.png",
+       		 "/home/jon/.config/awesome/themes/jontheme/icons/titlebar/slot.png",
+             "/home/jon/.config/awesome/themes/jontheme/icons/titlebar/slot.png"
+    }
 
     }
 }
-
 
 
 --tag.connect_signal("property::selected", function(t)
@@ -156,6 +159,7 @@ tags = {
 awful.util.terminal = st
  awful.util.tagnames = { "1", "2", "3", "4", "5", "6", "7","8", "9" }
  awful.util.tagnames2 = { " ", " ", " ", " ", " ", " ", "7", "8", "9" }
+
 --awful.layout.layouts = {
 --    lain.layout.uselesstilecenter,
 --    awful.layout.suit.tile,
