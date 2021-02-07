@@ -96,7 +96,24 @@ set -o GLOB_SUBST
 PROMPT_COMMAND='echo -ne "\033]0;$PWD\007"'
 
 #ls colors..
-. /usr/share/LS_COLORS/dircolors.sh
+#. /usr/share/LS_COLORS/dircolors.sh
+
+export LF_COLORS="
+~/Documents=01;33:\
+~/.local/share=01;31:\
+~/.config/lf/lfrc=31:\
+.git/=01;32:\
+.git=32:\
+.gitignore=32:\
+Makefile=32:\
+README.*=33:\
+*.txt=34:\
+*.md=34:\
+*.jpg=01;33:\
+ln=01;36:\
+di=01;31:\
+ex=01;32:\
+"
 
 #lf icons
 export LF_ICONS="\

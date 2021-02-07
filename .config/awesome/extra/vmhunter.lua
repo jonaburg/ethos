@@ -40,7 +40,9 @@ local windowsvm = wibox.container.background(mascarpone_widget, "#4e78a3") -- wi
 --            emailbg:set_bg("#D9574F")
 
 
-local watchstatus = [[bash -c "sudo virsh list --all | tail -2 | awk {'print $3'}" ]]
+local watchstatus = [[bash -c "sudo virsh list --all | tail -2 | awk '{print \$3} ' "]]
+--local watchstatus = [[bash -c "cat ~/.config/awesome/tmp/vmval"]]
+--local watchstatus = [[bash -c "sudo virsh list --all | tail -2 | awk {'print $3'}" ]]
 --local watchstatus = [[bash -c 'bash ~/.config/awesome/extra/windowsvmstatus.sh' ]]
 --local watchstatus = [[bash -c 'cat ~/.config/awesome/extra/test' ]]
 
@@ -56,24 +58,35 @@ watch(
 watchstatus, 60,
 function(widget, stdout, stderr, exitreason, exitcode)
   local vm_status = tostring(stdout)
-        if vm_status == "paused" then
-            textbox_notify_widget:set_text('_')
+        if string.find(vm_status, "paused") then
+            textbox_notify_widget:set_text(' __ ')
         end
-        if vm_status == "running" then
-            textbox_notify_widget:set_text('+')
+        if string.find(vm_status, "running") then
+            textbox_notify_widget:set_text(' + ')
         end
-        if vm_status == "shut" then
-            textbox_notify_widget:set_text('x')
+        if string.find(vm_status, "shut") then
+            textbox_notify_widget:set_text('__ ')
         else
             textbox_notify_widget:set_text(vm_status)
         end
+----        if vm_status == "paused" then
+----            textbox_notify_widget:set_text('_')
+----        end
+----        if vm_status == "running" then
+----            textbox_notify_widget:set_text('+')
+----        end
+----        if vm_status == "shut" then
+----            textbox_notify_widget:set_text('x')
+----        else
+----            textbox_notify_widget:set_text(vm_status)
+----        end
 --	        textbox_notify_widget:set_text( "its paused")
 --	        --textbox_widget:set_markup(markup("#000000", " 📨 "))
 --	        --textbox_notify_widget:set_text( "  " ..  stdout .. "  " )
 --            windowsvm:set_bg("#D9574F")
 ----        end
 -- --       if vm_status == 'running' then
---        else 
+--        else
 --   	        --textbox_notify_widget:set_text(" 📨")
 --   	        textbox_notify_widget:set_text('not paused')
 --	        --textbox_widget:set_markup(markup("#000000", " 📨 "))

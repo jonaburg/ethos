@@ -1,7 +1,7 @@
 # interpreter for shell commands (needs to be POSIX compatible)
 set shell sh
 set preview true
-set color256
+#set color256
 #set previewer ~/.config/lf/pv.sh
 set previewer ~/.config/lf/scope.sh
 #map i $~/.config/lf/pv.sh $f | less -R
@@ -235,6 +235,7 @@ cp $f ~/.config/awesome/themes/ethos/papes/s3/pape9.jpg && feh --bg-scale $f
 
 ## add icons
 set icons
+
 
 # extract the current file with the right command
 # (xkcd link: https://xkcd.com/1168/)

@@ -16,8 +16,8 @@ dunst &			# dunst for notifications
 mpdupdate &
 caffeine &
 barrier &
-dropbox &
+#dropbox &
 #nm-applet & # don't need this on my desktop..
 
-xrdb .Xresources
+xrdb -merge .Xresources &&
 #python ~/.config/awesome/autohidewibox/autohidewibox.py

@@ -5,13 +5,15 @@
 function tolaptop (){
 #going to laptop via barrier
 #sudo ddcutil setvcp --bus 2 60 0x01 # AOC
-sudo ddcutil setvcp --bus 2 60 0x11 # ASUS
+#sudo ddcutil setvcp --bus 2 60 0x11 # ASUS
+sudo ddcutil setvcp --bus 7 60 0x11 # ASUS
 }
 
 function topc (){
 #going back to pc after moving mouse to barrier
 #sudo ddcutil setvcp --bus 2 60 0x03 # AOC
-sudo ddcutil setvcp --bus 2 60 0x0f # ASUS
+#sudo ddcutil setvcp --bus 2 60 0x0f # ASUS
+sudo ddcutil setvcp --bus 7 60 0x0f # ASUS
 }
 
 function towindows(){

@@ -23,10 +23,14 @@ theme.wallpaper                                 = os.getenv("HOME") .. "/.config
 theme.lain_icons                                = os.getenv("HOME") .. "/.config/awesome/themes/hunter"
 
 local redshift = require('extra.redshift')
+local ddcshift = require('extra.ddcshift')
 local email = require('extra.emailhunter')
 local tagbar = require('slidebar.tagbar')
 local titlebar = require('slidebar.titlebar')
 local vm = require('extra.vmhunter')
+local gpuhunter = require('extra.gpuhunter')
+local airquality = require('extra.airquality')
+local humidity = require('extra.humidity')
 
 
 --theme.font          = "sf mono 12"
@@ -46,7 +50,7 @@ theme.tasklist_font = "sf mono 13"
 theme.fg_normal                                 = "#bababa"
 theme.fg_focus					= "#e33a6e"
 --theme.bg_focus                                  = "#242424"
-theme.bg_focus                                  = "#141c29"
+theme.bg_focus                                  = "#141c29" -- midnight blue
 --theme.bg_focus = "#B6BD68"
 
 theme.bg_normal                                 = "#141414"
@@ -58,7 +62,8 @@ theme.bg_urgent                                 = "#D9574F"
 
 theme.border_width                              = dpi(2)
 theme.border_normal                             = "#252525"
-theme.border_focus                              = "#ADAFFF" .. "15"
+--theme.border_focus                              = "#ADAFFF" .. "15"
+theme.border_focus                              = "#c3c997" .. "15"
 
 
 --taglist colors
@@ -300,7 +305,8 @@ local bat = lain.widget.bat({
 theme.volume = lain.widget.alsabar({
     notification_preset = { font = "Monospace 14"},
     --togglechannel = "IEC958,3",
-    width = dpi(80), height = dpi(50), border_width = dpi(0),ticks = false, tick_size=3,
+    --width = dpi(80), height = dpi(50), border_width = dpi(0),ticks = false, tick_size=3, -- 1080p monitor divisions
+    width = dpi(100), height = dpi(50), border_width = dpi(0),ticks = false, tick_size=3,
     colors = {
         --background = "#383838",
         --background = "#C2C3C2",
@@ -309,12 +315,13 @@ theme.volume = lain.widget.alsabar({
         background = "#343434",
         --unmute     = "#80CCE6",
         --unmute     = "#465DFF",
-        unmute     = "#8c9aff",
+        --unmute     = "#8c9aff",
+        unmute     = "#7289DA",
         mute       = "#FF9F9F"
     },
 })
 theme.volume.bar.paddings = dpi(0)
-theme.volume.bar.margins = dpi(3)
+theme.volume.bar.margins = dpi(8)
 theme.volume.bar:buttons(awful.util.table.join(
     awful.button({}, 3, function() -- left click
         awful.spawn(string.format("%s -e alsamixer", terminal))
@@ -341,7 +348,7 @@ theme.volume.bar:buttons(awful.util.table.join(
     ))
 
 local volumewidget = wibox.container.background(theme.volume.bar, theme.bg_focus, gears.shape.rectangle)
-volumewidget = wibox.container.margin(volumewidget, dpi(10), dpi(10), dpi(8), dpi(8))
+volumewidget = wibox.container.margin(volumewidget, dpi(3), dpi(3), dpi(10), dpi(10))
 
 -- CPU
 local cpu = lain.widget.cpu({
@@ -351,14 +358,17 @@ local cpu = lain.widget.cpu({
 })
 
 local cpu_widget_icon = wibox.widget {
-	text = " 💽 ",
+	--text = " 💽 ",
+	text = "    ",
 	font = "Iosevka 10",
 	widget = wibox.widget.textbox,
 }
 local cpu_widget_icon_handle = wibox.widget {
 	cpu_widget_icon,
 	--bg = "#02Ad9B", -- deep green
-	bg = "#93C8b0", -- pale green
+	--bg = "#93C8b0", -- pale green
+	--bg = "#7289da", -- nice violet
+	bg = "#88aadd", -- yellowish
 	fg = "#000000",
 	widget = wibox.container.background,
 }
@@ -373,7 +383,7 @@ local full_cpu_widget = wibox.widget {
     cpu_bg_handle,
 	layout = wibox.layout.fixed.horizontal,
 }
-local cpuwidget = wibox.container.margin(full_cpu_widget, dpi(2), dpi(2), dpi(5), dpi(5))
+local cpuwidget = wibox.container.margin(full_cpu_widget, dpi(0), dpi(0), dpi(5), dpi(5))
 
 -- Net
 local netdown_icon = wibox.widget.imagebox(theme.net_down)
@@ -512,10 +522,20 @@ function hide_systray() mysystray.visible = false end
 
 
 -- EMAIL
-emailholder = wibox.container.margin(email, dpi(0), dpi(2), dpi(5),dpi(5)) -- email
+emailholder = wibox.container.margin(email, dpi(10), dpi(0), dpi(5),dpi(5)) -- email
 
+-- Computer stats Widgets
 -- WINDOWS VM identifier.
 vmholder = wibox.container.margin(vm, dpi(0), dpi(0), dpi(5),dpi(5)) -- c893c5 vm
+-- GPU HOLDER 
+gpuholder = wibox.container.margin(gpuhunter, dpi(0), dpi(0), dpi(5),dpi(5)) -- c893c5 vm
+
+-- Physical Environment Widgets
+-- Air quality holder
+airqualityholder = wibox.container.margin(airquality, dpi(0), dpi(10), dpi(5),dpi(5)) -- c893c5 vm
+-- humidity holder
+humidityholder = wibox.container.margin(humidity, dpi(0), dpi(0), dpi(5),dpi(5)) -- c893c5 vm
+
 
 local bluelingrad = gears.color({
 	type = "linear",
@@ -541,8 +561,22 @@ local brightgrad = gears.color({
 	stops = { {0.1, "#FFFFFF" .. "50"}, {3.45, "#bdbdbd" .. "60"} }
 })
 
+-- DDCshift Bar
+local ddcshiftholder = wibox.container.margin(ddcshift({ main_color = "#A5A5A6", background_color = "#343434", margins=8, shape = 'hexagon',}), dpi(5), dpi(5), dpi(8), dpi(8)) -- 1080p
+local ddcshiftholder_3k = wibox.container.background(ddcshift({ main_color = "#A5A5A6", background_color = "#343434", margins=10, shape = 'hexagon',}), theme.bg_focus, gears.shape.rectangle) --background
+ddcshiftholder_3k = wibox.container.margin(ddcshiftholder_3k, dpi(3), dpi(3), dpi(9), dpi(9)) -- margin
 -- Redshift Bar
-local redshiftholder = wibox.container.margin(redshift({ main_color = bluelingrad, background_color = "#343434", margins=8, shape = 'hexagon',}), dpi(5), dpi(5), dpi(6), dpi(6))
+local redshiftholder = wibox.container.margin(redshift({ main_color = bluelingrad, background_color = "#343434", margins=8, shape = 'hexagon',}), dpi(5), dpi(5), dpi(8), dpi(8)) -- 1080p
+local redshiftholder_3k = wibox.container.background(redshift({ main_color = bluelingrad, background_color = "#343434", margins=10, shape = 'hexagon',}), theme.bg_focus, gears.shape.rectangle) --background
+redshiftholder_3k = wibox.container.margin(redshiftholder_3k, dpi(3), dpi(2), dpi(9), dpi(9)) -- margin
+
+-- shapes
+-- hexagon nicely squeezed
+local goodhexa = function(cr, width, height)
+    gears.shape.hexagon(cr, 70, 70)
+--    goodhexa.transform(shape.hexagon) : translate(0,15)(cr,70,20)
+end
+
 
   -- Tags
   --  awful.layout.layouts = {layouts[1],layouts[2],layouts[1],layouts[1],layouts[1],layouts[1]},
@@ -580,23 +614,15 @@ local redshiftholder = wibox.container.margin(redshift({ main_color = bluelingra
     mytaglistcont = wibox.container.background(s.mytaglist, theme.bg_focus, gears.shape.rectangle)
     s.mytag = wibox.container.margin(mytaglistcont, dpi(1), dpi(1), dpi(2), dpi(2))
 
-    -- Create a taglist widget for the slidebar at the bottom.. big ones now.
-    s.mytaglist2 = awful.widget.taglist(s, awful.widget.taglist.filter.all, awful.util.taglist_buttons, {
-	    bg_focus = "#B6BD68",
-	    spacing = dpi(50),
-	    font = "Iosevka 14"
-    })
-
 -- on tag change
-
-screen[1]:connect_signal("tag::history::update", function() -- if only desired on screen1..
---    tag.connect_signal(
---        "property::selected", function(t)
---   --     local s = t.screen or awful.screen.focused()
-	awesome.emit_signal (
-        "tagin", function()
-      end)
-end)
+--screen[1]:connect_signal("tag::history::update", function() -- if only desired on screen1..
+----    tag.connect_signal(
+----        "property::selected", function(t)
+----   --     local s = t.screen or awful.screen.focused()
+	--awesome.emit_signal (
+        --"tagin", function()
+      --end)
+--end)
 
 -- TAGBAR TAGLIST
     s.mytaglist3 = awful.widget.taglist {
@@ -610,7 +636,9 @@ end)
          fg_focus = "#c2c3c2" .. "80",
          fg_occupied = "#c2c3c2" .. "80",
         bg_focus = tagbarselcolor,
-        shape = gears.shape.rounded_rect
+        --shape = gears.shape.rounded_rect
+        --shape = gears.shape.hexagon
+        shape = goodhexa
     },
     layout   = {
         spacing = 30,
@@ -809,9 +837,13 @@ screen[1].mywibox = awful.wibar(
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
         musicwidget,
-	    redshiftholder,
+	    ddcshiftholder_3k,
+	    redshiftholder_3k,
         volumewidget,
-        vmholder,
+ --       vmholder, --  currently not using any vms
+        humidityholder,
+        airqualityholder,
+        gpuholder,
         cpuwidget,
 	    emailholder,
     --    spr_small,
@@ -823,10 +855,10 @@ screen[1].mywibox = awful.wibar(
 -- if main screen then indent topbar down.
     if s.index == 1
     then
-         screen[1].mywibox.width = s.workarea.width - 50
          screen[1].mywibox.height = dpi(38)
-         screen[1].mywibox.y = 10
-         screen[1].mywibox:struts({left=0, right=0, top=45, bottom=0}) 
+         --screen[1].mywibox.width = s.workarea.width - 50
+         --screen[1].mywibox.y = 10
+         --screen[1].mywibox:struts({left=0, right=0, top=45, bottom=0})
     end
 
 function tagbar_hor(s)

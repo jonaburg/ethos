@@ -1,9 +1,7 @@
 sw_volume: 100
 audio_device_state:1:pulse audio
 audio_device_state:1:toggle_visualizer
-state: pause
-current: 64
-time: 3384.219000
+state: stop
 random: 0
 repeat: 0
 single: 0
@@ -78,4 +76,6 @@ playlist_begin
 63:2020/Oct/Icronic-331749420.mp3
 64:2020/Oct/Final Fantasy VII - Jazz version-ew_JVr7qaTo.opus
 65:2021/1January/Icarus (Main Theme)-80204248.mp3
+66:2019/March/KOKOROKO - ABUSEY JUNCTION _ WE OUT HERE-tSv04ylc6To.opus
+67:2019/March/KOKOROKO - ABUSEY JUNCTION _ WE OUT HERE-tSv04ylc6To.opus
 playlist_end

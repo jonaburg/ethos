@@ -1,7 +1,7 @@
 [global]
     monitor = 0
     follow = keyboard
-    geometry = "500x5-0+24"
+    geometry = "500x5-0+44"
     indicate_hidden = yes
     shrink = yes
     transparency = 0
@@ -75,7 +75,7 @@
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
-    background = "#28282840"
+    background = "#28282890"
     foreground = "#928374"
     frame_color = "#97DCEE"
     timeout = 5
@@ -83,12 +83,12 @@
     #icon = /path/to/icon
 
 [urgency_normal]
-    background = "#38383840"
+    background = "#38383890"
     foreground = "#ebdbb2"
     timeout = 5
 
 [urgency_critical]
-    background = "#cc242140"
+    background = "#cc242190"
     foreground = "#ebdbb2"
     frame_color = "#fabd2f"
     timeout = 0

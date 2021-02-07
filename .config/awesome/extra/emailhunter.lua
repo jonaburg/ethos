@@ -58,8 +58,12 @@ function(widget, stdout, stderr, exitreason, exitcode)
    	        textbox_widget:set_text(" 📨")
 	        textbox_widget:set_markup(markup("#000000", " 📨 "))
 	        textbox_notify_widget:set_text("__ ")
-            emailbg:set_bg("#Bd78D2") -- placehold bright pink
-            emailbg:set_bg("#c893c5") -- annoying pink
+      --      emailbg:set_bg("#Bd78D2") -- placehold bright pink
+      --      emailbg:set_bg("#c893c5") -- annoying pink
+     --       emailbg:set_bg("#CC9DEC") -- slightly mauve pnink
+            emailbg:set_bg("#D2A2DE") -- pso pink
+     --       emailbg:set_bg("#BF7979") -- nord salmon
+            --emailbg:set_bg("#863848") -- old blood
         end
     end
 )

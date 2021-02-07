@@ -55,6 +55,8 @@ Xft.hinting: 1
 Xft.antialias: 1
 Xft.rgba: rgb
 
+Xcursor.theme: gruppled_white
+
 rofi.font: InconsolataForPowerline Nerd Font 11
 !Xft.dpi:80
 Xft.dpi:100
