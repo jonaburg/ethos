@@ -44,10 +44,15 @@ download
 sed 's/>/\n/g' /tmp/aq | grep Humidity -A2 | tail -1  | awk -F'<' {'print $1'} > $destination
 }
 
+temperature(){
+destination='/tmp/temperature'
+sed 's/</\n/g' /tmp/aq | grep -A3 -m1 'Temperature'  | tail -2 | head -1 | awk -F'>' {'print $2'} > $destination
+}
 
 index
 particle
 value
 humidity
+temperature
 
 "$@"

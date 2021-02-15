@@ -1,6 +1,5 @@
 --[[
 	Hunter ver.
-
 --]]
 
 local gears = require("gears")
@@ -22,15 +21,22 @@ theme.icon_dir                                  = os.getenv("HOME") .. "/.config
 theme.wallpaper                                 = os.getenv("HOME") .. "/.config/awesome/themes/hunter/wall.png"
 theme.lain_icons                                = os.getenv("HOME") .. "/.config/awesome/themes/hunter"
 
-local redshift = require('extra.redshift')
-local ddcshift = require('extra.ddcshift')
+------ personal widgets ----- {{
+
+-- bars --
+local redshift = require('extra.bars.redshift')
+local ddcshift = require('extra.bars.ddcshift')
+-- sliding bars --
+local tagbar = require('extra.slidebars.tagbar')
+local titlebar = require('extra.slidebars.titlebar')
+-- indicator --
 local email = require('extra.emailhunter')
-local tagbar = require('slidebar.tagbar')
-local titlebar = require('slidebar.titlebar')
 local vm = require('extra.vmhunter')
 local gpuhunter = require('extra.gpuhunter')
-local airquality = require('extra.airquality')
-local humidity = require('extra.humidity')
+-- geographic environment widgets --
+local airquality = require('extra.geographic.airquality')
+local humidity = require('extra.geographic.humidity')
+local temperature = require('extra.geographic.temperature')
 
 
 --theme.font          = "sf mono 12"
@@ -368,7 +374,8 @@ local cpu_widget_icon_handle = wibox.widget {
 	--bg = "#02Ad9B", -- deep green
 	--bg = "#93C8b0", -- pale green
 	--bg = "#7289da", -- nice violet
-	bg = "#88aadd", -- yellowish
+	--bg = "#88aadd", -- yellowish
+	bg = "#7289DA", -- yellowish
 	fg = "#000000",
 	widget = wibox.container.background,
 }
@@ -524,17 +531,21 @@ function hide_systray() mysystray.visible = false end
 -- EMAIL
 emailholder = wibox.container.margin(email, dpi(10), dpi(0), dpi(5),dpi(5)) -- email
 
--- Computer stats Widgets
+-- Computer stats Widgets --------------{{
 -- WINDOWS VM identifier.
 vmholder = wibox.container.margin(vm, dpi(0), dpi(0), dpi(5),dpi(5)) -- c893c5 vm
--- GPU HOLDER 
+-- GPU HOLDER
 gpuholder = wibox.container.margin(gpuhunter, dpi(0), dpi(0), dpi(5),dpi(5)) -- c893c5 vm
 
--- Physical Environment Widgets
--- Air quality holder
-airqualityholder = wibox.container.margin(airquality, dpi(0), dpi(10), dpi(5),dpi(5)) -- c893c5 vm
+-- Physical Environment Widgets-------- {{
+-- temperature holder
+temperatureholder = wibox.container.margin(temperature, dpi(0), dpi(0), dpi(5),dpi(5)) -- c893c5 vm
 -- humidity holder
 humidityholder = wibox.container.margin(humidity, dpi(0), dpi(0), dpi(5),dpi(5)) -- c893c5 vm
+-- Air quality holder
+airqualityholder = wibox.container.margin(airquality, dpi(0), dpi(10), dpi(5),dpi(5)) -- c893c5 vm
+
+---------------------------------------}}}}
 
 
 local bluelingrad = gears.color({
@@ -573,8 +584,23 @@ redshiftholder_3k = wibox.container.margin(redshiftholder_3k, dpi(3), dpi(2), dp
 -- shapes
 -- hexagon nicely squeezed
 local goodhexa = function(cr, width, height)
-    gears.shape.hexagon(cr, 70, 70)
+--    gears.shape.hexagon(cr, 50, 50)
+--    gears.shape.transform(gears.shape.hexagon) : translate(0,5)(cr,70,50)
+    gears.shape.transform(gears.shape.hexagon) : rotate_at(35,24,math.pi)(cr,70,47)
+
+
 --    goodhexa.transform(shape.hexagon) : translate(0,15)(cr,70,20)
+end
+local realagon = function(cr, width, height)
+    local temp = 0
+    if width > height then temp = height else temp = width end
+    cr:move_to(temp/2,0)
+    cr:line_to(temp/temp * 3/11)
+    cr:line_to(temp/temp * 8/11)
+    cr:line_to(temp/2,temp)
+    cr:line_to(0,temp * 8/11)
+    cr:line_to(0,temp * 3/11)
+    cr:close_path()
 end
 
 
@@ -638,6 +664,7 @@ end
         bg_focus = tagbarselcolor,
         --shape = gears.shape.rounded_rect
         --shape = gears.shape.hexagon
+        --shape = goodhexa
         shape = goodhexa
     },
     layout   = {
@@ -841,6 +868,7 @@ screen[1].mywibox = awful.wibar(
 	    redshiftholder_3k,
         volumewidget,
  --       vmholder, --  currently not using any vms
+        temperatureholder,
         humidityholder,
         airqualityholder,
         gpuholder,
