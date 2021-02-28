@@ -1,0 +1,8 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =6
+let g:netrw_dirhist_6='/home/jon/.wallpapers/video/1'
+let g:netrw_dirhist_5='/home/jon/.wallpapers/video'
+let g:netrw_dirhist_4='/home/jon/.wallpapers'
+let g:netrw_dirhist_3='/home/jon'
+let g:netrw_dirhist_2='/home/jon/.weechat'
+let g:netrw_dirhist_1='/home/jon'

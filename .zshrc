@@ -87,6 +87,7 @@ bindkey '^e' edit-command-line
 export GOBIN=/home/jon/go/bin
 export GOPATH=/home/jon/go
 
+export PATH="$PATH:/home/jon/.config/awesome/scripts/"
 export PATH="$PATH:/home/jon/.local/bin/utilities/"
 export PATH="$PATH:/home/jon/.local/bin/tools/"
 export PATH=$PATH:$GOBIN

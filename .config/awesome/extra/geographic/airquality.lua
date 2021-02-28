@@ -34,7 +34,8 @@ local mascarpone_widget = wibox.widget {
 	layout = wibox.layout.fixed.horizontal,
 }
 --local airquality = wibox.container.background(mascarpone_widget, "#9FBD8D") -- muggy green
-local airquality = wibox.container.background(mascarpone_widget, "#9593c8") -- muggy green
+--local airquality = wibox.container.background(mascarpone_widget, "#9593c8") -- royal purp
+local airquality = wibox.container.background(mascarpone_widget, "#88a67d") -- minish cap greenish
 
 --	        textbox_widget:set_text( " 📨 ")
 --	        textbox_widget:set_markup(markup("#000000", " 📨 "))
@@ -42,8 +43,8 @@ local airquality = wibox.container.background(mascarpone_widget, "#9593c8") -- m
 --            emailbg:set_bg("#D9574F")
 
 
-local refresh_data = [[bash -c "airquality"]]
-local aqi_val = [[bash -c "cat /tmp/aqi"]]
+local refresh_data = [[bash -c "/home/jon/.config/awesome/scripts/airquality"]]
+local aqi_val = [[bash -c "cat /home/jon/.config/awesome/tmp/airquality/aqi"]]
 
 
 -- ensuring the icon will have black fg text.

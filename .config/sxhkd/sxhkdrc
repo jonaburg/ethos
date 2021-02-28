@@ -132,19 +132,19 @@ super + shift + less
 	lmc forward {10,120}
 
 super +  bracketright
-	~/.local/bin/utilities/shifter colder
+	~/.config/awesome/scripts/shifter colder
 
 super + {_,shift +} bracketright
-	~/.local/bin/utilities/shifter brighter
+	~/.config/awesome/scripts/shifter brighter
 #lmc forward {10,120}
 
 # Seek backward in song
 #super + {_,shift +} bracketleft
 #	lmc back {10,120}
 super +  bracketleft
-	~/.local/bin/utilities/shifter warmer
+	~/.config/awesome/scripts/shifter warmer
 super + {_,shift +} bracketleft
-	~/.local/bin/utilities/shifter darker
+	~/.config/awesome/scripts/shifter darker
 #	lmc back {10,120}
 
 alt + F1
@@ -153,9 +153,8 @@ alt + F2
 	~/.local/bin/utilities/wfh fliporientationright
 
 # Function keys
-# Show readme
-super + F1
 #send I/O to windows VM
+super + F1
 	~/.local/bin/utilities/vminputs
 super + shift + F1
 	~/.VFIOinput/input_attach full
@@ -173,6 +172,7 @@ super + F4
 # Restart/rescan wifi/eth networks
 super + F5
 #	sudo -A systemctl restart NetworkManager
+
 # Start torrent daemon/open interface
 super + F6
 	torwrap

@@ -37,7 +37,8 @@ local mascarpone_widget = wibox.widget {
 	textbox_notify_widget_box,
 	layout = wibox.layout.fixed.horizontal,
 }
-local temperature = wibox.container.background(mascarpone_widget, "#c8b093") -- muggy orange
+--local temperature = wibox.container.background(mascarpone_widget, "#c8b093") -- muggy orange
+local temperature = wibox.container.background(mascarpone_widget, "#a67d88") -- muggy orange
 
 --	        textbox_widget:set_text( " 📨 ")
 --	        textbox_widget:set_markup(markup("#000000", " 📨 "))
@@ -46,7 +47,7 @@ local temperature = wibox.container.background(mascarpone_widget, "#c8b093") -- 
 
 
 --local refresh_data = [[bash -c "airquality"]]
-local aqi_val = [[bash -c "cat /tmp/temperature"]]
+local aqi_val = [[bash -c "cat  /home/jon/.config/awesome/tmp/temperature"]]
 
 
 -- ensuring the icon will have black fg text.
