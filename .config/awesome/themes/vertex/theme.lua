@@ -108,6 +108,8 @@ theme.titlebar_maximized_button_focus_active    = theme.default_dir.."/titlebar/
 -- http://fontawesome.io/cheatsheet
 awful.util.tagnames = { "", "", "", "", "", "", "", "" }
 
+local email = require('extra.emailhunter')
+
 local markup = lain.util.markup
 
 -- Clock
@@ -454,6 +456,7 @@ function theme.at_screen_connect(s)
             theme.weather.icon,
             theme.weather.widget,
             rspace1,
+            email,
             wificon,
             rspace0,
             volicon,

@@ -24,6 +24,10 @@ theme.lain_icons                                = os.getenv("HOME") .. "/.config
 
 --	local redshift = require("extra.redshift")
 --	local email = require("extra.emailhorizontal")
+local email = require('extra.emailhunter')
+
+local redshift = require('extra.bars.redshift')
+local ddcshift = require('extra.bars.ddcshift')
 
 
 theme.font          = "Open Sans 10"
@@ -79,7 +83,8 @@ theme.tasklist_bg_normal                        = "#141414"
 --theme.tasklist_fg_focus                         = "#b6deaf"
 --theme.tasklist_fg_focus                         = "#e33a6e"
 --theme.tasklist_fg_focus                         = "#c5c69a"
-   theme.tasklist_fg_focus                         = "#ADAFFF" --Light purple
+   --theme.tasklist_fg_focus                         = "#ADAFFF" --Light purple
+   theme.tasklist_fg_focus                         = "#88a67d" --paleish green
 --   theme.tasklist_fg_focus                         = "#000000" -- BLACK
 --theme.tasklist_fg_focus                         = "#96d58b"
 theme.menu_height                               = dpi(20)
@@ -470,8 +475,12 @@ local brightgrad = gears.color({
 	stops = { {0.1, "#FFFFFF" .. "50"}, {3.45, "#bdbdbd" .. "60"} }
 })
 
+-- EMAIL
+emailholder = wibox.container.margin(email, dpi(8), dpi(0), dpi(5),dpi(5)) -- email
+
 -- Redshift Bar
---redshiftholder = wibox.container.margin(redshift({ main_color = bluelingrad, background_color = barcolor, margins=8, shape = 'hexagon',}), dpi(5), dpi(5), dpi(6), dpi(6))
+local redshiftholder = wibox.container.margin(redshift({ main_color = bluelingrad, background_color = barcolor, margins=8, shape = 'hexagon',}), dpi(5), dpi(5), dpi(6), dpi(6))
+local ddcshiftholder = wibox.container.margin(ddcshift({ main_color = "#c3c2c3", background_color = "#343434", margins=8, shape = 'hexagon',}), dpi(5), dpi(5), dpi(6), dpi(6)) -- 1080p
 --
     -- Tags
   --  awful.layout.layouts = {layouts[1],layouts[2],layouts[1],layouts[1],layouts[1],layouts[1]},
@@ -511,7 +520,7 @@ local brightgrad = gears.color({
 --            s.mylayoutbox,
 
             --spr_small,
-            --s.mypromptbox,
+            s.mypromptbox,
         },
 
         s.mytasklist, -- Middle widget
@@ -531,7 +540,8 @@ local brightgrad = gears.color({
 --            mpd_icon,
 --            bar,
 --            spr_very_small,
---	    redshiftholder,
+	    --redshiftholder,
+            ddcshiftholder,
 	    volumewidget,
 --	    emailholder,
             spr_small,
@@ -539,7 +549,7 @@ local brightgrad = gears.color({
 	    clockwidget,
             spr_small,
 --            volumewidget,
-            s.mylayoutbox,
+--            s.mylayoutbox,
             systrayholder,
       --      wibox.widget.systray(),
 --            volumewidget,

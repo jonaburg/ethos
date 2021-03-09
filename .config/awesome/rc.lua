@@ -27,10 +27,12 @@ screen_width = awful.screen.focused().geometry.width
 screen_height = awful.screen.focused().geometry.height
 
 -- expose addono
-local revelation=require("revelation")
+--local revelation=require("revelation")
 -- termgrp addon
 -- radical menues/addon
-local radical = require("radical")
+--local radical = require("radical")
+
+
 
 --local termgrp = require('termgrp')
 --	termgrp.terminal = "st"
@@ -95,9 +97,11 @@ local themes = {
     "focus",           -- 6
     "hunter",          -- 7
     "concencolor",     -- 8
+    "focus-sensible",     -- 9
+    "vertex",     -- 10
 }
 
-local chosen_theme = themes[8]
+local chosen_theme = themes[9]
 local modkey       = "Mod4"
 local altkey       = "Mod1"
 local terminal     = "st"
@@ -294,7 +298,6 @@ lain.layout.cascade.tile.ncol          = 2
 
 beautiful.init(string.format("%s/.config/awesome/themes/%s/theme.lua", os.getenv("HOME"), chosen_theme))
 -- }}}
-
 
 
 -- {{{ Menu

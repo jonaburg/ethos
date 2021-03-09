@@ -2,6 +2,9 @@
 # during wfh period, while using barrier for IO/monitor input switching
 # now includes 3rd monitor orientation switch
 
+###############################################################################
+#  Switching monitor imputs (ASUS monitor first)
+###############################################################################
 function tolaptop (){
 #going to laptop via barrier
 #sudo ddcutil setvcp --bus 2 60 0x01 # AOC
@@ -14,6 +17,17 @@ function topc (){
 #sudo ddcutil setvcp --bus 2 60 0x03 # AOC
 #sudo ddcutil setvcp --bus 2 60 0x0f # ASUS
 sudo ddcutil setvcp --bus 7 60 0x0f # ASUS
+}
+###############################################################################
+#  Switching monitor imputs (AOC monitor first)
+###############################################################################
+
+function tolaptopaoc (){
+#going to laptop via barrier
+sudo ddcutil setvcp --bus 3 60 0x11 # ASUS
+}
+function topcaoc (){
+sudo ddcutil setvcp --bus 3 60 0x03 # AOC
 }
 
 function towindows(){

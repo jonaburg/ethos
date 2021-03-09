@@ -90,6 +90,7 @@ export GOPATH=/home/jon/go
 export PATH="$PATH:/home/jon/.config/awesome/scripts/"
 export PATH="$PATH:/home/jon/.local/bin/utilities/"
 export PATH="$PATH:/home/jon/.local/bin/tools/"
+export PATH="$PATH:/opt/cuda/bin/"
 export PATH=$PATH:$GOBIN
 
 set -o GLOB_SUBST

@@ -166,9 +166,13 @@ super + F2
 	~/.local/bin/utilities/wfh towindows
 super + F3
 	~/.local/bin/utilities/wfh tolaptop
+super + shift + F3
+	~/.local/bin/utilities/wfh tolaptopaoc
 # Hibernate
 super + F4
 	~/.local/bin/utilities/wfh topc
+super + shift + F4
+	~/.local/bin/utilities/wfh topcaoc
 # Restart/rescan wifi/eth networks
 super + F5
 #	sudo -A systemctl restart NetworkManager
