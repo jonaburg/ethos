@@ -101,7 +101,7 @@ local themes = {
     "vertex",     -- 10
 }
 
-local chosen_theme = themes[9]
+local chosen_theme = themes[8]
 local modkey       = "Mod4"
 local altkey       = "Mod1"
 local terminal     = "st"
@@ -675,11 +675,11 @@ globalkeys = my_table.join(
         {description = "mpc on/off", group = "widgets"}),
 
     -- Copy primary to clipboard (terminals to gtk)
-    awful.key({ modkey }, "c", function () awful.spawn.with_shell("xsel | xsel -i -b") end,
-              {description = "copy terminal to gtk", group = "hotkeys"}),
+    --awful.key({ modkey }, "c", function () awful.spawn.with_shell("xsel | xsel -i -b") end,
+     --         {description = "copy terminal to gtk", group = "hotkeys"}),
     -- Copy clipboard to primary (gtk to terminals)
-    awful.key({ modkey }, "v", function () awful.spawn.with_shell("xsel -b | xsel") end,
-              {description = "copy gtk to terminal", group = "hotkeys"}),
+    --awful.key({ modkey }, "v", function () awful.spawn.with_shell("xsel -b | xsel") end,
+     --         {description = "copy gtk to terminal", group = "hotkeys"}),
 
     -- User programs
 --    awful.key({ modkey }, "q", function () awful.spawn(browser) end,

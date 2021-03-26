@@ -25,6 +25,7 @@ rsync -av ~/.config/compton.conf ~/.local/backups/.config/
 rsync -av ~/.config/picom.conf ~/.local/backups/.config/
 rsync -av ~/.config/emoji ~/.local/backups/.config/
 rsync -av ~/.config/fontawesome ~/.local/backups/.config/
+rsync -av ~/.config/rofi ~/.local/backups/.config/
 
 #syncing homedir files
 rsync -av ~/.abook ~/.local/backups/

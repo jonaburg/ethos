@@ -13,7 +13,8 @@ super + shift + Return
 
 super + d
 #	dmenu_run
-	rofi -show run
+#rofi -show run
+	rofi -show run -config ~/.config/rofi/themes/default.rasi
 super + r
 #	$TERMINAL -e $FILE
 	st -e ~/.local/bin/utilities/lf
@@ -37,13 +38,13 @@ super + shift + a
 #super + shift + c
 #	camtoggle
 super + shift + e
-	rofi -show ssh
+	rofi -show ssh -config ~/.config/rofi/themes/translate.rasi
 super + w
-	webby | xargs -r $BROWSER
+	quicklinks.sh
 super + shift + w
-	$BROWSER
+	wiby.sh
 super + shift + g
-	rofi -show window
+	rofi -show window -config ~/.config/rofi/themes/wiby.rasi
 
 #super + shift + j
 #	joplin-desktop
@@ -203,12 +204,12 @@ super + F10
 	dmenuumount
 # Search with mpsytviewer
 super + F11
-	~/.local/bin/utilities/mpsytviewer
+	~/.local/bin/utilities/quicklinks.sh
 F11
 	~/.local/bin/utilities/mpsytviewer
 # display Manager interface
 super + F12
-	~/.local/bin/utilities/duckask.sh
+	~/.local/bin/utilities/wiby.sh
 #F12
 #	duckask.sh
 

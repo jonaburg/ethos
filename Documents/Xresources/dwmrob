@@ -36,7 +36,7 @@
 *.color15:      #dedede
 
 
-*.font: Iosevka-14;
+*.font: Iosevka-12;
 !*.font: fira mono-11;
 !*.font: envy code r-11.5;
 !*.font: unifont-13.5;
@@ -59,5 +59,6 @@ Xcursor.theme: gruppled_white
 
 rofi.font: InconsolataForPowerline Nerd Font 11
 !Xft.dpi:80
-Xft.dpi:100
+!Xft.dpi:100
+Xft.dpi:115
 rofi.dpi:100

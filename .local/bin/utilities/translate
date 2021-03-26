@@ -4,33 +4,37 @@
 #jb 10.02.2020
 
 ARR=()
-ARR+=("English to German")
-ARR+=("German to English")
-ARR+=("English to Hungarian")
-ARR+=("Hungarian to English")
+ARR+=("En  De")
+ARR+=("De  En")
+ARR+=("En  Hu")
+ARR+=("Hu  En")
 #ARR+=("Hungarian&German")
-menuchoice=$(printf '%s\n' "${ARR[@]}" | rofi -dmenu -config /usr/share/rofi/themes/nord.rasi -p "Select Langauge(s):    ")
+#rofitheme=(rofi -dmenu -config /usr/share/rofi/themes/nord2.rasi)
+rofitheme=(~/.config/rofi/themes/translate.rasi)
+rofithemesel=(~/.config/rofi/themes/nord2.rasi)
+#rofitheme=(~/.config/rofi/themes/quicklinks.rasi)
+menuchoice=$(printf '%s\n' "${ARR[@]}" | rofi -dmenu -config $rofitheme -p "Select Langauge(s):    ")
 
 
-if [ "$menuchoice" = "English to Hungarian" ]; then
-choiceWord=$(printf "" | rofi -dmenu -config /usr/share/rofi/themes/nord2.rasi -p "Translate into Hungarian:   ")
+if [ "$menuchoice" = "En  Hu" ]; then
+choiceWord=$(printf "" | rofi -dmenu -config $rofithemesel -p "Translate into Hungarian:   ")
 CHOICE=$(trans :hu "$choiceWord" | sed -n '3p;4p' |awk -F1m '{print $2}' | sed -r 's/.....$//g')
 CHOICEtime=$(printf " $(echo $CHOICE)"  | rofi -dmenu -config /usr/share/rofi/themes/nord2.rasi -p "$choiceWord: ")
-espeak -vhu -s 100 "$CHOICE"
+#espeak -vhu -s 100 "$CHOICE"
 exit 0
 fi
 
 
-if [ "$menuchoice" = "Hungarian to English" ]; then
-choiceWord=$(printf "" | rofi -dmenu -config /usr/share/rofi/themes/nord2.rasi -p "Translate into Hungarian:   ")
+if [ "$menuchoice" = "Hu  En" ]; then
+choiceWord=$(printf "" | rofi -dmenu -config $rofithemesel -p "Translate into Hungarian:   ")
 CHOICE=$(trans hu:en "$choiceWord" | sed -n '3p;4p' |awk -F1m '{print $2}' | sed -r 's/.....$//g')
 CHOICEtime=$(printf " $(echo $CHOICE)"  | rofi -dmenu -config /usr/share/rofi/themes/nord2.rasi -p "$choiceWord: ")
-espeak -vhu -s 100 "$CHOICE"
+#espeak -vhu -s 100 "$CHOICE"
 exit 0
 fi
 
-if [ "$menuchoice" = "English to German" ]; then
-choiceWord=$(printf "" | rofi -dmenu -config /usr/share/rofi/themes/nord2.rasi -p "Translate into German:   ")
+if [ "$menuchoice" = "En  De" ]; then
+choiceWord=$(printf "" | rofi -dmenu -config $rofithemesel -p "Translate into German:   ")
 CHOICE=$(trans :de "$choiceWord" | sed -n '3p;4p' |awk -F1m '{print $2}' | sed -r 's/.....$//g')
 CHOICEtime=$(printf " $(echo $CHOICE)"  | rofi -dmenu -config /usr/share/rofi/themes/nord2.rasi -p "$choiceWord: ")
 		echo "$CHOICE" | xsel -ib
@@ -40,8 +44,8 @@ exit 0
 fi
 
 
-if [ "$menuchoice" = "German to English" ]; then
-choiceWord=$(printf "" | rofi -dmenu -config /usr/share/rofi/themes/nord2.rasi -p "Translate into English:   ")
+if [ "$menuchoice" = "De  En" ]; then
+choiceWord=$(printf "" | rofi -dmenu -config $rofithemesel -p "Translate into English:   ")
 CHOICE=$(trans de:en "$choiceWord" | sed -n '3p;4p' |awk -F1m '{print $2}' | sed -r 's/.....$//g')
 CHOICEtime=$(printf " $(echo $CHOICE)"  | rofi -dmenu -config /usr/share/rofi/themes/nord2.rasi -p "$choiceWord: ")
 		echo "$CHOICE" | xsel -ib
