@@ -1,27 +1,50 @@
 #!/usr/bin/bash
+###############################################################################
+# Title: Wiby Rofi Search
+# Author: Jon Burga
+# Date: 2020.03.27
+# Deps: rofi, rofi-blocks, curl.
+###############################################################################
+set -x
+
+###############################################################################
+# Variables
+###############################################################################
 
 ARR=()
 ARR+=("Open Random Website")
 ARR+=("Search specific")
-#menuchoice=$(printf '%s\n' "${ARR[@]}" | rofi -dmenu -config /home/jon/Downloads/rofiwork/rofi/1080p/launchers/ribbon/ribbon_left.rasi -p "Wiby Search:    ")
-rofitheme=(~/.config/rofi/themes/wiby.rasi)
-menuchoice=$(printf '%s\n' "${ARR[@]}" | rofi -dmenu -config $rofitheme -p "Wiby Search:    ")
+theme=(~/.config/rofi/themes/wiby_solid.rasi)
+menu_choice=$(printf '%s\n' "${ARR[@]}" | rofi -dmenu -config $theme -p "Wiby Search  :    ")
 browser=${BROWSER:-brave}
 
+
+###############################################################################
+# Functions
+#####################################################
+
+process_wiby(){
+link=$(cat /tmp/wibyout | jq .'[] | .URL + " > " + .Title' | rofi -dmenu -modi blocks -config ~/.config/rofi/themes/wiby_list.rasi -show blocks -p "Query Results:")
+url=$(echo $link | awk -F">" {'print $1'} | awk -F'"' {'print $2'})
+}
+#
+
+###############################################################################
 # Search Random Website, open in browser.
-if [ "$menuchoice" = "Open Random Website" ]; then
-	choiceWord=$($browser "https://wiby.me/surprise/")
+#####################################################
+
+if [ "$menu_choice" = "Open Random Website" ]; then
+  choiceWord=$($browser "https://wiby.me/surprise/")
 fi
 
-# TODO: Search for Specific Website, display list of items
-if [ "$menuchoice" = "Search specific" ]; then
-choiceWord=$(printf "" | rofi -dmenu -config /usr/share/rofi/themes/nord2.rasi -p "Enter query: ")
-CHOICE=$($browser "https://wiby.me/json/?q=$choiceWord")
+###############################################################################
+# Search for Specific Website, display list of items
+###############################################################################
 
-#CHOICEtime=$(printf " $(echo $CHOICE)"  | rofi -dmenu -config /usr/share/rofi/themes/nord2.rasi -p "$choiceWord: ")
+if [ "$menu_choice" = "Search specific" ]; then
+  choiceWord=$(printf "" | rofi -dmenu -config /usr/share/rofi/themes/nord2.rasi -p "Enter query: ")
+  CHOICE=$(curl https://wiby.me/json/?q=$choiceWord > /tmp/wibyout )
+  process_wiby
+  $browser "$url"
 exit 0
 fi
-
-
-#choice=$( rofi -dmenu -config /usr/share/rofi/themes/dmenu2.rasi -p "Search     :     ")
-#choice=$( rofi -dmenu -config /usr/share/rofi/themes/dmenu2.rasi -p "View Random Website?")

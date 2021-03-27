@@ -12,9 +12,9 @@ bw: 1;
 /*	xoffset: 0;*/
 /*	fixed-num-lines: true;*/
 show-icons: true;
-terminal: "kitty";
-/*	ssh-client: "ssh";*/
-/*	ssh-command: "{terminal} -e {ssh-client} {host}";*/
+        terminal: "st";
+	ssh-client: "ssh";
+	ssh-command: "{terminal} -e {ssh-client} {host}";
 /*	run-command: "{cmd}";*/
 /*	run-list-command: "";*/
 /*	run-shell-command: "{terminal} -e {cmd}";*/

@@ -38,11 +38,11 @@ super + shift + a
 #super + shift + c
 #	camtoggle
 super + shift + e
-	rofi -show ssh -config ~/.config/rofi/themes/translate.rasi
+	rofi -show ssh -config ~/.config/rofi/themes/ssh.rasi
 super + w
-	quicklinks.sh
-super + shift + w
 	wiby.sh
+super +  c
+	quicklinks.sh
 super + shift + g
 	rofi -show window -config ~/.config/rofi/themes/wiby.rasi
 
