@@ -1,5 +1,5 @@
 configuration {
-	font:	"FantasqueSansMono Nerd Font 10";
+	font:	"FantasqueSansMono Nerd Font 12";
         show-icons:             true;
 	icon-theme: 		"Papirus";
         display-drun: 		"";
@@ -17,17 +17,17 @@ configuration {
 
 }
 
-@import "../styles/exwm.rasi"
+@import "../styles/ggexwm.rasi"
 
 window {
     transparency:                   "real";
     background-color:               @background;
     text-color:                     @foreground;
-	border:							0% 0% 0% 1.5%;
+	border:							0% 0% 0% 0.7%;
 	border-color:					@border;
     border-radius:                  0% 0% 0% 0%;
-    height:                         29.50%;
-    width:                          30%;
+    height:                         19%;
+    width:                          25%;
     location:                       north east;
     x-offset:                       0;
     y-offset:                       50px;
@@ -35,7 +35,7 @@ window {
 
 prompt {
     enabled: 						true;
-	padding: 						0% 1% 0% 0%;
+	padding: 						0% 0% 0% 0%;
 	background-color: 				@background;
 	text-color: 					@foreground;
 	font:							"FantasqueSansMono Nerd Font 12";
@@ -60,7 +60,7 @@ inputbar {
 	border:							0% 0% 0.3% 0%;
     border-radius:                  0% 0% 0% 0%;
 	border-color:					@border-alt;
-    margin:                         0% 17% 0% 0%;
+    margin:                         0% 15% 0% 0%;
     padding:                        1%;
     position:                       center;
 }
@@ -76,7 +76,7 @@ listview {
 
 mainbox {
     background-color:               @background;
-	border:							0% 0% 0% 1.5%;
+	border:							0% 0% 0% 1%;
     border-radius:                  0% 0% 0% 0%;
 	border-color:					@border-alt;
     children:                       [ inputbar, listview ];
@@ -93,7 +93,7 @@ element {
 }
 
 element-icon {
-    size:                           64px;
+    size:                           16px;
     border:                         0px;
 }
 
@@ -101,7 +101,7 @@ element-text {
     expand:                         true;
     horizontal-align:               0.5;
     vertical-align:                 0.5;
-    margin:                         0.5% 1% 0% 1%;
+    margin:                         0% 1% 0% 1%;
 }
 
 element normal.urgent,

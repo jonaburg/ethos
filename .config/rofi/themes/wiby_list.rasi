@@ -1,5 +1,5 @@
 configuration {
-	font:	"FantasqueSansMono Nerd Font 14";
+	font:	"FantasqueSansMono Nerd Font 13";
         show-icons:             true;
 	icon-theme: 		"Papirus";
         display-drun: 		"";
@@ -25,9 +25,9 @@ window {
 	border:							0% 0% 0% 1.5%;
 	border-color:					@border;
     border-radius:                  0% 0% 0% 0%;
-    height:                         100%;
-    width:                          30%;
-    location:                       north east;
+    height:                         80%;
+    width:                          80%;
+    location:                       north;
     x-offset:                       0;
     y-offset:                       50;
 }
@@ -48,7 +48,7 @@ inputbar {
     border-radius:                  0% 0% 0% 0%;
 	border-color:					@border-alt;
     margin:                         0% 17% 0% 0%;
-    padding:                        1%;
+    padding:                        0%;
     position:                       center;
 }
 
@@ -63,11 +63,11 @@ listview {
 
 mainbox {
     background-color:               @background;
-	border:							0% 0% 0% 1.5%;
+	border:							0% 0% 0% 2%;
     border-radius:                  0% 0% 0% 0%;
 	border-color:					@border-alt;
     children:                       [ inputbar, listview ];
-    spacing:                       	2%;
+    spacing:                       	0%;
     padding:                        2.5% 2% 2.5% 2%;
 }
 
@@ -76,11 +76,11 @@ element {
     text-color:                     @foreground;
     orientation:                    vertical;
     border-radius:                  0%;
-    padding:                        2% 0% 2% 0%;
+    padding:                        1% 0% 1% 0%;
 }
 
 element-icon {
-    size:                           64px;
+    size:                           10px;
     border:                         0px;
 }
 
@@ -88,14 +88,14 @@ element-text {
     expand:                         true;
     horizontal-align:               0.5;
     vertical-align:                 0.5;
-    margin:                         0.5% 1% 0% 1%;
+    margin:                         0% 0% 0% 0%;
 }
 
 element normal.urgent,
 element alternate.urgent {
     background-color:               @urgent;
     text-color:                     @foreground;
-    border-radius:                  1%;
+    border-radius:                  0%;
 }
 
 element normal.active,
@@ -107,7 +107,7 @@ element alternate.active {
 element selected {
     background-color:               @selected;
     text-color:                     @foreground;
-	border:							0% 0% 0.3% 0%;
+	border:						0% 0.3% 0.3% 0%;
     border-radius:                  0% 0% 0% 0%;
     border-color:                  	@border-alt;
 }

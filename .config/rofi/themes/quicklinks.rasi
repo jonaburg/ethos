@@ -12,7 +12,7 @@ configuration {
 
 }
 
-@import "../styles/material/yellow.rasi"
+@import "../styles/material/blue_grey.rasi"
 
 * {
     background-color:               @background;
@@ -22,8 +22,8 @@ configuration {
 window {
     transparency:                   "real";
     border-radius:                  0px;
-    location:                       south east;
-    width:                          550px;
+    location:                       south ;
+    width:                          850px;
     x-offset:                       0px;
     y-offset:                       0px;
 }
@@ -40,7 +40,7 @@ prompt {
 
 textbox-prompt-colon {
 	expand: false;
-	str: 	" Quick Links ";
+	str: 	" Menu ";
 	background-color: 	@accent;
 	text-color: 	        @background;
     padding:                    12px 10px 0px 10px;
@@ -61,7 +61,7 @@ inputbar {
 }
 
 listview {
-    columns:			    6;
+    columns:			    14;
     lines:			    1;
     spacing:                        5px;
     cycle:                          true;
@@ -88,7 +88,7 @@ element-text {
     expand:                         true;
     horizontal-align:               0.5;
     vertical-align:                 0.5;
-    margin:                         25px 0px 65px 0px;
+    margin:                         25px 0px 25px 0px;
 }
 
 element normal.urgent,

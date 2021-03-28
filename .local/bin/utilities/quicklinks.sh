@@ -1,6 +1,20 @@
 #!/usr/bin/env bash
 
+###############################################################################
+# Variables
+###############################################################################
+
 ARR=()
+ARR+=("")
+#wiby"
+ARR+=("")
+#sel"
+ARR+=("🐚")
+#ssh
+ARR+=("")
+#translate
+ARR+=("")
+#xrescolo
 ARR+=("")
 #telegram"
 ARR+=("")
@@ -25,33 +39,31 @@ else
 	exit 1
 fi
 
-if [ "$menuchoice" = "" ]; then
-telegram-desktop
-exit 0
-fi
-if [ "$menuchoice" = "" ]; then
-$app https://youtube.com
-exit 0
-fi
-if [ "$menuchoice" = "" ]; then
-$app https://github.com
-exit 0
-fi
 
-#chosen="$(echo -e "$options" | $rofi_command -p "Open In  :  $app" -dmenu -selected-column 0)"
-#case $chosen in
-#    $google)
-#        $app https://www.google.com &
-#        ;;
-#    $facebook)
-#        $app https://www.facebook.com &
-#        ;;
-#    $youtube)
-#        $app https://www.youtube.com &
-#        ;;
-#    $wiby)
-#        $app https://www.wiby.org &
-#        ;;
-#esac
-
-
+case "$menuchoice" in
+	"")
+		wiby.sh
+		exit 0 ;;
+	"")
+		rofi -show run -config ~/.config/rofi/themes/default.rasi
+		exit 0 ;;
+	"🐚")
+		rofi -show ssh -config ~/.config/rofi/themes/ssh.rasi
+		exit 0 ;;
+	"")
+		translate
+		exit 0 ;;
+	"")
+		xrescolo
+		exit 0 ;;
+	"")
+		telegram-desktop
+		exit 0 ;;
+	"")
+		$app https://youtube.com
+		exit 0 ;;
+	"")
+		$app https://github.com
+		exit 0;;
+	esac
+done
